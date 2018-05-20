@@ -10,14 +10,12 @@ import UIKit
 
 class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
 {
-    
     @IBOutlet weak var vwUserNotification : UIView!
     @IBOutlet weak var vwFriendRequest : UIView!
     @IBOutlet weak var clFeeds : UICollectionView!
     @IBOutlet weak var btnSettings : UIButton!
     @IBOutlet weak var vwSettings : UIView!
     @IBOutlet weak var tblSetting : UITableView!
-
 
     override func viewDidLoad()
     {
@@ -137,5 +135,27 @@ extension UserProfileVC : UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         vwSettings.isHidden = true
-    }
+        switch indexPath.row
+        {
+        case 0:
+            let storyTab = UIStoryboard(name: "Main", bundle: nil)
+            let objNofiticationVC = storyTab.instantiateViewController(withIdentifier: "NofiticationVC")
+            self.navigationController?.pushViewController(objNofiticationVC, animated: true)
+            break
+        case 1:
+            let storyTab = UIStoryboard(name: "Main", bundle: nil)
+            let objUpdateProfileVC = storyTab.instantiateViewController(withIdentifier: "UpdateProfileVC")
+            self.navigationController?.pushViewController(objUpdateProfileVC, animated: true)
+            break
+        case 2:
+            let storyTab = UIStoryboard(name: "Main", bundle: nil)
+            let objSettingsVC = storyTab.instantiateViewController(withIdentifier: "SettingsVC")
+            self.navigationController?.pushViewController(objSettingsVC, animated: true)
+            break
+        case 3:
+            _ = self.navigationController?.popToRootViewController(animated: true)
+            break
+        default:
+            break
+        }    }
 }

@@ -70,6 +70,13 @@ extension Date {
         dateFormatter.dateFormat = "MMMM dd, yyyy"
         return dateFormatter.string(from: self)
     }
+    
+    func toStringDateFM(strFormateofDate: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = strFormateofDate
+        return dateFormatter.string(from: self)
+    }
+    
     func toTimeString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:MM"

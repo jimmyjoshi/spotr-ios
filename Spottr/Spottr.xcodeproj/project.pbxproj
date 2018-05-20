@@ -23,6 +23,9 @@
 		D30EC64320B1403A007F30B5 /* FeedHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64220B1403A007F30B5 /* FeedHeaderCell.swift */; };
 		D30EC64520B140F7007F30B5 /* UserFeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64420B140F7007F30B5 /* UserFeedsCell.swift */; };
 		D30EC64720B170E6007F30B5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64620B170E6007F30B5 /* SettingsCell.swift */; };
+		D30EC64A20B17D80007F30B5 /* NofiticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64920B17D80007F30B5 /* NofiticationVC.swift */; };
+		D30EC64C20B17D91007F30B5 /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64B20B17D91007F30B5 /* UpdateProfileVC.swift */; };
+		D30EC64E20B17D9D007F30B5 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64D20B17D9D007F30B5 /* SettingsVC.swift */; };
 		D31E181520B026D100355FFD /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D31E180320B026D100355FFD /* Lato-Black.ttf */; };
 		D31E181620B026D100355FFD /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D31E180420B026D100355FFD /* Lato-BlackItalic.ttf */; };
 		D31E181720B026D100355FFD /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D31E180520B026D100355FFD /* Lato-Bold.ttf */; };
@@ -46,7 +49,6 @@
 		D31E182E20B0355900355FFD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E182C20B0355800355FFD /* Constant.swift */; };
 		D31E183020B03CAB00355FFD /* SignupOTPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E182F20B03CAB00355FFD /* SignupOTPVC.swift */; };
 		D31E183220B0454B00355FFD /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E183120B0454B00355FFD /* SignUpAccountVC.swift */; };
-		D31E183420B057CC00355FFD /* SignUpLastStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E183320B057CC00355FFD /* SignUpLastStepVC.swift */; };
 		D387E1AD20ACAD2D00759C42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387E1AC20ACAD2D00759C42 /* AppDelegate.swift */; };
 		D387E1AF20ACAD2D00759C42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387E1AE20ACAD2D00759C42 /* ViewController.swift */; };
 		D387E1B220ACAD2D00759C42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D387E1B020ACAD2D00759C42 /* Main.storyboard */; };
@@ -106,6 +108,8 @@
 		D387E24620ACAD4E00759C42 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E20E20ACAD4E00759C42 /* UIImageView+WebCache.m */; };
 		D387E24720ACAD4E00759C42 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E21020ACAD4E00759C42 /* UIView+WebCache.m */; };
 		D387E24820ACAD4E00759C42 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E21220ACAD4E00759C42 /* UIView+WebCacheOperation.m */; };
+		D3BC300120B183F80046E1A1 /* SettingOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */; };
+		D3BC300320B18B640046E1A1 /* NofiticationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300220B18B640046E1A1 /* NofiticationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +141,9 @@
 		D30EC64220B1403A007F30B5 /* FeedHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeaderCell.swift; sourceTree = "<group>"; };
 		D30EC64420B140F7007F30B5 /* UserFeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedsCell.swift; sourceTree = "<group>"; };
 		D30EC64620B170E6007F30B5 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		D30EC64920B17D80007F30B5 /* NofiticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NofiticationVC.swift; sourceTree = "<group>"; };
+		D30EC64B20B17D91007F30B5 /* UpdateProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
+		D30EC64D20B17D9D007F30B5 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		D31E180320B026D100355FFD /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		D31E180420B026D100355FFD /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		D31E180520B026D100355FFD /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -160,7 +167,6 @@
 		D31E182C20B0355800355FFD /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D31E182F20B03CAB00355FFD /* SignupOTPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupOTPVC.swift; sourceTree = "<group>"; };
 		D31E183120B0454B00355FFD /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
-		D31E183320B057CC00355FFD /* SignUpLastStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLastStepVC.swift; sourceTree = "<group>"; };
 		D387E1A920ACAD2D00759C42 /* Spottr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spottr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D387E1AC20ACAD2D00759C42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D387E1AE20ACAD2D00759C42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +250,8 @@
 		D387E21020ACAD4E00759C42 /* UIView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCache.m"; sourceTree = "<group>"; };
 		D387E21120ACAD4E00759C42 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		D387E21220ACAD4E00759C42 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingOptionsCell.swift; sourceTree = "<group>"; };
+		D3BC300220B18B640046E1A1 /* NofiticationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NofiticationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +306,18 @@
 			path = Feeds;
 			sourceTree = "<group>";
 		};
+		D30EC64820B17D63007F30B5 /* SettingsOptions */ = {
+			isa = PBXGroup;
+			children = (
+				D30EC64920B17D80007F30B5 /* NofiticationVC.swift */,
+				D30EC64B20B17D91007F30B5 /* UpdateProfileVC.swift */,
+				D30EC64D20B17D9D007F30B5 /* SettingsVC.swift */,
+				D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */,
+				D3BC300220B18B640046E1A1 /* NofiticationCell.swift */,
+			);
+			path = SettingsOptions;
+			sourceTree = "<group>";
+		};
 		D31E180220B026D100355FFD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,7 +349,6 @@
 				D31E182720B0348100355FFD /* RegistrationNamePhoneVC.swift */,
 				D31E182F20B03CAB00355FFD /* SignupOTPVC.swift */,
 				D31E183120B0454B00355FFD /* SignUpAccountVC.swift */,
-				D31E183320B057CC00355FFD /* SignUpLastStepVC.swift */,
 			);
 			name = SignUp;
 			path = "New Group";
@@ -364,6 +383,7 @@
 		D387E1AB20ACAD2D00759C42 /* Spottr */ = {
 			isa = PBXGroup;
 			children = (
+				D30EC64820B17D63007F30B5 /* SettingsOptions */,
 				D30EC63920B125A4007F30B5 /* Feeds */,
 				D30EC61620B122B3007F30B5 /* Pickers */,
 				D31E182A20B0355800355FFD /* Utility */,
@@ -622,6 +642,7 @@
 				D387E24520ACAD4E00759C42 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D387E22A20ACAD4E00759C42 /* Notifications.swift in Sources */,
 				D387E22C20ACAD4E00759C42 /* Request.swift in Sources */,
+				D30EC64E20B17D9D007F30B5 /* SettingsVC.swift in Sources */,
 				D30EC63D20B125DF007F30B5 /* CreatPostVC.swift in Sources */,
 				D387E24720ACAD4E00759C42 /* UIView+WebCache.m in Sources */,
 				D31E183020B03CAB00355FFD /* SignupOTPVC.swift in Sources */,
@@ -681,18 +702,21 @@
 				D387E21F20ACAD4E00759C42 /* IQPreviousNextView.swift in Sources */,
 				D31E182820B0348100355FFD /* RegistrationNamePhoneVC.swift in Sources */,
 				D387E22F20ACAD4E00759C42 /* Result.swift in Sources */,
+				D30EC64A20B17D80007F30B5 /* NofiticationVC.swift in Sources */,
 				D387E24120ACAD4E00759C42 /* UIButton+WebCache.m in Sources */,
 				D387E1AD20ACAD2D00759C42 /* AppDelegate.swift in Sources */,
 				D387E24020ACAD4E00759C42 /* SDWebImagePrefetcher.m in Sources */,
 				D387E23120ACAD4E00759C42 /* SessionDelegate.swift in Sources */,
 				D387E22920ACAD4E00759C42 /* NetworkReachabilityManager.swift in Sources */,
+				D3BC300320B18B640046E1A1 /* NofiticationCell.swift in Sources */,
 				D387E23A20ACAD4E00759C42 /* SDImageCacheConfig.m in Sources */,
-				D31E183420B057CC00355FFD /* SignUpLastStepVC.swift in Sources */,
+				D30EC64C20B17D91007F30B5 /* UpdateProfileVC.swift in Sources */,
 				D387E24220ACAD4E00759C42 /* UIImage+GIF.m in Sources */,
 				D387E23720ACAD4E00759C42 /* NSData+ImageContentType.m in Sources */,
 				D387E23020ACAD4E00759C42 /* ServerTrustPolicy.swift in Sources */,
 				D387E21620ACAD4E00759C42 /* IQUIView+Hierarchy.swift in Sources */,
 				D387E23B20ACAD4E00759C42 /* SDWebImageCompat.m in Sources */,
+				D3BC300120B183F80046E1A1 /* SettingOptionsCell.swift in Sources */,
 				D387E21320ACAD4E00759C42 /* IQNSArray+Sort.swift in Sources */,
 				D31E183220B0454B00355FFD /* SignUpAccountVC.swift in Sources */,
 			);
