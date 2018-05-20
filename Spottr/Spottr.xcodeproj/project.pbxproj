@@ -110,6 +110,7 @@
 		D387E24820ACAD4E00759C42 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E21220ACAD4E00759C42 /* UIView+WebCacheOperation.m */; };
 		D3BC300120B183F80046E1A1 /* SettingOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */; };
 		D3BC300320B18B640046E1A1 /* NofiticationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300220B18B640046E1A1 /* NofiticationCell.swift */; };
+		D3BC300620B1C7AD0046E1A1 /* PostRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -252,6 +253,7 @@
 		D387E21220ACAD4E00759C42 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingOptionsCell.swift; sourceTree = "<group>"; };
 		D3BC300220B18B640046E1A1 /* NofiticationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NofiticationCell.swift; sourceTree = "<group>"; };
+		D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +385,7 @@
 		D387E1AB20ACAD2D00759C42 /* Spottr */ = {
 			isa = PBXGroup;
 			children = (
+				D3BC300420B1C66E0046E1A1 /* PostRequest */,
 				D30EC64820B17D63007F30B5 /* SettingsOptions */,
 				D30EC63920B125A4007F30B5 /* Feeds */,
 				D30EC61620B122B3007F30B5 /* Pickers */,
@@ -547,6 +550,14 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		D3BC300420B1C66E0046E1A1 /* PostRequest */ = {
+			isa = PBXGroup;
+			children = (
+				D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */,
+			);
+			path = PostRequest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -642,6 +653,7 @@
 				D387E24520ACAD4E00759C42 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D387E22A20ACAD4E00759C42 /* Notifications.swift in Sources */,
 				D387E22C20ACAD4E00759C42 /* Request.swift in Sources */,
+				D3BC300620B1C7AD0046E1A1 /* PostRequestVC.swift in Sources */,
 				D30EC64E20B17D9D007F30B5 /* SettingsVC.swift in Sources */,
 				D30EC63D20B125DF007F30B5 /* CreatPostVC.swift in Sources */,
 				D387E24720ACAD4E00759C42 /* UIView+WebCache.m in Sources */,

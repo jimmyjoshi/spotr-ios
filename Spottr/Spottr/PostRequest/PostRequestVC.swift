@@ -1,5 +1,5 @@
 //
-//  NofiticationVC.swift
+//  PostRequestVC.swift
 //  Spottr
 //
 //  Created by Yash on 20/05/18.
@@ -8,19 +8,18 @@
 
 import UIKit
 
-class NofiticationVC: UIViewController {
-
-    @IBOutlet weak var tblNofitications : UITableView!
+class PostRequestVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func backButtonPressed()
     {
         _ = self.navigationController?.popViewController(animated: true)
     }
+
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -38,28 +37,4 @@ class NofiticationVC: UIViewController {
     }
     */
 
-}
-extension NofiticationVC : UITableViewDelegate,UITableViewDataSource
-{
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        return UITableViewAutomaticDimension
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NofiticationCell") as! NofiticationCell
-        return cell
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return 5
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int
-    {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
 }
