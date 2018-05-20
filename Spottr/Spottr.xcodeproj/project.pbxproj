@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30EC62B20B122B3007F30B5 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC61820B122B3007F30B5 /* AbstractActionSheetPicker.m */; };
+		D30EC62C20B122B3007F30B5 /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC61A20B122B3007F30B5 /* ActionSheetCustomPicker.m */; };
+		D30EC62D20B122B3007F30B5 /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC61D20B122B3007F30B5 /* ActionSheetDatePicker.m */; };
+		D30EC62E20B122B3007F30B5 /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC61F20B122B3007F30B5 /* ActionSheetDistancePicker.m */; };
+		D30EC62F20B122B3007F30B5 /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC62120B122B3007F30B5 /* ActionSheetLocalePicker.m */; };
+		D30EC63020B122B3007F30B5 /* ActionSheetMultipleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC62320B122B3007F30B5 /* ActionSheetMultipleStringPicker.m */; };
+		D30EC63120B122B3007F30B5 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC62620B122B3007F30B5 /* ActionSheetStringPicker.m */; };
+		D30EC63220B122B3007F30B5 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC62820B122B3007F30B5 /* DistancePickerView.m */; };
+		D30EC63320B122B3007F30B5 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC62A20B122B3007F30B5 /* SWActionSheet.m */; };
+		D30EC63B20B125C3007F30B5 /* FeedsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC63A20B125C3007F30B5 /* FeedsVC.swift */; };
+		D30EC63D20B125DF007F30B5 /* CreatPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC63C20B125DF007F30B5 /* CreatPostVC.swift */; };
+		D30EC63F20B133B8007F30B5 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC63E20B133B8007F30B5 /* UserProfileVC.swift */; };
+		D30EC64120B13FA2007F30B5 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64020B13FA2007F30B5 /* FeedCell.swift */; };
+		D30EC64320B1403A007F30B5 /* FeedHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64220B1403A007F30B5 /* FeedHeaderCell.swift */; };
+		D30EC64520B140F7007F30B5 /* UserFeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64420B140F7007F30B5 /* UserFeedsCell.swift */; };
+		D30EC64720B170E6007F30B5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EC64620B170E6007F30B5 /* SettingsCell.swift */; };
 		D31E181520B026D100355FFD /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D31E180320B026D100355FFD /* Lato-Black.ttf */; };
 		D31E181620B026D100355FFD /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D31E180420B026D100355FFD /* Lato-BlackItalic.ttf */; };
 		D31E181720B026D100355FFD /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D31E180520B026D100355FFD /* Lato-Bold.ttf */; };
@@ -93,6 +109,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D30EC61720B122B3007F30B5 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		D30EC61820B122B3007F30B5 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		D30EC61920B122B3007F30B5 /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		D30EC61A20B122B3007F30B5 /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		D30EC61B20B122B3007F30B5 /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		D30EC61C20B122B3007F30B5 /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		D30EC61D20B122B3007F30B5 /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		D30EC61E20B122B3007F30B5 /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		D30EC61F20B122B3007F30B5 /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		D30EC62020B122B3007F30B5 /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		D30EC62120B122B3007F30B5 /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		D30EC62220B122B3007F30B5 /* ActionSheetMultipleStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetMultipleStringPicker.h; sourceTree = "<group>"; };
+		D30EC62320B122B3007F30B5 /* ActionSheetMultipleStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetMultipleStringPicker.m; sourceTree = "<group>"; };
+		D30EC62420B122B3007F30B5 /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
+		D30EC62520B122B3007F30B5 /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		D30EC62620B122B3007F30B5 /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		D30EC62720B122B3007F30B5 /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		D30EC62820B122B3007F30B5 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		D30EC62920B122B3007F30B5 /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		D30EC62A20B122B3007F30B5 /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		D30EC63820B1240D007F30B5 /* Spottr-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Spottr-Bridging-Header.h"; sourceTree = "<group>"; };
+		D30EC63A20B125C3007F30B5 /* FeedsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsVC.swift; sourceTree = "<group>"; };
+		D30EC63C20B125DF007F30B5 /* CreatPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatPostVC.swift; sourceTree = "<group>"; };
+		D30EC63E20B133B8007F30B5 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
+		D30EC64020B13FA2007F30B5 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		D30EC64220B1403A007F30B5 /* FeedHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeaderCell.swift; sourceTree = "<group>"; };
+		D30EC64420B140F7007F30B5 /* UserFeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedsCell.swift; sourceTree = "<group>"; };
+		D30EC64620B170E6007F30B5 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		D31E180320B026D100355FFD /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		D31E180420B026D100355FFD /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		D31E180520B026D100355FFD /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -213,6 +257,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D30EC61620B122B3007F30B5 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				D30EC61720B122B3007F30B5 /* AbstractActionSheetPicker.h */,
+				D30EC61820B122B3007F30B5 /* AbstractActionSheetPicker.m */,
+				D30EC61920B122B3007F30B5 /* ActionSheetCustomPicker.h */,
+				D30EC61A20B122B3007F30B5 /* ActionSheetCustomPicker.m */,
+				D30EC61B20B122B3007F30B5 /* ActionSheetCustomPickerDelegate.h */,
+				D30EC61C20B122B3007F30B5 /* ActionSheetDatePicker.h */,
+				D30EC61D20B122B3007F30B5 /* ActionSheetDatePicker.m */,
+				D30EC61E20B122B3007F30B5 /* ActionSheetDistancePicker.h */,
+				D30EC61F20B122B3007F30B5 /* ActionSheetDistancePicker.m */,
+				D30EC62020B122B3007F30B5 /* ActionSheetLocalePicker.h */,
+				D30EC62120B122B3007F30B5 /* ActionSheetLocalePicker.m */,
+				D30EC62220B122B3007F30B5 /* ActionSheetMultipleStringPicker.h */,
+				D30EC62320B122B3007F30B5 /* ActionSheetMultipleStringPicker.m */,
+				D30EC62420B122B3007F30B5 /* ActionSheetPicker.h */,
+				D30EC62520B122B3007F30B5 /* ActionSheetStringPicker.h */,
+				D30EC62620B122B3007F30B5 /* ActionSheetStringPicker.m */,
+				D30EC62720B122B3007F30B5 /* DistancePickerView.h */,
+				D30EC62820B122B3007F30B5 /* DistancePickerView.m */,
+				D30EC62920B122B3007F30B5 /* SWActionSheet.h */,
+				D30EC62A20B122B3007F30B5 /* SWActionSheet.m */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		D30EC63920B125A4007F30B5 /* Feeds */ = {
+			isa = PBXGroup;
+			children = (
+				D30EC63A20B125C3007F30B5 /* FeedsVC.swift */,
+				D30EC63C20B125DF007F30B5 /* CreatPostVC.swift */,
+				D30EC63E20B133B8007F30B5 /* UserProfileVC.swift */,
+				D30EC64020B13FA2007F30B5 /* FeedCell.swift */,
+				D30EC64220B1403A007F30B5 /* FeedHeaderCell.swift */,
+				D30EC64420B140F7007F30B5 /* UserFeedsCell.swift */,
+				D30EC64620B170E6007F30B5 /* SettingsCell.swift */,
+			);
+			path = Feeds;
+			sourceTree = "<group>";
+		};
 		D31E180220B026D100355FFD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +347,7 @@
 		D387E1A020ACAD2D00759C42 = {
 			isa = PBXGroup;
 			children = (
+				D30EC63820B1240D007F30B5 /* Spottr-Bridging-Header.h */,
 				D387E1AB20ACAD2D00759C42 /* Spottr */,
 				D387E1AA20ACAD2D00759C42 /* Products */,
 			);
@@ -278,6 +364,8 @@
 		D387E1AB20ACAD2D00759C42 /* Spottr */ = {
 			isa = PBXGroup;
 			children = (
+				D30EC63920B125A4007F30B5 /* Feeds */,
+				D30EC61620B122B3007F30B5 /* Pickers */,
 				D31E182A20B0355800355FFD /* Utility */,
 				D31E182920B0348500355FFD /* SignUp */,
 				D31E180220B026D100355FFD /* Fonts */,
@@ -534,9 +622,12 @@
 				D387E24520ACAD4E00759C42 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D387E22A20ACAD4E00759C42 /* Notifications.swift in Sources */,
 				D387E22C20ACAD4E00759C42 /* Request.swift in Sources */,
+				D30EC63D20B125DF007F30B5 /* CreatPostVC.swift in Sources */,
 				D387E24720ACAD4E00759C42 /* UIView+WebCache.m in Sources */,
 				D31E183020B03CAB00355FFD /* SignupOTPVC.swift in Sources */,
 				D387E22220ACAD4E00759C42 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				D30EC62D20B122B3007F30B5 /* ActionSheetDatePicker.m in Sources */,
+				D30EC64520B140F7007F30B5 /* UserFeedsCell.swift in Sources */,
 				D387E21520ACAD4E00759C42 /* IQUITextFieldView+Additions.swift in Sources */,
 				D387E22020ACAD4E00759C42 /* IQTitleBarButtonItem.swift in Sources */,
 				D387E1AF20ACAD2D00759C42 /* ViewController.swift in Sources */,
@@ -544,35 +635,48 @@
 				D387E21B20ACAD4E00759C42 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				D387E21920ACAD4E00759C42 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				D387E22520ACAD4E00759C42 /* Alamofire.swift in Sources */,
+				D30EC64120B13FA2007F30B5 /* FeedCell.swift in Sources */,
 				D387E21420ACAD4E00759C42 /* IQUIScrollView+Additions.swift in Sources */,
 				D387E23920ACAD4E00759C42 /* SDImageCache.m in Sources */,
+				D30EC63020B122B3007F30B5 /* ActionSheetMultipleStringPicker.m in Sources */,
 				D387E23420ACAD4E00759C42 /* Timeline.swift in Sources */,
 				D387E23F20ACAD4E00759C42 /* SDWebImageManager.m in Sources */,
 				D387E24620ACAD4E00759C42 /* UIImageView+WebCache.m in Sources */,
 				D387E24820ACAD4E00759C42 /* UIView+WebCacheOperation.m in Sources */,
 				D387E21C20ACAD4E00759C42 /* IQTextView.swift in Sources */,
+				D30EC63F20B133B8007F30B5 /* UserProfileVC.swift in Sources */,
 				D387E23820ACAD4E00759C42 /* NSImage+WebCache.m in Sources */,
+				D30EC62E20B122B3007F30B5 /* ActionSheetDistancePicker.m in Sources */,
 				D31E182D20B0355900355FFD /* AppUtils.swift in Sources */,
 				D387E21720ACAD4E00759C42 /* IQUIViewController+Additions.swift in Sources */,
 				D387E23520ACAD4E00759C42 /* Validation.swift in Sources */,
+				D30EC64320B1403A007F30B5 /* FeedHeaderCell.swift in Sources */,
 				D387E21820ACAD4E00759C42 /* IQKeyboardManagerConstants.swift in Sources */,
 				D387E22D20ACAD4E00759C42 /* Response.swift in Sources */,
+				D30EC62B20B122B3007F30B5 /* AbstractActionSheetPicker.m in Sources */,
 				D387E23220ACAD4E00759C42 /* SessionManager.swift in Sources */,
 				D387E23620ACAD4E00759C42 /* MKAnnotationView+WebCache.m in Sources */,
 				D387E21A20ACAD4E00759C42 /* IQKeyboardManager.swift in Sources */,
 				D387E22120ACAD4E00759C42 /* IQToolbar.swift in Sources */,
 				D387E23E20ACAD4E00759C42 /* SDWebImageDownloaderOperation.m in Sources */,
+				D30EC63220B122B3007F30B5 /* DistancePickerView.m in Sources */,
+				D30EC63B20B125C3007F30B5 /* FeedsVC.swift in Sources */,
 				D387E21E20ACAD4E00759C42 /* IQInvocation.swift in Sources */,
 				D387E22420ACAD4E00759C42 /* AFError.swift in Sources */,
+				D30EC63320B122B3007F30B5 /* SWActionSheet.m in Sources */,
 				D387E23320ACAD4E00759C42 /* TaskDelegate.swift in Sources */,
 				D387E24420ACAD4E00759C42 /* UIImage+WebP.m in Sources */,
 				D387E23D20ACAD4E00759C42 /* SDWebImageDownloader.m in Sources */,
 				D387E22620ACAD4E00759C42 /* DispatchQueue+Alamofire.swift in Sources */,
 				D387E22E20ACAD4E00759C42 /* ResponseSerialization.swift in Sources */,
+				D30EC62F20B122B3007F30B5 /* ActionSheetLocalePicker.m in Sources */,
 				D387E22B20ACAD4E00759C42 /* ParameterEncoding.swift in Sources */,
+				D30EC62C20B122B3007F30B5 /* ActionSheetCustomPicker.m in Sources */,
 				D387E24320ACAD4E00759C42 /* UIImage+MultiFormat.m in Sources */,
+				D30EC64720B170E6007F30B5 /* SettingsCell.swift in Sources */,
 				D387E23C20ACAD4E00759C42 /* SDWebImageDecoder.m in Sources */,
 				D387E22820ACAD4E00759C42 /* MultipartFormData.swift in Sources */,
+				D30EC63120B122B3007F30B5 /* ActionSheetStringPicker.m in Sources */,
 				D387E21D20ACAD4E00759C42 /* IQBarButtonItem.swift in Sources */,
 				D387E21F20ACAD4E00759C42 /* IQPreviousNextView.swift in Sources */,
 				D31E182820B0348100355FFD /* RegistrationNamePhoneVC.swift in Sources */,
@@ -730,12 +834,14 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Spottr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Spottr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Spottr-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -746,12 +852,14 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Spottr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Spottr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Spottr-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

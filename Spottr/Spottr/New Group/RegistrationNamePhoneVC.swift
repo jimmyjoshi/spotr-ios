@@ -2,7 +2,7 @@
 //  RegistrationNamePhoneVC.swift
 //  Spottr
 //
-//  Created by Yash on 19/05/18.
+//  Created by Kevin on 19/05/18.
 //  Copyright © 2018 Kevin. All rights reserved.
 //
 

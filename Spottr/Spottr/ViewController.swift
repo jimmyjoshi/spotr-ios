@@ -39,17 +39,18 @@ class ViewController: UIViewController,UITextFieldDelegate
         }
         else
         {*/
-            let storyTab = UIStoryboard(name: "Main", bundle: nil)
-            let objRegistrationNamePhoneVC = storyTab.instantiateViewController(withIdentifier: "RegistrationNamePhoneVC")
-            self.navigationController?.pushViewController(objRegistrationNamePhoneVC, animated: true)
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objFeedsVC = storyTab.instantiateViewController(withIdentifier: "FeedsVC")
+        self.navigationController?.pushViewController(objFeedsVC, animated: true)
+
        // }
     }
     
     @IBAction func btnSignupPressed()
     {
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let tabbar = storyTab.instantiateViewController(withIdentifier: "SignUpVC")
-        self.navigationController?.pushViewController(tabbar, animated: true)
+        let objRegistrationNamePhoneVC = storyTab.instantiateViewController(withIdentifier: "RegistrationNamePhoneVC")
+        self.navigationController?.pushViewController(objRegistrationNamePhoneVC, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,6 +70,26 @@ extension UIView {
         }
         set {
             self.layer.cornerRadius = newValue
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat {
+        set {
+            layer.borderWidth = newValue
+        }
+        get {
+            return layer.borderWidth
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        set {
+            guard let uiColor = newValue else { return }
+            layer.borderColor = uiColor.cgColor
+        }
+        get {
+            guard let color = layer.borderColor else { return nil }
+            return UIColor(cgColor: color)
         }
     }
 }

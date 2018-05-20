@@ -2,7 +2,7 @@
 //  SignupOTPVC.swift
 //  Spottr
 //
-//  Created by Yash on 19/05/18.
+//  Created by Kevin on 19/05/18.
 //  Copyright © 2018 Kevin. All rights reserved.
 //
 
@@ -32,7 +32,9 @@ class SignupOTPVC: UIViewController,UITextFieldDelegate {
     
     @IBAction func btnVerifyPressed()
     {
-        
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objSignUpAccountVC = storyTab.instantiateViewController(withIdentifier: "SignUpAccountVC")
+        self.navigationController?.pushViewController(objSignUpAccountVC, animated: true)
     }
 
     

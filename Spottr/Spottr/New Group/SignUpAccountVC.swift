@@ -2,7 +2,7 @@
 //  SignUpAccountVC.swift
 //  Spottr
 //
-//  Created by Yash on 19/05/18.
+//  Created by Kevin on 19/05/18.
 //  Copyright © 2018 Kevin. All rights reserved.
 //
 
@@ -33,7 +33,9 @@ class SignUpAccountVC: UIViewController,UITextFieldDelegate
     }
     @IBAction func btnNextPressed()
     {
-        
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objSignUpLastStepVC = storyTab.instantiateViewController(withIdentifier: "SignUpLastStepVC")
+        self.navigationController?.pushViewController(objSignUpLastStepVC, animated: true)
     }
     @IBAction func btngotoLoginPressed()
     {
