@@ -111,6 +111,7 @@
 		D3BC300120B183F80046E1A1 /* SettingOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */; };
 		D3BC300320B18B640046E1A1 /* NofiticationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300220B18B640046E1A1 /* NofiticationCell.swift */; };
 		D3BC300620B1C7AD0046E1A1 /* PostRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */; };
+		D3EC477E20B5D724005973EE /* PostRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC477D20B5D724005973EE /* PostRequestCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -254,6 +255,7 @@
 		D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingOptionsCell.swift; sourceTree = "<group>"; };
 		D3BC300220B18B640046E1A1 /* NofiticationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NofiticationCell.swift; sourceTree = "<group>"; };
 		D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestVC.swift; sourceTree = "<group>"; };
+		D3EC477D20B5D724005973EE /* PostRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -554,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */,
+				D3EC477D20B5D724005973EE /* PostRequestCell.swift */,
 			);
 			path = PostRequest;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				D30EC62F20B122B3007F30B5 /* ActionSheetLocalePicker.m in Sources */,
 				D387E22B20ACAD4E00759C42 /* ParameterEncoding.swift in Sources */,
 				D30EC62C20B122B3007F30B5 /* ActionSheetCustomPicker.m in Sources */,
+				D3EC477E20B5D724005973EE /* PostRequestCell.swift in Sources */,
 				D387E24320ACAD4E00759C42 /* UIImage+MultiFormat.m in Sources */,
 				D30EC64720B170E6007F30B5 /* SettingsCell.swift in Sources */,
 				D387E23C20ACAD4E00759C42 /* SDWebImageDecoder.m in Sources */,

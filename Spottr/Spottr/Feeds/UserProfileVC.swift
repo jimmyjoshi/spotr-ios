@@ -43,6 +43,21 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
     {
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func gotoRequestsScreen()
+    {
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objPostRequestVC = storyTab.instantiateViewController(withIdentifier: "PostRequestVC")
+        self.navigationController?.pushViewController(objPostRequestVC, animated: true)
+    }
+
+    @IBAction func gotoNotificationsScreen()
+    {
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objNofiticationVC = storyTab.instantiateViewController(withIdentifier: "NofiticationVC")
+        self.navigationController?.pushViewController(objNofiticationVC, animated: true)
+    }
+    
     @IBAction func btnSettingsAction()
     {
         vwSettings.isHidden = false

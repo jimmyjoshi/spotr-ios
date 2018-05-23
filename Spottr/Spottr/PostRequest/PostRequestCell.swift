@@ -1,18 +1,23 @@
 //
-//  SettingOptionsCell.swift
+//  PostRequestCell.swift
 //  Spottr
 //
-//  Created by Kevin on 20/05/18.
+//  Created by Kevin on 23/05/18.
 //  Copyright © 2018 Kevin. All rights reserved.
 //
 
 import UIKit
 
-class SettingOptionsCell: UITableViewCell {
+class PostRequestCell: UITableViewCell {
 
+    @IBOutlet weak var imgProfile : UIImageView!
     @IBOutlet weak var lblTitle : UILabel!
-
-    override func awakeFromNib() {
+    @IBOutlet weak var txtDescription : UITextView!
+    @IBOutlet weak var btnReject : UIButton!
+    @IBOutlet weak var btnApprove : UIButton!
+    
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         // Initialization code
     }

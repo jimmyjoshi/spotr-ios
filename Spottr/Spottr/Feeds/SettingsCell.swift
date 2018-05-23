@@ -2,7 +2,7 @@
 //  SettingsCell.swift
 //  Spottr
 //
-//  Created by Yash on 20/05/18.
+//  Created by Kevin on 20/05/18.
 //  Copyright © 2018 Kevin. All rights reserved.
 //
 
