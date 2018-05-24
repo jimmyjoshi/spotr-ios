@@ -1,27 +1,22 @@
 //
-//  CreatPostVC.swift
+//  ViewPostVC.swift
 //  Spottr
 //
-//  Created by Kevin on 20/05/18.
+//  Created by Yash on 23/05/18.
 //  Copyright © 2018 Kevin. All rights reserved.
 //
 
 import UIKit
 
-class CreatPostVC: UIViewController
+class ViewPostVC: UIViewController
 {
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func backButtonPressed()
-    {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-    
-    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
