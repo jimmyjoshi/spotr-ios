@@ -13,6 +13,7 @@ class FeedsVC: UIViewController,UITextFieldDelegate
     @IBOutlet weak var txtSearch : UITextField!
     @IBOutlet weak var clHeader : UICollectionView!
     @IBOutlet weak var clFeeds : UICollectionView!
+    var arrFeeds = NSMutableArray()
 
     override func viewDidLoad()
     {
@@ -32,6 +33,14 @@ class FeedsVC: UIViewController,UITextFieldDelegate
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
         let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC")
         self.navigationController?.pushViewController(objUserProfileVC, animated: true)
+    }
+    
+    @IBAction func btngotoCreatPostVC()
+    {
+        appDelegate.bUserProfile = true
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objCreatPostVC = storyTab.instantiateViewController(withIdentifier: "CreatPostVC")
+        self.navigationController?.pushViewController(objCreatPostVC, animated: true)
     }
     
     @IBAction func gotoOtherUserProfile(_ sender: Any, event: Any)

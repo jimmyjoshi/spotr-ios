@@ -8,6 +8,13 @@
 
 import UIKit
 
-class CreatPostUserCell: UICollectionViewCell {
-    
+class CreatPostUserCell: UICollectionViewCell
+{
+    @IBOutlet weak var imgUserProfile : UIImageView!
+    @IBOutlet weak var lblUserName : UILabel!
+    @IBOutlet weak var btnSelectUser : UIButton!
+
+    @IBOutlet weak var ctImgProfileWidth: NSLayoutConstraint!
+    @IBOutlet weak var ctImgProfileHeight: NSLayoutConstraint!
+
 }

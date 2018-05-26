@@ -114,6 +114,8 @@
 		D3BC300620B1C7AD0046E1A1 /* PostRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */; };
 		D3EC477E20B5D724005973EE /* PostRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC477D20B5D724005973EE /* PostRequestCell.swift */; };
 		D3EC478120B5E23F005973EE /* ViewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC478020B5E23F005973EE /* ViewPostVC.swift */; };
+		D3FF12B120B985FB006AF900 /* ViewFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF12B020B985FB006AF900 /* ViewFriendsVC.swift */; };
+		D3FF12B320B98618006AF900 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF12B220B98618006AF900 /* FriendsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -260,6 +262,8 @@
 		D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestVC.swift; sourceTree = "<group>"; };
 		D3EC477D20B5D724005973EE /* PostRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestCell.swift; sourceTree = "<group>"; };
 		D3EC478020B5E23F005973EE /* ViewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostVC.swift; sourceTree = "<group>"; };
+		D3FF12B020B985FB006AF900 /* ViewFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFriendsVC.swift; sourceTree = "<group>"; };
+		D3FF12B220B98618006AF900 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,6 +575,8 @@
 			isa = PBXGroup;
 			children = (
 				D3EC478020B5E23F005973EE /* ViewPostVC.swift */,
+				D3FF12B020B985FB006AF900 /* ViewFriendsVC.swift */,
+				D3FF12B220B98618006AF900 /* FriendsTableViewCell.swift */,
 			);
 			path = ViewPost;
 			sourceTree = "<group>";
@@ -670,6 +676,7 @@
 				D387E24520ACAD4E00759C42 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D387E22A20ACAD4E00759C42 /* Notifications.swift in Sources */,
 				D387E22C20ACAD4E00759C42 /* Request.swift in Sources */,
+				D3FF12B120B985FB006AF900 /* ViewFriendsVC.swift in Sources */,
 				D3BC300620B1C7AD0046E1A1 /* PostRequestVC.swift in Sources */,
 				D30EC64E20B17D9D007F30B5 /* SettingsVC.swift in Sources */,
 				D30EC63D20B125DF007F30B5 /* CreatPostVC.swift in Sources */,
@@ -723,6 +730,7 @@
 				D30EC62F20B122B3007F30B5 /* ActionSheetLocalePicker.m in Sources */,
 				D387E22B20ACAD4E00759C42 /* ParameterEncoding.swift in Sources */,
 				D30EC62C20B122B3007F30B5 /* ActionSheetCustomPicker.m in Sources */,
+				D3FF12B320B98618006AF900 /* FriendsTableViewCell.swift in Sources */,
 				D3EC477E20B5D724005973EE /* PostRequestCell.swift in Sources */,
 				D387E24320ACAD4E00759C42 /* UIImage+MultiFormat.m in Sources */,
 				D30EC64720B170E6007F30B5 /* SettingsCell.swift in Sources */,

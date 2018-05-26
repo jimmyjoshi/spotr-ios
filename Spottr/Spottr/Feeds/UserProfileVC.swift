@@ -58,6 +58,13 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
         self.navigationController?.pushViewController(objNofiticationVC, animated: true)
     }
     
+    @IBAction func gotoFriendsListScreen()
+    {
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objViewFriendsVC = storyTab.instantiateViewController(withIdentifier: "ViewFriendsVC")
+        self.navigationController?.pushViewController(objViewFriendsVC, animated: true)
+    }
+    
     @IBAction func btnSettingsAction()
     {
         vwSettings.isHidden = false
