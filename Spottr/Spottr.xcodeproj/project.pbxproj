@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3033CAA20BA940100CD08F4 /* ViewPostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3033CA920BA940100CD08F4 /* ViewPostHeaderCell.swift */; };
+		D3033CAC20BA94CC00CD08F4 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3033CAB20BA94CC00CD08F4 /* CommentCell.swift */; };
 		D30C946020B723A2001326F1 /* CreatPostUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C945F20B723A2001326F1 /* CreatPostUserCell.swift */; };
 		D30EC62B20B122B3007F30B5 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC61820B122B3007F30B5 /* AbstractActionSheetPicker.m */; };
 		D30EC62C20B122B3007F30B5 /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EC61A20B122B3007F30B5 /* ActionSheetCustomPicker.m */; };
@@ -119,6 +121,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3033CA920BA940100CD08F4 /* ViewPostHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostHeaderCell.swift; sourceTree = "<group>"; };
+		D3033CAB20BA94CC00CD08F4 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		D30C945F20B723A2001326F1 /* CreatPostUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatPostUserCell.swift; sourceTree = "<group>"; };
 		D30EC61720B122B3007F30B5 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		D30EC61820B122B3007F30B5 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
@@ -577,6 +581,8 @@
 				D3EC478020B5E23F005973EE /* ViewPostVC.swift */,
 				D3FF12B020B985FB006AF900 /* ViewFriendsVC.swift */,
 				D3FF12B220B98618006AF900 /* FriendsTableViewCell.swift */,
+				D3033CA920BA940100CD08F4 /* ViewPostHeaderCell.swift */,
+				D3033CAB20BA94CC00CD08F4 /* CommentCell.swift */,
 			);
 			path = ViewPost;
 			sourceTree = "<group>";
@@ -720,7 +726,9 @@
 				D30EC63220B122B3007F30B5 /* DistancePickerView.m in Sources */,
 				D30EC63B20B125C3007F30B5 /* FeedsVC.swift in Sources */,
 				D387E21E20ACAD4E00759C42 /* IQInvocation.swift in Sources */,
+				D3033CAC20BA94CC00CD08F4 /* CommentCell.swift in Sources */,
 				D387E22420ACAD4E00759C42 /* AFError.swift in Sources */,
+				D3033CAA20BA940100CD08F4 /* ViewPostHeaderCell.swift in Sources */,
 				D30EC63320B122B3007F30B5 /* SWActionSheet.m in Sources */,
 				D387E23320ACAD4E00759C42 /* TaskDelegate.swift in Sources */,
 				D387E24420ACAD4E00759C42 /* UIImage+WebP.m in Sources */,

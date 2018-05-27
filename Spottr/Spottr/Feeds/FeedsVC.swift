@@ -118,10 +118,12 @@ extension FeedsVC : UICollectionViewDataSource
 }
 
 // MARK:- UICollectionViewDelegate Methods
-
 extension FeedsVC : UICollectionViewDelegate
 {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC")
+        self.navigationController?.pushViewController(objViewPostVC, animated: true)
     }
 }
