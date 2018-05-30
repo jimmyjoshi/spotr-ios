@@ -10,4 +10,6 @@ import UIKit
 
 class UserFeedsCell: UICollectionViewCell {
     
+    @IBOutlet weak var bgImage : UIImageView!
+
 }

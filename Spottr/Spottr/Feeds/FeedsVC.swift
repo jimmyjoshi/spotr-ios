@@ -19,6 +19,7 @@ class FeedsVC: UIViewController,UITextFieldDelegate
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -91,7 +92,12 @@ extension FeedsVC : UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
+        if collectionView == clHeader
+        {
             return 5
+        }
+        
+        return 9
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -109,6 +115,8 @@ extension FeedsVC : UICollectionViewDataSource
         {
             let identifier = "FeedCell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,for:indexPath) as! FeedCell
+            cell.bgImage.layer.masksToBounds = true
+
             cell.btnProfile.tag = indexPath.row
             cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
 

@@ -12,4 +12,6 @@ class FeedCell: UICollectionViewCell
 {
     @IBOutlet weak var imgUser : UIImageView!
     @IBOutlet weak var btnProfile : UIButton!
+    @IBOutlet weak var bgImage : UIImageView!
+
 }

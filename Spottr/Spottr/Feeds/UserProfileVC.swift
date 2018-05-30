@@ -105,6 +105,8 @@ extension UserProfileVC : UICollectionViewDataSource
     {
             let identifier = "UserFeedsCell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,for:indexPath) as! UserFeedsCell
+            cell.bgImage.layer.masksToBounds = true
+
             return cell
     }
 }
