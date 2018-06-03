@@ -11,5 +11,7 @@
 
 #import "ActionSheetPicker.h"
 #import "UIImageView+WebCache.h"
+#import "IQMediaPickerController.h"
+#import "IQMediaPickerControllerConstants.h"
 
 #endif /* Spottr_Bridging_Header_h */

@@ -13,7 +13,7 @@ let MainScreen = UIScreen.main.bounds.size
 
 let appDelegate     = UIApplication.shared.delegate as! AppDelegate
 let userDefaults    = UserDefaults.standard
-let Application_Name  =  "TickTock"
+let Application_Name  =  "Spottr"
 let Alert_NoInternet    = "You are not connected to internet.\nPlease check your internet connection."
 let kPrivacyTermsVCViewID = "PrivacyTermsVC"
 let Alert_NoDataFound    = "No Data Found."
@@ -96,6 +96,10 @@ extension UIColor {
     }
     public class func appDarkPinkColor () -> UIColor {
         return UIColor(red: 211.0/255.0, green: 55.0/255.0, blue: 86.0/255.0, alpha: 1.0)
+    }
+    
+    public class func cameraBGCOLOR () -> UIColor {
+        return UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
     }
 //    public class func NAVIGATIONBAR () -> UIColor {
 //        return UIColor(red: 249.0/255.0, green: 3.0/255.0, blue: 110.0/255.0, alpha: 1.0)

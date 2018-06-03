@@ -52,6 +52,49 @@
 		D31E182E20B0355900355FFD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E182C20B0355800355FFD /* Constant.swift */; };
 		D31E183020B03CAB00355FFD /* SignupOTPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E182F20B03CAB00355FFD /* SignupOTPVC.swift */; };
 		D31E183220B0454B00355FFD /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E183120B0454B00355FFD /* SignUpAccountVC.swift */; };
+		D37C81BC20C2E5010062FDF6 /* IQAlbumAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C815420C2E5010062FDF6 /* IQAlbumAssetsViewController.m */; };
+		D37C81BD20C2E5010062FDF6 /* IQAssetsAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C815720C2E5010062FDF6 /* IQAssetsAlbumViewCell.m */; };
+		D37C81BE20C2E5010062FDF6 /* IQAssetsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C815920C2E5010062FDF6 /* IQAssetsCell.m */; };
+		D37C81BF20C2E5010062FDF6 /* IQAssetsPickerShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C815C20C2E5010062FDF6 /* IQAssetsPickerShadowView.m */; };
+		D37C81C020C2E5010062FDF6 /* IQCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C815E20C2E5010062FDF6 /* IQCheckmarkView.m */; };
+		D37C81C120C2E5010062FDF6 /* IQAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C816020C2E5010062FDF6 /* IQAssetsPickerController.m */; };
+		D37C81C220C2E5010062FDF6 /* IQAudioPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C816320C2E5010062FDF6 /* IQAudioPickerController.m */; };
+		D37C81C320C2E5010062FDF6 /* IQAudioPickerController.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37C816420C2E5010062FDF6 /* IQAudioPickerController.xcassets */; };
+		D37C81C420C2E5010062FDF6 /* IQAudioPickerUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C816720C2E5010062FDF6 /* IQAudioPickerUtility.m */; };
+		D37C81C520C2E5010062FDF6 /* IQAudioPickerShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C816B20C2E5010062FDF6 /* IQAudioPickerShadowView.m */; };
+		D37C81C620C2E5010062FDF6 /* IQSongsAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C816E20C2E5010062FDF6 /* IQSongsAlbumViewCell.m */; };
+		D37C81C720C2E5010062FDF6 /* IQSongsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C817020C2E5010062FDF6 /* IQSongsCell.m */; };
+		D37C81C820C2E5010062FDF6 /* IQSongsListTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C817320C2E5010062FDF6 /* IQSongsListTableHeaderView.m */; };
+		D37C81C920C2E5010062FDF6 /* IQSongsAlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C817520C2E5010062FDF6 /* IQSongsAlbumListViewController.m */; };
+		D37C81CA20C2E5010062FDF6 /* IQSongsArtistListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C817720C2E5010062FDF6 /* IQSongsArtistListViewController.m */; };
+		D37C81CB20C2E5010062FDF6 /* IQSongsCompilationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C817920C2E5010062FDF6 /* IQSongsCompilationsViewController.m */; };
+		D37C81CC20C2E5010062FDF6 /* IQSongsComposersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C817B20C2E5010062FDF6 /* IQSongsComposersViewController.m */; };
+		D37C81CD20C2E5010062FDF6 /* IQSongsGenreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C817D20C2E5010062FDF6 /* IQSongsGenreViewController.m */; };
+		D37C81CE20C2E5010062FDF6 /* IQSongsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C817F20C2E5010062FDF6 /* IQSongsListViewController.m */; };
+		D37C81CF20C2E5010062FDF6 /* IQSongsPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C818120C2E5010062FDF6 /* IQSongsPlaylistViewController.m */; };
+		D37C81D020C2E5010062FDF6 /* IQImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C818420C2E5010062FDF6 /* IQImagePreviewViewController.m */; };
+		D37C81D120C2E5010062FDF6 /* IQMediaCaptureController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C818620C2E5010062FDF6 /* IQMediaCaptureController.m */; };
+		D37C81D220C2E5010062FDF6 /* IQMediaCaptureController.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37C818720C2E5010062FDF6 /* IQMediaCaptureController.xcassets */; };
+		D37C81D320C2E5010062FDF6 /* IQAudioSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C818C20C2E5010062FDF6 /* IQAudioSession.m */; };
+		D37C81D420C2E5010062FDF6 /* IQCaptureSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C818E20C2E5010062FDF6 /* IQCaptureSession.m */; };
+		D37C81D520C2E5010062FDF6 /* IQFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C819120C2E5010062FDF6 /* IQFileManager.m */; };
+		D37C81D620C2E5010062FDF6 /* IQBottomContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C819520C2E5010062FDF6 /* IQBottomContainerView.m */; };
+		D37C81D720C2E5010062FDF6 /* IQFeatureOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C819920C2E5010062FDF6 /* IQFeatureOverlay.m */; };
+		D37C81D820C2E5010062FDF6 /* IQMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C819B20C2E5010062FDF6 /* IQMediaView.m */; };
+		D37C81D920C2E5010062FDF6 /* IQAudioSettingsContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C819E20C2E5010062FDF6 /* IQAudioSettingsContainerView.m */; };
+		D37C81DA20C2E5010062FDF6 /* IQPhotoSettingsContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81A020C2E5010062FDF6 /* IQPhotoSettingsContainerView.m */; };
+		D37C81DB20C2E5010062FDF6 /* IQSettingsContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81A220C2E5010062FDF6 /* IQSettingsContainerView.m */; };
+		D37C81DC20C2E5010062FDF6 /* IQVideoSettingsContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81A420C2E5010062FDF6 /* IQVideoSettingsContainerView.m */; };
+		D37C81DD20C2E5010062FDF6 /* IQSelectedMediaAudioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81A720C2E5010062FDF6 /* IQSelectedMediaAudioCell.m */; };
+		D37C81DE20C2E5010062FDF6 /* IQSelectedMediaPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81A920C2E5010062FDF6 /* IQSelectedMediaPhotoCell.m */; };
+		D37C81DF20C2E5010062FDF6 /* IQSelectedMediaVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81AB20C2E5010062FDF6 /* IQSelectedMediaVideoCell.m */; };
+		D37C81E020C2E5010062FDF6 /* IQSelectedMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81AD20C2E5010062FDF6 /* IQSelectedMediaViewController.m */; };
+		D37C81E120C2E5010062FDF6 /* IQNSArray+Remove.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81B020C2E5010062FDF6 /* IQNSArray+Remove.m */; };
+		D37C81E220C2E5010062FDF6 /* NSString+IQTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81B320C2E5010062FDF6 /* NSString+IQTimeIntervalFormatter.m */; };
+		D37C81E320C2E5010062FDF6 /* IQAKPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81B720C2E5010062FDF6 /* IQAKPickerView.m */; };
+		D37C81E420C2E5010062FDF6 /* IQMediaPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81B920C2E5010062FDF6 /* IQMediaPickerController.m */; };
+		D37C81E520C2E5010062FDF6 /* IQMediaPickerControllerConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81BB20C2E5010062FDF6 /* IQMediaPickerControllerConstants.m */; };
+		D37C81E820C2E63C0062FDF6 /* DBCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C81E620C2E63C0062FDF6 /* DBCameraButton.m */; };
 		D387E1AD20ACAD2D00759C42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387E1AC20ACAD2D00759C42 /* AppDelegate.swift */; };
 		D387E1AF20ACAD2D00759C42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387E1AE20ACAD2D00759C42 /* ViewController.swift */; };
 		D387E1B220ACAD2D00759C42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D387E1B020ACAD2D00759C42 /* Main.storyboard */; };
@@ -178,6 +221,90 @@
 		D31E182C20B0355800355FFD /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D31E182F20B03CAB00355FFD /* SignupOTPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupOTPVC.swift; sourceTree = "<group>"; };
 		D31E183120B0454B00355FFD /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
+		D37C815320C2E5010062FDF6 /* IQAlbumAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAlbumAssetsViewController.h; sourceTree = "<group>"; };
+		D37C815420C2E5010062FDF6 /* IQAlbumAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAlbumAssetsViewController.m; sourceTree = "<group>"; };
+		D37C815620C2E5010062FDF6 /* IQAssetsAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAssetsAlbumViewCell.h; sourceTree = "<group>"; };
+		D37C815720C2E5010062FDF6 /* IQAssetsAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAssetsAlbumViewCell.m; sourceTree = "<group>"; };
+		D37C815820C2E5010062FDF6 /* IQAssetsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAssetsCell.h; sourceTree = "<group>"; };
+		D37C815920C2E5010062FDF6 /* IQAssetsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAssetsCell.m; sourceTree = "<group>"; };
+		D37C815B20C2E5010062FDF6 /* IQAssetsPickerShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAssetsPickerShadowView.h; sourceTree = "<group>"; };
+		D37C815C20C2E5010062FDF6 /* IQAssetsPickerShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAssetsPickerShadowView.m; sourceTree = "<group>"; };
+		D37C815D20C2E5010062FDF6 /* IQCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQCheckmarkView.h; sourceTree = "<group>"; };
+		D37C815E20C2E5010062FDF6 /* IQCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQCheckmarkView.m; sourceTree = "<group>"; };
+		D37C815F20C2E5010062FDF6 /* IQAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAssetsPickerController.h; sourceTree = "<group>"; };
+		D37C816020C2E5010062FDF6 /* IQAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAssetsPickerController.m; sourceTree = "<group>"; };
+		D37C816220C2E5010062FDF6 /* IQAudioPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAudioPickerController.h; sourceTree = "<group>"; };
+		D37C816320C2E5010062FDF6 /* IQAudioPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAudioPickerController.m; sourceTree = "<group>"; };
+		D37C816420C2E5010062FDF6 /* IQAudioPickerController.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IQAudioPickerController.xcassets; sourceTree = "<group>"; };
+		D37C816620C2E5010062FDF6 /* IQAudioPickerUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAudioPickerUtility.h; sourceTree = "<group>"; };
+		D37C816720C2E5010062FDF6 /* IQAudioPickerUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAudioPickerUtility.m; sourceTree = "<group>"; };
+		D37C816A20C2E5010062FDF6 /* IQAudioPickerShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAudioPickerShadowView.h; sourceTree = "<group>"; };
+		D37C816B20C2E5010062FDF6 /* IQAudioPickerShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAudioPickerShadowView.m; sourceTree = "<group>"; };
+		D37C816D20C2E5010062FDF6 /* IQSongsAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsAlbumViewCell.h; sourceTree = "<group>"; };
+		D37C816E20C2E5010062FDF6 /* IQSongsAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsAlbumViewCell.m; sourceTree = "<group>"; };
+		D37C816F20C2E5010062FDF6 /* IQSongsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsCell.h; sourceTree = "<group>"; };
+		D37C817020C2E5010062FDF6 /* IQSongsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsCell.m; sourceTree = "<group>"; };
+		D37C817220C2E5010062FDF6 /* IQSongsListTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsListTableHeaderView.h; sourceTree = "<group>"; };
+		D37C817320C2E5010062FDF6 /* IQSongsListTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsListTableHeaderView.m; sourceTree = "<group>"; };
+		D37C817420C2E5010062FDF6 /* IQSongsAlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsAlbumListViewController.h; sourceTree = "<group>"; };
+		D37C817520C2E5010062FDF6 /* IQSongsAlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsAlbumListViewController.m; sourceTree = "<group>"; };
+		D37C817620C2E5010062FDF6 /* IQSongsArtistListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsArtistListViewController.h; sourceTree = "<group>"; };
+		D37C817720C2E5010062FDF6 /* IQSongsArtistListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsArtistListViewController.m; sourceTree = "<group>"; };
+		D37C817820C2E5010062FDF6 /* IQSongsCompilationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsCompilationsViewController.h; sourceTree = "<group>"; };
+		D37C817920C2E5010062FDF6 /* IQSongsCompilationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsCompilationsViewController.m; sourceTree = "<group>"; };
+		D37C817A20C2E5010062FDF6 /* IQSongsComposersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsComposersViewController.h; sourceTree = "<group>"; };
+		D37C817B20C2E5010062FDF6 /* IQSongsComposersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsComposersViewController.m; sourceTree = "<group>"; };
+		D37C817C20C2E5010062FDF6 /* IQSongsGenreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsGenreViewController.h; sourceTree = "<group>"; };
+		D37C817D20C2E5010062FDF6 /* IQSongsGenreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsGenreViewController.m; sourceTree = "<group>"; };
+		D37C817E20C2E5010062FDF6 /* IQSongsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsListViewController.h; sourceTree = "<group>"; };
+		D37C817F20C2E5010062FDF6 /* IQSongsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsListViewController.m; sourceTree = "<group>"; };
+		D37C818020C2E5010062FDF6 /* IQSongsPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSongsPlaylistViewController.h; sourceTree = "<group>"; };
+		D37C818120C2E5010062FDF6 /* IQSongsPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSongsPlaylistViewController.m; sourceTree = "<group>"; };
+		D37C818320C2E5010062FDF6 /* IQImagePreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQImagePreviewViewController.h; sourceTree = "<group>"; };
+		D37C818420C2E5010062FDF6 /* IQImagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQImagePreviewViewController.m; sourceTree = "<group>"; };
+		D37C818520C2E5010062FDF6 /* IQMediaCaptureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQMediaCaptureController.h; sourceTree = "<group>"; };
+		D37C818620C2E5010062FDF6 /* IQMediaCaptureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQMediaCaptureController.m; sourceTree = "<group>"; };
+		D37C818720C2E5010062FDF6 /* IQMediaCaptureController.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IQMediaCaptureController.xcassets; sourceTree = "<group>"; };
+		D37C818B20C2E5010062FDF6 /* IQAudioSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAudioSession.h; sourceTree = "<group>"; };
+		D37C818C20C2E5010062FDF6 /* IQAudioSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAudioSession.m; sourceTree = "<group>"; };
+		D37C818D20C2E5010062FDF6 /* IQCaptureSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQCaptureSession.h; sourceTree = "<group>"; };
+		D37C818E20C2E5010062FDF6 /* IQCaptureSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQCaptureSession.m; sourceTree = "<group>"; };
+		D37C819020C2E5010062FDF6 /* IQFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQFileManager.h; sourceTree = "<group>"; };
+		D37C819120C2E5010062FDF6 /* IQFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQFileManager.m; sourceTree = "<group>"; };
+		D37C819420C2E5010062FDF6 /* IQBottomContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQBottomContainerView.h; sourceTree = "<group>"; };
+		D37C819520C2E5010062FDF6 /* IQBottomContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQBottomContainerView.m; sourceTree = "<group>"; };
+		D37C819820C2E5010062FDF6 /* IQFeatureOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQFeatureOverlay.h; sourceTree = "<group>"; };
+		D37C819920C2E5010062FDF6 /* IQFeatureOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQFeatureOverlay.m; sourceTree = "<group>"; };
+		D37C819A20C2E5010062FDF6 /* IQMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQMediaView.h; sourceTree = "<group>"; };
+		D37C819B20C2E5010062FDF6 /* IQMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQMediaView.m; sourceTree = "<group>"; };
+		D37C819D20C2E5010062FDF6 /* IQAudioSettingsContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAudioSettingsContainerView.h; sourceTree = "<group>"; };
+		D37C819E20C2E5010062FDF6 /* IQAudioSettingsContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAudioSettingsContainerView.m; sourceTree = "<group>"; };
+		D37C819F20C2E5010062FDF6 /* IQPhotoSettingsContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQPhotoSettingsContainerView.h; sourceTree = "<group>"; };
+		D37C81A020C2E5010062FDF6 /* IQPhotoSettingsContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQPhotoSettingsContainerView.m; sourceTree = "<group>"; };
+		D37C81A120C2E5010062FDF6 /* IQSettingsContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSettingsContainerView.h; sourceTree = "<group>"; };
+		D37C81A220C2E5010062FDF6 /* IQSettingsContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSettingsContainerView.m; sourceTree = "<group>"; };
+		D37C81A320C2E5010062FDF6 /* IQVideoSettingsContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQVideoSettingsContainerView.h; sourceTree = "<group>"; };
+		D37C81A420C2E5010062FDF6 /* IQVideoSettingsContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQVideoSettingsContainerView.m; sourceTree = "<group>"; };
+		D37C81A620C2E5010062FDF6 /* IQSelectedMediaAudioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSelectedMediaAudioCell.h; sourceTree = "<group>"; };
+		D37C81A720C2E5010062FDF6 /* IQSelectedMediaAudioCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSelectedMediaAudioCell.m; sourceTree = "<group>"; };
+		D37C81A820C2E5010062FDF6 /* IQSelectedMediaPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSelectedMediaPhotoCell.h; sourceTree = "<group>"; };
+		D37C81A920C2E5010062FDF6 /* IQSelectedMediaPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSelectedMediaPhotoCell.m; sourceTree = "<group>"; };
+		D37C81AA20C2E5010062FDF6 /* IQSelectedMediaVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSelectedMediaVideoCell.h; sourceTree = "<group>"; };
+		D37C81AB20C2E5010062FDF6 /* IQSelectedMediaVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSelectedMediaVideoCell.m; sourceTree = "<group>"; };
+		D37C81AC20C2E5010062FDF6 /* IQSelectedMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSelectedMediaViewController.h; sourceTree = "<group>"; };
+		D37C81AD20C2E5010062FDF6 /* IQSelectedMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSelectedMediaViewController.m; sourceTree = "<group>"; };
+		D37C81AF20C2E5010062FDF6 /* IQNSArray+Remove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Remove.h"; sourceTree = "<group>"; };
+		D37C81B020C2E5010062FDF6 /* IQNSArray+Remove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Remove.m"; sourceTree = "<group>"; };
+		D37C81B220C2E5010062FDF6 /* NSString+IQTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IQTimeIntervalFormatter.h"; sourceTree = "<group>"; };
+		D37C81B320C2E5010062FDF6 /* NSString+IQTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IQTimeIntervalFormatter.m"; sourceTree = "<group>"; };
+		D37C81B620C2E5010062FDF6 /* IQAKPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAKPickerView.h; sourceTree = "<group>"; };
+		D37C81B720C2E5010062FDF6 /* IQAKPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAKPickerView.m; sourceTree = "<group>"; };
+		D37C81B820C2E5010062FDF6 /* IQMediaPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQMediaPickerController.h; sourceTree = "<group>"; };
+		D37C81B920C2E5010062FDF6 /* IQMediaPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQMediaPickerController.m; sourceTree = "<group>"; };
+		D37C81BA20C2E5010062FDF6 /* IQMediaPickerControllerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQMediaPickerControllerConstants.h; sourceTree = "<group>"; };
+		D37C81BB20C2E5010062FDF6 /* IQMediaPickerControllerConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQMediaPickerControllerConstants.m; sourceTree = "<group>"; };
+		D37C81E620C2E63C0062FDF6 /* DBCameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCameraButton.m; sourceTree = "<group>"; };
+		D37C81E720C2E63C0062FDF6 /* DBCameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCameraButton.h; sourceTree = "<group>"; };
 		D387E1A920ACAD2D00759C42 /* Spottr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spottr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D387E1AC20ACAD2D00759C42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D387E1AE20ACAD2D00759C42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +388,8 @@
 		D387E21020ACAD4E00759C42 /* UIView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCache.m"; sourceTree = "<group>"; };
 		D387E21120ACAD4E00759C42 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		D387E21220ACAD4E00759C42 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		D3B4BD5020C454C10012053B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D3B4BD5120C455E50012053B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingOptionsCell.swift; sourceTree = "<group>"; };
 		D3BC300220B18B640046E1A1 /* NofiticationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NofiticationCell.swift; sourceTree = "<group>"; };
 		D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestVC.swift; sourceTree = "<group>"; };
@@ -380,12 +509,296 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		D37C815120C2E5010062FDF6 /* IQMediaPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				D37C81E720C2E63C0062FDF6 /* DBCameraButton.h */,
+				D37C81E620C2E63C0062FDF6 /* DBCameraButton.m */,
+				D37C815220C2E5010062FDF6 /* IQAssetsPickerController */,
+				D37C816120C2E5010062FDF6 /* IQAudioPickerController */,
+				D37C818220C2E5010062FDF6 /* IQMediaCaptureController */,
+				D37C81B820C2E5010062FDF6 /* IQMediaPickerController.h */,
+				D37C81B920C2E5010062FDF6 /* IQMediaPickerController.m */,
+				D37C81BA20C2E5010062FDF6 /* IQMediaPickerControllerConstants.h */,
+				D37C81BB20C2E5010062FDF6 /* IQMediaPickerControllerConstants.m */,
+			);
+			path = IQMediaPickerController;
+			sourceTree = "<group>";
+		};
+		D37C815220C2E5010062FDF6 /* IQAssetsPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				D37C815320C2E5010062FDF6 /* IQAlbumAssetsViewController.h */,
+				D37C815420C2E5010062FDF6 /* IQAlbumAssetsViewController.m */,
+				D37C815520C2E5010062FDF6 /* IQAssetPickerCell */,
+				D37C815A20C2E5010062FDF6 /* IQAssetPickerView */,
+				D37C815F20C2E5010062FDF6 /* IQAssetsPickerController.h */,
+				D37C816020C2E5010062FDF6 /* IQAssetsPickerController.m */,
+			);
+			path = IQAssetsPickerController;
+			sourceTree = "<group>";
+		};
+		D37C815520C2E5010062FDF6 /* IQAssetPickerCell */ = {
+			isa = PBXGroup;
+			children = (
+				D37C815620C2E5010062FDF6 /* IQAssetsAlbumViewCell.h */,
+				D37C815720C2E5010062FDF6 /* IQAssetsAlbumViewCell.m */,
+				D37C815820C2E5010062FDF6 /* IQAssetsCell.h */,
+				D37C815920C2E5010062FDF6 /* IQAssetsCell.m */,
+			);
+			path = IQAssetPickerCell;
+			sourceTree = "<group>";
+		};
+		D37C815A20C2E5010062FDF6 /* IQAssetPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				D37C815B20C2E5010062FDF6 /* IQAssetsPickerShadowView.h */,
+				D37C815C20C2E5010062FDF6 /* IQAssetsPickerShadowView.m */,
+				D37C815D20C2E5010062FDF6 /* IQCheckmarkView.h */,
+				D37C815E20C2E5010062FDF6 /* IQCheckmarkView.m */,
+			);
+			path = IQAssetPickerView;
+			sourceTree = "<group>";
+		};
+		D37C816120C2E5010062FDF6 /* IQAudioPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				D37C816220C2E5010062FDF6 /* IQAudioPickerController.h */,
+				D37C816320C2E5010062FDF6 /* IQAudioPickerController.m */,
+				D37C816420C2E5010062FDF6 /* IQAudioPickerController.xcassets */,
+				D37C816520C2E5010062FDF6 /* IQAudioPickerUtility */,
+				D37C816820C2E5010062FDF6 /* IQAudioPIckerViewControllers */,
+			);
+			path = IQAudioPickerController;
+			sourceTree = "<group>";
+		};
+		D37C816520C2E5010062FDF6 /* IQAudioPickerUtility */ = {
+			isa = PBXGroup;
+			children = (
+				D37C816620C2E5010062FDF6 /* IQAudioPickerUtility.h */,
+				D37C816720C2E5010062FDF6 /* IQAudioPickerUtility.m */,
+			);
+			path = IQAudioPickerUtility;
+			sourceTree = "<group>";
+		};
+		D37C816820C2E5010062FDF6 /* IQAudioPIckerViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D37C816920C2E5010062FDF6 /* IQAudioCellShadowView */,
+				D37C816C20C2E5010062FDF6 /* IQAudioPickerTableViewCell */,
+				D37C817120C2E5010062FDF6 /* IQAudioPickerTableViewHeader */,
+				D37C817420C2E5010062FDF6 /* IQSongsAlbumListViewController.h */,
+				D37C817520C2E5010062FDF6 /* IQSongsAlbumListViewController.m */,
+				D37C817620C2E5010062FDF6 /* IQSongsArtistListViewController.h */,
+				D37C817720C2E5010062FDF6 /* IQSongsArtistListViewController.m */,
+				D37C817820C2E5010062FDF6 /* IQSongsCompilationsViewController.h */,
+				D37C817920C2E5010062FDF6 /* IQSongsCompilationsViewController.m */,
+				D37C817A20C2E5010062FDF6 /* IQSongsComposersViewController.h */,
+				D37C817B20C2E5010062FDF6 /* IQSongsComposersViewController.m */,
+				D37C817C20C2E5010062FDF6 /* IQSongsGenreViewController.h */,
+				D37C817D20C2E5010062FDF6 /* IQSongsGenreViewController.m */,
+				D37C817E20C2E5010062FDF6 /* IQSongsListViewController.h */,
+				D37C817F20C2E5010062FDF6 /* IQSongsListViewController.m */,
+				D37C818020C2E5010062FDF6 /* IQSongsPlaylistViewController.h */,
+				D37C818120C2E5010062FDF6 /* IQSongsPlaylistViewController.m */,
+			);
+			path = IQAudioPIckerViewControllers;
+			sourceTree = "<group>";
+		};
+		D37C816920C2E5010062FDF6 /* IQAudioCellShadowView */ = {
+			isa = PBXGroup;
+			children = (
+				D37C816A20C2E5010062FDF6 /* IQAudioPickerShadowView.h */,
+				D37C816B20C2E5010062FDF6 /* IQAudioPickerShadowView.m */,
+			);
+			path = IQAudioCellShadowView;
+			sourceTree = "<group>";
+		};
+		D37C816C20C2E5010062FDF6 /* IQAudioPickerTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D37C816D20C2E5010062FDF6 /* IQSongsAlbumViewCell.h */,
+				D37C816E20C2E5010062FDF6 /* IQSongsAlbumViewCell.m */,
+				D37C816F20C2E5010062FDF6 /* IQSongsCell.h */,
+				D37C817020C2E5010062FDF6 /* IQSongsCell.m */,
+			);
+			path = IQAudioPickerTableViewCell;
+			sourceTree = "<group>";
+		};
+		D37C817120C2E5010062FDF6 /* IQAudioPickerTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				D37C817220C2E5010062FDF6 /* IQSongsListTableHeaderView.h */,
+				D37C817320C2E5010062FDF6 /* IQSongsListTableHeaderView.m */,
+			);
+			path = IQAudioPickerTableViewHeader;
+			sourceTree = "<group>";
+		};
+		D37C818220C2E5010062FDF6 /* IQMediaCaptureController */ = {
+			isa = PBXGroup;
+			children = (
+				D37C818320C2E5010062FDF6 /* IQImagePreviewViewController.h */,
+				D37C818420C2E5010062FDF6 /* IQImagePreviewViewController.m */,
+				D37C818520C2E5010062FDF6 /* IQMediaCaptureController.h */,
+				D37C818620C2E5010062FDF6 /* IQMediaCaptureController.m */,
+				D37C818720C2E5010062FDF6 /* IQMediaCaptureController.xcassets */,
+				D37C818820C2E5010062FDF6 /* IQMediaCaptureUtility */,
+				D37C819220C2E5010062FDF6 /* IQMediaCaptureView */,
+				D37C81A520C2E5010062FDF6 /* IQSelectedMediaCell */,
+				D37C81AC20C2E5010062FDF6 /* IQSelectedMediaViewController.h */,
+				D37C81AD20C2E5010062FDF6 /* IQSelectedMediaViewController.m */,
+				D37C81AE20C2E5010062FDF6 /* NSArray+Remove */,
+				D37C81B120C2E5010062FDF6 /* NSString + Time Formatter */,
+				D37C81B420C2E5010062FDF6 /* Third Party */,
+			);
+			path = IQMediaCaptureController;
+			sourceTree = "<group>";
+		};
+		D37C818820C2E5010062FDF6 /* IQMediaCaptureUtility */ = {
+			isa = PBXGroup;
+			children = (
+				D37C818920C2E5010062FDF6 /* IQCaptureSession */,
+				D37C818F20C2E5010062FDF6 /* IQFileManager */,
+			);
+			path = IQMediaCaptureUtility;
+			sourceTree = "<group>";
+		};
+		D37C818920C2E5010062FDF6 /* IQCaptureSession */ = {
+			isa = PBXGroup;
+			children = (
+				D37C818A20C2E5010062FDF6 /* IQAudioSession */,
+				D37C818D20C2E5010062FDF6 /* IQCaptureSession.h */,
+				D37C818E20C2E5010062FDF6 /* IQCaptureSession.m */,
+			);
+			path = IQCaptureSession;
+			sourceTree = "<group>";
+		};
+		D37C818A20C2E5010062FDF6 /* IQAudioSession */ = {
+			isa = PBXGroup;
+			children = (
+				D37C818B20C2E5010062FDF6 /* IQAudioSession.h */,
+				D37C818C20C2E5010062FDF6 /* IQAudioSession.m */,
+			);
+			path = IQAudioSession;
+			sourceTree = "<group>";
+		};
+		D37C818F20C2E5010062FDF6 /* IQFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				D37C819020C2E5010062FDF6 /* IQFileManager.h */,
+				D37C819120C2E5010062FDF6 /* IQFileManager.m */,
+			);
+			path = IQFileManager;
+			sourceTree = "<group>";
+		};
+		D37C819220C2E5010062FDF6 /* IQMediaCaptureView */ = {
+			isa = PBXGroup;
+			children = (
+				D37C819320C2E5010062FDF6 /* IQBottomContainerView */,
+				D37C819620C2E5010062FDF6 /* IQMediaView */,
+				D37C819C20C2E5010062FDF6 /* SettingsContainerView */,
+			);
+			path = IQMediaCaptureView;
+			sourceTree = "<group>";
+		};
+		D37C819320C2E5010062FDF6 /* IQBottomContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				D37C819420C2E5010062FDF6 /* IQBottomContainerView.h */,
+				D37C819520C2E5010062FDF6 /* IQBottomContainerView.m */,
+			);
+			path = IQBottomContainerView;
+			sourceTree = "<group>";
+		};
+		D37C819620C2E5010062FDF6 /* IQMediaView */ = {
+			isa = PBXGroup;
+			children = (
+				D37C819720C2E5010062FDF6 /* IQFeatureOverlay */,
+				D37C819A20C2E5010062FDF6 /* IQMediaView.h */,
+				D37C819B20C2E5010062FDF6 /* IQMediaView.m */,
+			);
+			path = IQMediaView;
+			sourceTree = "<group>";
+		};
+		D37C819720C2E5010062FDF6 /* IQFeatureOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				D37C819820C2E5010062FDF6 /* IQFeatureOverlay.h */,
+				D37C819920C2E5010062FDF6 /* IQFeatureOverlay.m */,
+			);
+			path = IQFeatureOverlay;
+			sourceTree = "<group>";
+		};
+		D37C819C20C2E5010062FDF6 /* SettingsContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				D37C819D20C2E5010062FDF6 /* IQAudioSettingsContainerView.h */,
+				D37C819E20C2E5010062FDF6 /* IQAudioSettingsContainerView.m */,
+				D37C819F20C2E5010062FDF6 /* IQPhotoSettingsContainerView.h */,
+				D37C81A020C2E5010062FDF6 /* IQPhotoSettingsContainerView.m */,
+				D37C81A120C2E5010062FDF6 /* IQSettingsContainerView.h */,
+				D37C81A220C2E5010062FDF6 /* IQSettingsContainerView.m */,
+				D37C81A320C2E5010062FDF6 /* IQVideoSettingsContainerView.h */,
+				D37C81A420C2E5010062FDF6 /* IQVideoSettingsContainerView.m */,
+			);
+			path = SettingsContainerView;
+			sourceTree = "<group>";
+		};
+		D37C81A520C2E5010062FDF6 /* IQSelectedMediaCell */ = {
+			isa = PBXGroup;
+			children = (
+				D37C81A620C2E5010062FDF6 /* IQSelectedMediaAudioCell.h */,
+				D37C81A720C2E5010062FDF6 /* IQSelectedMediaAudioCell.m */,
+				D37C81A820C2E5010062FDF6 /* IQSelectedMediaPhotoCell.h */,
+				D37C81A920C2E5010062FDF6 /* IQSelectedMediaPhotoCell.m */,
+				D37C81AA20C2E5010062FDF6 /* IQSelectedMediaVideoCell.h */,
+				D37C81AB20C2E5010062FDF6 /* IQSelectedMediaVideoCell.m */,
+			);
+			path = IQSelectedMediaCell;
+			sourceTree = "<group>";
+		};
+		D37C81AE20C2E5010062FDF6 /* NSArray+Remove */ = {
+			isa = PBXGroup;
+			children = (
+				D37C81AF20C2E5010062FDF6 /* IQNSArray+Remove.h */,
+				D37C81B020C2E5010062FDF6 /* IQNSArray+Remove.m */,
+			);
+			path = "NSArray+Remove";
+			sourceTree = "<group>";
+		};
+		D37C81B120C2E5010062FDF6 /* NSString + Time Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				D37C81B220C2E5010062FDF6 /* NSString+IQTimeIntervalFormatter.h */,
+				D37C81B320C2E5010062FDF6 /* NSString+IQTimeIntervalFormatter.m */,
+			);
+			path = "NSString + Time Formatter";
+			sourceTree = "<group>";
+		};
+		D37C81B420C2E5010062FDF6 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				D37C81B520C2E5010062FDF6 /* AKPickerView */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		D37C81B520C2E5010062FDF6 /* AKPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				D37C81B620C2E5010062FDF6 /* IQAKPickerView.h */,
+				D37C81B720C2E5010062FDF6 /* IQAKPickerView.m */,
+			);
+			path = AKPickerView;
+			sourceTree = "<group>";
+		};
 		D387E1A020ACAD2D00759C42 = {
 			isa = PBXGroup;
 			children = (
 				D30EC63820B1240D007F30B5 /* Spottr-Bridging-Header.h */,
 				D387E1AB20ACAD2D00759C42 /* Spottr */,
 				D387E1AA20ACAD2D00759C42 /* Products */,
+				D3B4BD4F20C454C10012053B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,6 +813,7 @@
 		D387E1AB20ACAD2D00759C42 /* Spottr */ = {
 			isa = PBXGroup;
 			children = (
+				D37C815120C2E5010062FDF6 /* IQMediaPickerController */,
 				D3EC477F20B5E21F005973EE /* ViewPost */,
 				D3BC300420B1C66E0046E1A1 /* PostRequest */,
 				D30EC64820B17D63007F30B5 /* SettingsOptions */,
@@ -566,6 +980,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		D3B4BD4F20C454C10012053B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3B4BD5120C455E50012053B /* AVFoundation.framework */,
+				D3B4BD5020C454C10012053B /* MobileCoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D3BC300420B1C66E0046E1A1 /* PostRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -650,6 +1073,7 @@
 				D31E181B20B026D100355FFD /* Lato-Heavy.ttf in Resources */,
 				D387E1B720ACAD2D00759C42 /* LaunchScreen.storyboard in Resources */,
 				D31E182220B026D100355FFD /* Lato-Regular.ttf in Resources */,
+				D37C81C320C2E5010062FDF6 /* IQAudioPickerController.xcassets in Resources */,
 				D387E1B420ACAD2D00759C42 /* Assets.xcassets in Resources */,
 				D31E182320B026D100355FFD /* Lato-Semibold.ttf in Resources */,
 				D31E181620B026D100355FFD /* Lato-BlackItalic.ttf in Resources */,
@@ -663,6 +1087,7 @@
 				D31E181F20B026D100355FFD /* Lato-LightItalic.ttf in Resources */,
 				D31E182520B026D100355FFD /* Lato-Thin.ttf in Resources */,
 				D31E182020B026D100355FFD /* Lato-Medium.ttf in Resources */,
+				D37C81D220C2E5010062FDF6 /* IQMediaCaptureController.xcassets in Resources */,
 				D31E182620B026D100355FFD /* Lato-ThinItalic.ttf in Resources */,
 				D31E181920B026D100355FFD /* Lato-Hairline.ttf in Resources */,
 				D31E181520B026D100355FFD /* Lato-Black.ttf in Resources */,
@@ -681,12 +1106,18 @@
 			files = (
 				D387E24520ACAD4E00759C42 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D387E22A20ACAD4E00759C42 /* Notifications.swift in Sources */,
+				D37C81E420C2E5010062FDF6 /* IQMediaPickerController.m in Sources */,
 				D387E22C20ACAD4E00759C42 /* Request.swift in Sources */,
 				D3FF12B120B985FB006AF900 /* ViewFriendsVC.swift in Sources */,
+				D37C81E320C2E5010062FDF6 /* IQAKPickerView.m in Sources */,
 				D3BC300620B1C7AD0046E1A1 /* PostRequestVC.swift in Sources */,
+				D37C81DF20C2E5010062FDF6 /* IQSelectedMediaVideoCell.m in Sources */,
 				D30EC64E20B17D9D007F30B5 /* SettingsVC.swift in Sources */,
 				D30EC63D20B125DF007F30B5 /* CreatPostVC.swift in Sources */,
+				D37C81D720C2E5010062FDF6 /* IQFeatureOverlay.m in Sources */,
+				D37C81D920C2E5010062FDF6 /* IQAudioSettingsContainerView.m in Sources */,
 				D387E24720ACAD4E00759C42 /* UIView+WebCache.m in Sources */,
+				D37C81D820C2E5010062FDF6 /* IQMediaView.m in Sources */,
 				D31E183020B03CAB00355FFD /* SignupOTPVC.swift in Sources */,
 				D387E22220ACAD4E00759C42 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				D30EC62D20B122B3007F30B5 /* ActionSheetDatePicker.m in Sources */,
@@ -694,54 +1125,85 @@
 				D387E21520ACAD4E00759C42 /* IQUITextFieldView+Additions.swift in Sources */,
 				D387E22020ACAD4E00759C42 /* IQTitleBarButtonItem.swift in Sources */,
 				D387E1AF20ACAD2D00759C42 /* ViewController.swift in Sources */,
+				D37C81E020C2E5010062FDF6 /* IQSelectedMediaViewController.m in Sources */,
+				D37C81DD20C2E5010062FDF6 /* IQSelectedMediaAudioCell.m in Sources */,
 				D31E182E20B0355900355FFD /* Constant.swift in Sources */,
 				D387E21B20ACAD4E00759C42 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				D37C81CE20C2E5010062FDF6 /* IQSongsListViewController.m in Sources */,
 				D387E21920ACAD4E00759C42 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				D387E22520ACAD4E00759C42 /* Alamofire.swift in Sources */,
+				D37C81C220C2E5010062FDF6 /* IQAudioPickerController.m in Sources */,
+				D37C81C520C2E5010062FDF6 /* IQAudioPickerShadowView.m in Sources */,
+				D37C81C720C2E5010062FDF6 /* IQSongsCell.m in Sources */,
 				D30EC64120B13FA2007F30B5 /* FeedCell.swift in Sources */,
+				D37C81C120C2E5010062FDF6 /* IQAssetsPickerController.m in Sources */,
 				D387E21420ACAD4E00759C42 /* IQUIScrollView+Additions.swift in Sources */,
+				D37C81E120C2E5010062FDF6 /* IQNSArray+Remove.m in Sources */,
 				D387E23920ACAD4E00759C42 /* SDImageCache.m in Sources */,
+				D37C81C920C2E5010062FDF6 /* IQSongsAlbumListViewController.m in Sources */,
 				D30EC63020B122B3007F30B5 /* ActionSheetMultipleStringPicker.m in Sources */,
+				D37C81D120C2E5010062FDF6 /* IQMediaCaptureController.m in Sources */,
 				D387E23420ACAD4E00759C42 /* Timeline.swift in Sources */,
+				D37C81D520C2E5010062FDF6 /* IQFileManager.m in Sources */,
 				D387E23F20ACAD4E00759C42 /* SDWebImageManager.m in Sources */,
+				D37C81D020C2E5010062FDF6 /* IQImagePreviewViewController.m in Sources */,
+				D37C81D320C2E5010062FDF6 /* IQAudioSession.m in Sources */,
+				D37C81C020C2E5010062FDF6 /* IQCheckmarkView.m in Sources */,
+				D37C81DA20C2E5010062FDF6 /* IQPhotoSettingsContainerView.m in Sources */,
+				D37C81BD20C2E5010062FDF6 /* IQAssetsAlbumViewCell.m in Sources */,
 				D387E24620ACAD4E00759C42 /* UIImageView+WebCache.m in Sources */,
 				D387E24820ACAD4E00759C42 /* UIView+WebCacheOperation.m in Sources */,
+				D37C81CC20C2E5010062FDF6 /* IQSongsComposersViewController.m in Sources */,
 				D387E21C20ACAD4E00759C42 /* IQTextView.swift in Sources */,
 				D30EC63F20B133B8007F30B5 /* UserProfileVC.swift in Sources */,
 				D387E23820ACAD4E00759C42 /* NSImage+WebCache.m in Sources */,
 				D30EC62E20B122B3007F30B5 /* ActionSheetDistancePicker.m in Sources */,
 				D31E182D20B0355900355FFD /* AppUtils.swift in Sources */,
 				D387E21720ACAD4E00759C42 /* IQUIViewController+Additions.swift in Sources */,
+				D37C81D420C2E5010062FDF6 /* IQCaptureSession.m in Sources */,
 				D387E23520ACAD4E00759C42 /* Validation.swift in Sources */,
 				D30EC64320B1403A007F30B5 /* FeedHeaderCell.swift in Sources */,
+				D37C81CB20C2E5010062FDF6 /* IQSongsCompilationsViewController.m in Sources */,
+				D37C81DE20C2E5010062FDF6 /* IQSelectedMediaPhotoCell.m in Sources */,
 				D387E21820ACAD4E00759C42 /* IQKeyboardManagerConstants.swift in Sources */,
 				D387E22D20ACAD4E00759C42 /* Response.swift in Sources */,
+				D37C81DC20C2E5010062FDF6 /* IQVideoSettingsContainerView.m in Sources */,
 				D3EC478120B5E23F005973EE /* ViewPostVC.swift in Sources */,
 				D30EC62B20B122B3007F30B5 /* AbstractActionSheetPicker.m in Sources */,
 				D387E23220ACAD4E00759C42 /* SessionManager.swift in Sources */,
 				D387E23620ACAD4E00759C42 /* MKAnnotationView+WebCache.m in Sources */,
 				D387E21A20ACAD4E00759C42 /* IQKeyboardManager.swift in Sources */,
 				D387E22120ACAD4E00759C42 /* IQToolbar.swift in Sources */,
+				D37C81C420C2E5010062FDF6 /* IQAudioPickerUtility.m in Sources */,
 				D387E23E20ACAD4E00759C42 /* SDWebImageDownloaderOperation.m in Sources */,
+				D37C81D620C2E5010062FDF6 /* IQBottomContainerView.m in Sources */,
+				D37C81BF20C2E5010062FDF6 /* IQAssetsPickerShadowView.m in Sources */,
 				D30EC63220B122B3007F30B5 /* DistancePickerView.m in Sources */,
 				D30EC63B20B125C3007F30B5 /* FeedsVC.swift in Sources */,
 				D387E21E20ACAD4E00759C42 /* IQInvocation.swift in Sources */,
 				D3033CAC20BA94CC00CD08F4 /* CommentCell.swift in Sources */,
+				D37C81E520C2E5010062FDF6 /* IQMediaPickerControllerConstants.m in Sources */,
 				D387E22420ACAD4E00759C42 /* AFError.swift in Sources */,
 				D3033CAA20BA940100CD08F4 /* ViewPostHeaderCell.swift in Sources */,
 				D30EC63320B122B3007F30B5 /* SWActionSheet.m in Sources */,
+				D37C81C820C2E5010062FDF6 /* IQSongsListTableHeaderView.m in Sources */,
 				D387E23320ACAD4E00759C42 /* TaskDelegate.swift in Sources */,
 				D387E24420ACAD4E00759C42 /* UIImage+WebP.m in Sources */,
 				D387E23D20ACAD4E00759C42 /* SDWebImageDownloader.m in Sources */,
+				D37C81C620C2E5010062FDF6 /* IQSongsAlbumViewCell.m in Sources */,
 				D387E22620ACAD4E00759C42 /* DispatchQueue+Alamofire.swift in Sources */,
 				D387E22E20ACAD4E00759C42 /* ResponseSerialization.swift in Sources */,
 				D30EC62F20B122B3007F30B5 /* ActionSheetLocalePicker.m in Sources */,
+				D37C81CF20C2E5010062FDF6 /* IQSongsPlaylistViewController.m in Sources */,
 				D387E22B20ACAD4E00759C42 /* ParameterEncoding.swift in Sources */,
+				D37C81DB20C2E5010062FDF6 /* IQSettingsContainerView.m in Sources */,
 				D30EC62C20B122B3007F30B5 /* ActionSheetCustomPicker.m in Sources */,
 				D3FF12B320B98618006AF900 /* FriendsTableViewCell.swift in Sources */,
 				D3EC477E20B5D724005973EE /* PostRequestCell.swift in Sources */,
+				D37C81CA20C2E5010062FDF6 /* IQSongsArtistListViewController.m in Sources */,
 				D387E24320ACAD4E00759C42 /* UIImage+MultiFormat.m in Sources */,
 				D30EC64720B170E6007F30B5 /* SettingsCell.swift in Sources */,
+				D37C81E220C2E5010062FDF6 /* NSString+IQTimeIntervalFormatter.m in Sources */,
 				D387E23C20ACAD4E00759C42 /* SDWebImageDecoder.m in Sources */,
 				D387E22820ACAD4E00759C42 /* MultipartFormData.swift in Sources */,
 				D30EC63120B122B3007F30B5 /* ActionSheetStringPicker.m in Sources */,
@@ -754,6 +1216,7 @@
 				D387E1AD20ACAD2D00759C42 /* AppDelegate.swift in Sources */,
 				D387E24020ACAD4E00759C42 /* SDWebImagePrefetcher.m in Sources */,
 				D387E23120ACAD4E00759C42 /* SessionDelegate.swift in Sources */,
+				D37C81BE20C2E5010062FDF6 /* IQAssetsCell.m in Sources */,
 				D387E22920ACAD4E00759C42 /* NetworkReachabilityManager.swift in Sources */,
 				D3BC300320B18B640046E1A1 /* NofiticationCell.swift in Sources */,
 				D387E23A20ACAD4E00759C42 /* SDImageCacheConfig.m in Sources */,
@@ -763,7 +1226,10 @@
 				D387E23020ACAD4E00759C42 /* ServerTrustPolicy.swift in Sources */,
 				D30C946020B723A2001326F1 /* CreatPostUserCell.swift in Sources */,
 				D387E21620ACAD4E00759C42 /* IQUIView+Hierarchy.swift in Sources */,
+				D37C81E820C2E63C0062FDF6 /* DBCameraButton.m in Sources */,
 				D387E23B20ACAD4E00759C42 /* SDWebImageCompat.m in Sources */,
+				D37C81BC20C2E5010062FDF6 /* IQAlbumAssetsViewController.m in Sources */,
+				D37C81CD20C2E5010062FDF6 /* IQSongsGenreViewController.m in Sources */,
 				D3BC300120B183F80046E1A1 /* SettingOptionsCell.swift in Sources */,
 				D387E21320ACAD4E00759C42 /* IQNSArray+Sort.swift in Sources */,
 				D31E183220B0454B00355FFD /* SignUpAccountVC.swift in Sources */,
@@ -903,6 +1369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jack Mackler (4K5J22347A)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jack Mackler (4K5J22347A)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4K5J22347A;
@@ -911,7 +1378,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Spottr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5b3bddd1-8487-4218-a5c9-2095ca4ff62b";
+				PROVISIONING_PROFILE = "486c3ede-86b4-41a9-bd42-92b0c2cfbcac";
 				PROVISIONING_PROFILE_SPECIFIER = SpottrAdhoc;
 				SWIFT_OBJC_BRIDGING_HEADER = "Spottr-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -923,6 +1390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jack Mackler (4K5J22347A)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jack Mackler (4K5J22347A)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4K5J22347A;
@@ -931,7 +1399,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Spottr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5b3bddd1-8487-4218-a5c9-2095ca4ff62b";
+				PROVISIONING_PROFILE = "486c3ede-86b4-41a9-bd42-92b0c2cfbcac";
 				PROVISIONING_PROFILE_SPECIFIER = SpottrAdhoc;
 				SWIFT_OBJC_BRIDGING_HEADER = "Spottr-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
