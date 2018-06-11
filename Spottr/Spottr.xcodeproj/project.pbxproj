@@ -154,6 +154,9 @@
 		D387E24620ACAD4E00759C42 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E20E20ACAD4E00759C42 /* UIImageView+WebCache.m */; };
 		D387E24720ACAD4E00759C42 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E21020ACAD4E00759C42 /* UIView+WebCache.m */; };
 		D387E24820ACAD4E00759C42 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D387E21220ACAD4E00759C42 /* UIView+WebCacheOperation.m */; };
+		D3AAA20220CEDDE50072943E /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1FD20CEDDE40072943E /* JVFloatLabeledTextField.m */; };
+		D3AAA20320CEDDE50072943E /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1FF20CEDDE40072943E /* JVFloatLabeledTextView.m */; };
+		D3AAA20420CEDDE50072943E /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA20120CEDDE40072943E /* NSString+TextDirectionality.m */; };
 		D3BC300120B183F80046E1A1 /* SettingOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */; };
 		D3BC300320B18B640046E1A1 /* NofiticationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300220B18B640046E1A1 /* NofiticationCell.swift */; };
 		D3BC300620B1C7AD0046E1A1 /* PostRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */; };
@@ -388,6 +391,12 @@
 		D387E21020ACAD4E00759C42 /* UIView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCache.m"; sourceTree = "<group>"; };
 		D387E21120ACAD4E00759C42 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		D387E21220ACAD4E00759C42 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		D3AAA1FC20CEDDE40072943E /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		D3AAA1FD20CEDDE40072943E /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		D3AAA1FE20CEDDE40072943E /* JVFloatLabeledTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextView.h; sourceTree = "<group>"; };
+		D3AAA1FF20CEDDE40072943E /* JVFloatLabeledTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextView.m; sourceTree = "<group>"; };
+		D3AAA20020CEDDE40072943E /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		D3AAA20120CEDDE40072943E /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
 		D3B4BD5020C454C10012053B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D3B4BD5120C455E50012053B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D3BC300020B183F80046E1A1 /* SettingOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingOptionsCell.swift; sourceTree = "<group>"; };
@@ -813,6 +822,7 @@
 		D387E1AB20ACAD2D00759C42 /* Spottr */ = {
 			isa = PBXGroup;
 			children = (
+				D3AAA1FB20CEDDE40072943E /* JVFloatLabeledTextField */,
 				D37C815120C2E5010062FDF6 /* IQMediaPickerController */,
 				D3EC477F20B5E21F005973EE /* ViewPost */,
 				D3BC300420B1C66E0046E1A1 /* PostRequest */,
@@ -980,6 +990,19 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		D3AAA1FB20CEDDE40072943E /* JVFloatLabeledTextField */ = {
+			isa = PBXGroup;
+			children = (
+				D3AAA1FC20CEDDE40072943E /* JVFloatLabeledTextField.h */,
+				D3AAA1FD20CEDDE40072943E /* JVFloatLabeledTextField.m */,
+				D3AAA1FE20CEDDE40072943E /* JVFloatLabeledTextView.h */,
+				D3AAA1FF20CEDDE40072943E /* JVFloatLabeledTextView.m */,
+				D3AAA20020CEDDE40072943E /* NSString+TextDirectionality.h */,
+				D3AAA20120CEDDE40072943E /* NSString+TextDirectionality.m */,
+			);
+			path = JVFloatLabeledTextField;
+			sourceTree = "<group>";
+		};
 		D3B4BD4F20C454C10012053B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1132,6 +1155,7 @@
 				D37C81CE20C2E5010062FDF6 /* IQSongsListViewController.m in Sources */,
 				D387E21920ACAD4E00759C42 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				D387E22520ACAD4E00759C42 /* Alamofire.swift in Sources */,
+				D3AAA20220CEDDE50072943E /* JVFloatLabeledTextField.m in Sources */,
 				D37C81C220C2E5010062FDF6 /* IQAudioPickerController.m in Sources */,
 				D37C81C520C2E5010062FDF6 /* IQAudioPickerShadowView.m in Sources */,
 				D37C81C720C2E5010062FDF6 /* IQSongsCell.m in Sources */,
@@ -1207,6 +1231,7 @@
 				D387E23C20ACAD4E00759C42 /* SDWebImageDecoder.m in Sources */,
 				D387E22820ACAD4E00759C42 /* MultipartFormData.swift in Sources */,
 				D30EC63120B122B3007F30B5 /* ActionSheetStringPicker.m in Sources */,
+				D3AAA20420CEDDE50072943E /* NSString+TextDirectionality.m in Sources */,
 				D387E21D20ACAD4E00759C42 /* IQBarButtonItem.swift in Sources */,
 				D387E21F20ACAD4E00759C42 /* IQPreviousNextView.swift in Sources */,
 				D31E182820B0348100355FFD /* RegistrationNamePhoneVC.swift in Sources */,
@@ -1231,6 +1256,7 @@
 				D37C81BC20C2E5010062FDF6 /* IQAlbumAssetsViewController.m in Sources */,
 				D37C81CD20C2E5010062FDF6 /* IQSongsGenreViewController.m in Sources */,
 				D3BC300120B183F80046E1A1 /* SettingOptionsCell.swift in Sources */,
+				D3AAA20320CEDDE50072943E /* JVFloatLabeledTextView.m in Sources */,
 				D387E21320ACAD4E00759C42 /* IQNSArray+Sort.swift in Sources */,
 				D31E183220B0454B00355FFD /* SignUpAccountVC.swift in Sources */,
 			);
