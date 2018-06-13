@@ -53,6 +53,13 @@ class ViewController: UIViewController,UITextFieldDelegate
         self.navigationController?.pushViewController(objRegistrationNamePhoneVC, animated: true)
     }
     
+    @IBAction func btnFogotPassword()
+    {
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objRegistrationNamePhoneVC = storyTab.instantiateViewController(withIdentifier: "FogrotPasswordVC")
+        self.navigationController?.pushViewController(objRegistrationNamePhoneVC, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

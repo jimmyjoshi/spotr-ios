@@ -52,6 +52,7 @@
 		D31E182E20B0355900355FFD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E182C20B0355800355FFD /* Constant.swift */; };
 		D31E183020B03CAB00355FFD /* SignupOTPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E182F20B03CAB00355FFD /* SignupOTPVC.swift */; };
 		D31E183220B0454B00355FFD /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E183120B0454B00355FFD /* SignUpAccountVC.swift */; };
+		D34204A520D1866D004300F9 /* FogrotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34204A420D1866D004300F9 /* FogrotPasswordVC.swift */; };
 		D37C81BC20C2E5010062FDF6 /* IQAlbumAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C815420C2E5010062FDF6 /* IQAlbumAssetsViewController.m */; };
 		D37C81BD20C2E5010062FDF6 /* IQAssetsAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C815720C2E5010062FDF6 /* IQAssetsAlbumViewCell.m */; };
 		D37C81BE20C2E5010062FDF6 /* IQAssetsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C815920C2E5010062FDF6 /* IQAssetsCell.m */; };
@@ -224,6 +225,7 @@
 		D31E182C20B0355800355FFD /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D31E182F20B03CAB00355FFD /* SignupOTPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupOTPVC.swift; sourceTree = "<group>"; };
 		D31E183120B0454B00355FFD /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
+		D34204A420D1866D004300F9 /* FogrotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogrotPasswordVC.swift; sourceTree = "<group>"; };
 		D37C815320C2E5010062FDF6 /* IQAlbumAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAlbumAssetsViewController.h; sourceTree = "<group>"; };
 		D37C815420C2E5010062FDF6 /* IQAlbumAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAlbumAssetsViewController.m; sourceTree = "<group>"; };
 		D37C815620C2E5010062FDF6 /* IQAssetsAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAssetsAlbumViewCell.h; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				D31E182720B0348100355FFD /* RegistrationNamePhoneVC.swift */,
 				D31E182F20B03CAB00355FFD /* SignupOTPVC.swift */,
 				D31E183120B0454B00355FFD /* SignUpAccountVC.swift */,
+				D34204A420D1866D004300F9 /* FogrotPasswordVC.swift */,
 			);
 			name = SignUp;
 			path = "New Group";
@@ -1131,6 +1134,7 @@
 				D387E22A20ACAD4E00759C42 /* Notifications.swift in Sources */,
 				D37C81E420C2E5010062FDF6 /* IQMediaPickerController.m in Sources */,
 				D387E22C20ACAD4E00759C42 /* Request.swift in Sources */,
+				D34204A520D1866D004300F9 /* FogrotPasswordVC.swift in Sources */,
 				D3FF12B120B985FB006AF900 /* ViewFriendsVC.swift in Sources */,
 				D37C81E320C2E5010062FDF6 /* IQAKPickerView.m in Sources */,
 				D3BC300620B1C7AD0046E1A1 /* PostRequestVC.swift in Sources */,
