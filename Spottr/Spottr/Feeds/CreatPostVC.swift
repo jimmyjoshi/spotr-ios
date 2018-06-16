@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 import AVFoundation
 
+
 class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate
 {
     @IBOutlet weak var txtSearch : UITextField!
@@ -27,10 +28,20 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
     @IBOutlet weak var btnTakePhoto : UIButton!
     @IBOutlet weak var btnDeletePhoto : UIButton!
     
+    //Custom Overlay for Camera
+    @IBOutlet var overlayView: UIView?
+    @IBOutlet weak var btnGallery : UIButton!
+    @IBOutlet weak var btnCamera : UIButton!
+    @IBOutlet weak var btnVideo : UIButton!
+    var balreadyPresentedOverlay : Bool = false
+    @IBOutlet var buttonCapture : DBCameraButton!
+    var bSessionRunning : Bool = false
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.picker.delegate = self
     }
 
     @IBAction func backButtonPressed()
@@ -339,6 +350,151 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
             handler(exportSession!)
         }
     }
+    
+    // MARK: - CustomOverlay Camera Picker
+    @IBAction func btnCameraCustomAction()
+    {
+        if self.balreadyPresentedOverlay == true
+        {
+            dismiss(animated: true, completion:nil)
+        }
+        btnGallery.isSelected = false
+        btnCamera.isSelected = true
+        btnVideo.isSelected = false
+        buttonCapture.circleColor = UIColor.white
+        buttonCapture.squareColor = UIColor.white
+
+        self.picker.mediaTypes = [kUTTypeImage as String]
+        self.picker.modalPresentationStyle = .currentContext
+        self.picker.sourceType = UIImagePickerControllerSourceType.camera
+        self.picker.modalPresentationStyle =
+            (self.picker.sourceType == UIImagePickerControllerSourceType.camera) ?
+                UIModalPresentationStyle.fullScreen : UIModalPresentationStyle.popover
+        
+//        self.picker.mediaTypes = [kUTTypeImage as NSString as String]
+
+        let presentationController = self.picker.popoverPresentationController
+        presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
+        
+        // The user wants to use the camera interface. Set up our custom overlay view for the camera.
+        self.picker.showsCameraControls = false
+        
+        // Apply our overlay view containing the toolar to take pictures in various ways.
+        overlayView?.frame = (self.picker.cameraOverlayView?.frame)!
+        self.picker.cameraOverlayView = overlayView
+        
+        present(self.picker, animated: true, completion: {
+            // Done presenting.
+            self.balreadyPresentedOverlay = true
+        })
+    }
+    
+    @IBAction func btnGalleryAction()
+    {
+        if self.balreadyPresentedOverlay == true
+        {
+            dismiss(animated: true, completion:nil)
+        }
+        btnGallery.isSelected = true
+        btnCamera.isSelected = false
+        btnVideo.isSelected = false
+        
+        self.picker.mediaTypes = ["public.image", "public.movie"]
+        self.picker.allowsEditing = false
+        self.picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        let presentationController = self.picker.popoverPresentationController
+        presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
+        
+        present(self.picker, animated: true, completion:
+            {
+                self.balreadyPresentedOverlay = false
+                
+        })
+
+    }
+    @IBAction func btnVideoAction()
+    {
+        btnGallery.isSelected = false
+        btnCamera.isSelected = false
+        btnVideo.isSelected = true
+        buttonCapture.circleColor = UIColor.red
+        buttonCapture.squareColor = UIColor.red
+        bSessionRunning = false
+        self.picker.mediaTypes = [kUTTypeMovie as String]
+        self.picker.videoMaximumDuration = 20
+
+        if self.balreadyPresentedOverlay == true
+        {
+        }
+        else
+        {
+            self.picker.modalPresentationStyle = .currentContext
+            self.picker.sourceType = UIImagePickerControllerSourceType.camera
+            self.picker.modalPresentationStyle =
+                (self.picker.sourceType == UIImagePickerControllerSourceType.camera) ?
+                    UIModalPresentationStyle.fullScreen : UIModalPresentationStyle.popover
+            
+            let presentationController = self.picker.popoverPresentationController
+            presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
+            
+            // The user wants to use the camera interface. Set up our custom overlay view for the camera.
+            self.picker.showsCameraControls = false
+            
+            // Apply our overlay view containing the toolar to take pictures in various ways.
+            overlayView?.frame = (self.picker.cameraOverlayView?.frame)!
+            self.picker.cameraOverlayView = overlayView
+            
+            present(self.picker, animated: true, completion: {
+                // Done presenting.
+                self.balreadyPresentedOverlay = true
+            })
+        }
+    }
+
+    //  Converted to Swift 4 by Swiftify v4.1.6738 - https://objectivec2swift.com/
+    @IBAction func captureAction(_ sender: UIButton?)
+    {
+        self.buttonCapture.isEnabled = true
+        
+        if btnCamera.isSelected == true
+        {
+            self.picker.takePicture()
+        }
+        else
+        {
+            if bSessionRunning == false
+            {
+                bSessionRunning = true
+                self.picker.startVideoCapture()
+            }
+            else
+            {
+                self.picker.stopVideoCapture()
+                dismiss(animated: true, completion:nil)
+                bSessionRunning = false
+            }
+        }
+    }
+
+    @IBAction func btnFrontRearCameraACtion()
+    {
+        if self.picker.cameraDevice == .front
+        {
+            self.picker.cameraDevice = .rear
+        }
+        else
+        {
+            self.picker.cameraDevice = .front
+        }
+    }
+    
+    @IBAction func btnPhotoAction()
+    {
+        
+    }
+
+    
+    
     /*
     // MARK: - Navigation
 
