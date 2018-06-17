@@ -278,6 +278,7 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
     //MARK: Image Picker Controller Delegates
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
+        self.balreadyPresentedOverlay = false
         let mType: String? = (info[UIImagePickerControllerMediaType] as? String)
         
         if (mType! == kUTTypeMovie as String)
@@ -327,6 +328,7 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
     //What to do if the image picker cancels.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
+        self.balreadyPresentedOverlay = false
         dismiss(animated: true,completion: nil)
         print("Canceled!!")
     }
@@ -354,39 +356,43 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
     // MARK: - CustomOverlay Camera Picker
     @IBAction func btnCameraCustomAction()
     {
-        if self.balreadyPresentedOverlay == true
-        {
-            dismiss(animated: true, completion:nil)
-        }
         btnGallery.isSelected = false
         btnCamera.isSelected = true
         btnVideo.isSelected = false
         buttonCapture.circleColor = UIColor.white
         buttonCapture.squareColor = UIColor.white
-
+        buttonCapture.isRecording = false
         self.picker.mediaTypes = [kUTTypeImage as String]
-        self.picker.modalPresentationStyle = .currentContext
-        self.picker.sourceType = UIImagePickerControllerSourceType.camera
-        self.picker.modalPresentationStyle =
-            (self.picker.sourceType == UIImagePickerControllerSourceType.camera) ?
-                UIModalPresentationStyle.fullScreen : UIModalPresentationStyle.popover
-        
-//        self.picker.mediaTypes = [kUTTypeImage as NSString as String]
 
-        let presentationController = self.picker.popoverPresentationController
-        presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
-        
-        // The user wants to use the camera interface. Set up our custom overlay view for the camera.
-        self.picker.showsCameraControls = false
-        
-        // Apply our overlay view containing the toolar to take pictures in various ways.
-        overlayView?.frame = (self.picker.cameraOverlayView?.frame)!
-        self.picker.cameraOverlayView = overlayView
-        
-        present(self.picker, animated: true, completion: {
-            // Done presenting.
-            self.balreadyPresentedOverlay = true
-        })
+        if self.balreadyPresentedOverlay == true
+        {
+            
+        }
+        else
+        {
+            self.picker.modalPresentationStyle = .currentContext
+            self.picker.sourceType = UIImagePickerControllerSourceType.camera
+            self.picker.modalPresentationStyle =
+                (self.picker.sourceType == UIImagePickerControllerSourceType.camera) ?
+                    UIModalPresentationStyle.fullScreen : UIModalPresentationStyle.popover
+            
+            //        self.picker.mediaTypes = [kUTTypeImage as NSString as String]
+            
+            let presentationController = self.picker.popoverPresentationController
+            presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
+            
+            // The user wants to use the camera interface. Set up our custom overlay view for the camera.
+            self.picker.showsCameraControls = false
+            
+            // Apply our overlay view containing the toolar to take pictures in various ways.
+            overlayView?.frame = (self.picker.cameraOverlayView?.frame)!
+            self.picker.cameraOverlayView = overlayView
+            
+            present(self.picker, animated: true, completion: {
+                // Done presenting.
+                self.balreadyPresentedOverlay = true
+            })
+        }
     }
     
     @IBAction func btnGalleryAction()
@@ -408,7 +414,6 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
         present(self.picker, animated: true, completion:
             {
                 self.balreadyPresentedOverlay = false
-                
         })
 
     }
@@ -487,7 +492,18 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
             self.picker.cameraDevice = .front
         }
     }
-    
+    @IBAction func btnTourchAction()
+    {
+        if self.picker.cameraFlashMode == .on
+        {
+            self.picker.cameraFlashMode = .off
+        }
+        else
+        {
+            self.picker.cameraFlashMode = .on
+        }
+    }
+
     @IBAction func btnPhotoAction()
     {
         

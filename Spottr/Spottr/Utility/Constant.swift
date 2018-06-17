@@ -50,20 +50,11 @@ let kUserBidBank = "UserBidBank"
 let kNO = "NO"
 let kYES = "YES"
 
-let kFBAPPID = "128398547683260"
-
-
-//let kServerURL = "http://35.154.46.190:1337/api/"
-let kServerURL = "http://18.221.196.29:9000/"
-
-let kPrivacyURL = "http://35.154.46.190:1337/privacy"
-let kFAQURL = "http://35.154.46.190:1337/faq"
-
-//var CurrentUser : UserModel = UserModel()
+let kServerURL = "http://35.154.84.230/spottr/public/api/"
+let kkeyError = "error"
 
 var progressView : UIView?
 
-//var CurrentUser : ModelUser = ModelUser()
 extension Date {
     func toString() -> String {
         let dateFormatter = DateFormatter()
@@ -101,25 +92,4 @@ extension UIColor {
     public class func cameraBGCOLOR () -> UIColor {
         return UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
     }
-//    public class func NAVIGATIONBAR () -> UIColor {
-//        return UIColor(red: 249.0/255.0, green: 3.0/255.0, blue: 110.0/255.0, alpha: 1.0)
-//    }
-//    public class func GRAYCOLOR () -> UIColor {
-//        return UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.60)
-//    }
-//    public class func NAVIGATIONTITLE () -> UIColor {
-//        return UIColor.whiteColor()
-//    }
-//    public class func ButtonTagBorderColor () -> UIColor {
-//        return UIColor(red: 191.0/255.0, green: 194.0/255.0, blue: 194.0/255.0, alpha: 0.60)
-//    }
-//    public class func PAYMENTORANGECOLOR () -> UIColor {
-//        return UIColor(red: 236.0/255.0, green: 151.0/255.0, blue: 53.0/255.0, alpha: 1.0)
-//    }
-//    public class func PAYMENTBLUECOLOR () -> UIColor {
-//        return UIColor(red: 67.0/255.0, green: 149.0/255.0, blue: 248.0/255.0, alpha: 1.0)
-//    }
-//    public class func PAYMENTGREENCOLOR () -> UIColor {
-//        return UIColor(red: 104.0/255.0, green: 189.0/255.0, blue: 101.0/255.0, alpha: 1.0)
-//    }
 }

@@ -74,7 +74,14 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
     
     @IBAction func btnSettingsAction()
     {
-        vwSettings.isHidden = false
+        if vwSettings.isHidden == true
+        {
+            vwSettings.isHidden = false
+        }
+        else
+        {
+            vwSettings.isHidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {

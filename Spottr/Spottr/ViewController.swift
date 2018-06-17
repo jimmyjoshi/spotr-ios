@@ -28,7 +28,6 @@ class ViewController: UIViewController,UITextFieldDelegate
     
     @IBAction func btnLoginNowPressed()
     {
-      /*
         if (self.txtUsername.text?.isEmpty)!
         {
             App_showAlert(withMessage: "Please enter username", inView: self)
@@ -38,12 +37,78 @@ class ViewController: UIViewController,UITextFieldDelegate
             App_showAlert(withMessage: "Please enter password", inView: self)
         }
         else
-        {*/
+        {
+            self.view .endEditing(true)
+            self.callLoginAPI()
+        }
+    }
+    
+    func callLoginAPI()
+    {
+        let url = kServerURL + "login"
+        let parameters: [String: Any] = ["username": self.txtUsername.text!, "password": self.txtPassword.text! ,"device_token" : appDelegate.strDeviceToken]
+        
+        showProgress(inView: self.view)
+        print("parameters:>\(parameters)")
+        request(url, method: .post, parameters:parameters).responseJSON { (response:DataResponse<Any>) in
+            
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if dictemp.count > 0
+                        {
+                            if let err  =  dictemp.value(forKey: kkeyError)
+                            {
+                                App_showAlert(withMessage: err as! String, inView: self)
+                            }
+                            else
+                            {
+                                appDelegate.arrLoginData = dictemp.value(forKey: "data") as! NSDictionary
+                                let data = NSKeyedArchiver.archivedData(withRootObject: appDelegate.arrLoginData)
+                                UserDefaults.standard.set(data, forKey: kkeyLoginData)
+                                UserDefaults.standard.set(true, forKey: kkeyisUserLogin)
+                                UserDefaults.standard.synchronize()
+                                self.gotoDashboard()
+                            }
+                        }
+                        else
+                        {
+                            App_showAlert(withMessage: dictemp[kkeyError]! as! String, inView: self)
+                        }
+                    }
+                }
+                break
+                
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                break
+            }
+        }
+        
+        /*request("\(kServerURL)login.php", method: .post, parameters:parameters).responseString{ response in
+         debugPrint(response)
+         }*/
+        
+    }
+    
+    func gotoDashboard()
+    {
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
         let objFeedsVC = storyTab.instantiateViewController(withIdentifier: "FeedsVC")
         self.navigationController?.pushViewController(objFeedsVC, animated: true)
-
-       // }
     }
     
     @IBAction func btnSignupPressed()

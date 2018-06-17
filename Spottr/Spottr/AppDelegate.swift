@@ -7,19 +7,48 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var bUserProfile = Bool()
-    
+    var strDeviceToken = NSString()
+    var arrLoginData = NSDictionary()
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        strDeviceToken = "424442253525"
+
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
+        //Push Notification Setting Code
+        if #available(iOS 10.0, *)
+        {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                
+                if granted == true
+                {
+                    print("Allow")
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+                else
+                {
+                    print("Don't Allow")
+                }
+            }
+        }
+        else
+        {
+            let type: UIUserNotificationType = [UIUserNotificationType.badge, UIUserNotificationType.alert, UIUserNotificationType.sound]
+            let setting = UIUserNotificationSettings(types: type, categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(setting)
+            UIApplication.shared.registerForRemoteNotifications()
+        }
 
         return true
     }
@@ -46,6 +75,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    //MARK: Push Notification Service
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+    {
+        print(deviceToken)
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print("deviceTokenString -> \(deviceTokenString)")
+        strDeviceToken = deviceTokenString as NSString
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("error fail -> \(error)")
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any])
+    {
+        print("Push Notification Info:>%@", userInfo)
+        var apsInfo: [AnyHashable: Any]? = (userInfo["aps"] as? [AnyHashable: Any])
+        let alert: NSDictionary? = (apsInfo?["alert"] as? NSDictionary)
+        let state:UIApplicationState = application.applicationState
+    }
 }
 
