@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var bUserProfile = Bool()
     var strDeviceToken = NSString()
     var arrLoginData = NSDictionary()
-
+    var dicRegisterParameters = NSDictionary()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

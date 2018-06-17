@@ -17,6 +17,7 @@ class RegistrationNamePhoneVC: UIViewController,UITextFieldDelegate {
     {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        appDelegate.dicRegisterParameters = NSDictionary()
 
         // Do any additional setup after loading the view.
     }
@@ -32,10 +33,24 @@ class RegistrationNamePhoneVC: UIViewController,UITextFieldDelegate {
 
     @IBAction func btnNextPressed()
     {
-        let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let objSignupOTPVC = storyTab.instantiateViewController(withIdentifier: "SignupOTPVC")
-        self.navigationController?.pushViewController(objSignupOTPVC, animated: true)
-
+        if (self.txtUsername.text?.isEmpty)!
+        {
+            App_showAlert(withMessage: "Please enter username", inView: self)
+        }
+        else if (self.txtPhone.text?.isEmpty)!
+        {
+            App_showAlert(withMessage: "Please enter phone number", inView: self)
+        }
+        else
+        {
+            appDelegate.dicRegisterParameters.setValue(txtUsername.text!, forKey: "username")
+            appDelegate.dicRegisterParameters.setValue(txtPhone.text!, forKey: "phone")
+            
+            
+            let storyTab = UIStoryboard(name: "Main", bundle: nil)
+            let objSignupOTPVC = storyTab.instantiateViewController(withIdentifier: "SignupOTPVC")
+            self.navigationController?.pushViewController(objSignupOTPVC, animated: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
