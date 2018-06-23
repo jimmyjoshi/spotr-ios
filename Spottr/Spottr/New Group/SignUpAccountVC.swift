@@ -40,7 +40,8 @@ class SignUpAccountVC: UIViewController,UITextFieldDelegate,UINavigationControll
     }
     @IBAction func btnNextPressed()
     {
-        if (self.txtFullName.text?.isEmpty)!
+        self.gotoFeeds()
+       /* if (self.txtFullName.text?.isEmpty)!
         {
             App_showAlert(withMessage: "Please enter full name", inView: self)
         }
@@ -72,7 +73,7 @@ class SignUpAccountVC: UIViewController,UITextFieldDelegate,UINavigationControll
         {
             self.view .endEditing(true)
             self.callSignupProcess()
-        }
+        }*/
     }
     
     func callSignupProcess()

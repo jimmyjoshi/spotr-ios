@@ -33,7 +33,7 @@ class RegistrationNamePhoneVC: UIViewController,UITextFieldDelegate {
 
     @IBAction func btnNextPressed()
     {
-        if (self.txtUsername.text?.isEmpty)!
+      /*  if (self.txtUsername.text?.isEmpty)!
         {
             App_showAlert(withMessage: "Please enter username", inView: self)
         }
@@ -42,15 +42,15 @@ class RegistrationNamePhoneVC: UIViewController,UITextFieldDelegate {
             App_showAlert(withMessage: "Please enter phone number", inView: self)
         }
         else
-        {
-            appDelegate.dicRegisterParameters.setValue(txtUsername.text!, forKey: "username")
-            appDelegate.dicRegisterParameters.setValue(txtPhone.text!, forKey: "phone")
+        {*/
+//            appDelegate.dicRegisterParameters.setValue(txtUsername.text!, forKey: "username")
+//            appDelegate.dicRegisterParameters.setValue(txtPhone.text!, forKey: "phone")
             
             
             let storyTab = UIStoryboard(name: "Main", bundle: nil)
             let objSignupOTPVC = storyTab.instantiateViewController(withIdentifier: "SignupOTPVC")
             self.navigationController?.pushViewController(objSignupOTPVC, animated: true)
-        }
+        //}
     }
 
     override func didReceiveMemoryWarning() {

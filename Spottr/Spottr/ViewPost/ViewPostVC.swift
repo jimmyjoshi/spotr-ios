@@ -12,6 +12,7 @@ class ViewPostVC: UIViewController
 {
     @IBOutlet weak var tblPost : UITableView!
     var arrPosts = NSMutableArray()
+    @IBOutlet weak var vwCommentOption : UIView!
 
     override func viewDidLoad()
     {
@@ -29,6 +30,24 @@ class ViewPostVC: UIViewController
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func openDeleteOptions(_ sender: Any, event: Any)
+    {
+        let touches = (event as AnyObject).allTouches!
+        let touch = touches?.first!
+        let currentTouchPosition = touch?.location(in: self.tblPost)
+        let indexPath = self.tblPost.indexPathForRow(at: currentTouchPosition!)!
+        let cell = tblPost.cellForRow(at: indexPath)
+        
+        let currentTouchPosition1 = touch?.location(in: self.view)
+        let popover = DXPopover()
+//        popover.show(at: self.vwCommentOption, withContentView: self.view)
+//        popover.show(at: self.tblPost, withContentView: self.vwCommentOption, in: self.view)
+//        popover.show(at: self.vwCommentOption, withContentView: self.vwCommentOption)
+        popover.show(at: currentTouchPosition1!, popoverPostion:.up, withContentView: self.vwCommentOption, in: self.view)
+        popover.didDismissHandler = {
+        }
     }
     
 
@@ -52,6 +71,9 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
+        cell.btnDeleteComment.tag = indexPath.row
+        cell.btnDeleteComment.addTarget(self, action: #selector(self.openDeleteOptions(_:event:)), for: .touchUpInside)
+
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int

@@ -27,6 +27,8 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
     @IBOutlet weak var imgtaken : UIImageView!
     @IBOutlet weak var btnTakePhoto : UIButton!
     @IBOutlet weak var btnDeletePhoto : UIButton!
+    @IBOutlet weak var ctHeightofScrollView : NSLayoutConstraint!
+
     
     //Custom Overlay for Camera
     @IBOutlet var overlayView: UIView?
@@ -42,6 +44,11 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.picker.delegate = self
+        
+        let topBarHeight = UIApplication.shared.statusBarFrame.size.height +
+            (self.navigationController?.navigationBar.frame.height ?? 0.0)
+
+        self.ctHeightofScrollView.constant = MainScreen.height - (topBarHeight + 20)
     }
 
     @IBAction func backButtonPressed()

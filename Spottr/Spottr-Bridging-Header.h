@@ -14,5 +14,6 @@
 #import "IQMediaPickerController.h"
 #import "IQMediaPickerControllerConstants.h"
 #import "DBCameraButton.h"
+#import "DXPopover.h"
 
 #endif /* Spottr_Bridging_Header_h */

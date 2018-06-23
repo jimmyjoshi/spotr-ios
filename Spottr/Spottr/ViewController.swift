@@ -28,7 +28,9 @@ class ViewController: UIViewController,UITextFieldDelegate
     
     @IBAction func btnLoginNowPressed()
     {
-        if (self.txtUsername.text?.isEmpty)!
+        self.gotoDashboard()
+        
+       /* if (self.txtUsername.text?.isEmpty)!
         {
             App_showAlert(withMessage: "Please enter username", inView: self)
         }
@@ -40,7 +42,7 @@ class ViewController: UIViewController,UITextFieldDelegate
         {
             self.view .endEditing(true)
             self.callLoginAPI()
-        }
+        }*/
     }
     
     func callLoginAPI()

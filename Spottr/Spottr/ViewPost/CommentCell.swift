@@ -10,6 +10,8 @@ import UIKit
 
 class CommentCell: UITableViewCell {
 
+    @IBOutlet weak var btnDeleteComment : UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

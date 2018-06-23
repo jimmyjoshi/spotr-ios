@@ -12,7 +12,8 @@ class ViewFriendsVC: UIViewController
 {
     @IBOutlet weak var tblFriend : UITableView!
     var arrFriends = NSMutableArray()
-    
+    @IBOutlet weak var vwRemoveFriendOption : UIView!
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -26,7 +27,24 @@ class ViewFriendsVC: UIViewController
         _ = self.navigationController?.popViewController(animated: true)
     }
 
-   
+    @IBAction func openRemoveOptions(_ sender: Any, event: Any)
+    {
+        let touches = (event as AnyObject).allTouches!
+        let touch = touches?.first!
+        let currentTouchPosition = touch?.location(in: self.tblFriend)
+        let indexPath = self.tblFriend.indexPathForRow(at: currentTouchPosition!)!
+        let cell = tblFriend.cellForRow(at: indexPath)
+        
+        let currentTouchPosition1 = touch?.location(in: self.view)
+        let popover = DXPopover()
+        //        popover.show(at: self.vwCommentOption, withContentView: self.view)
+        //        popover.show(at: self.tblPost, withContentView: self.vwCommentOption, in: self.view)
+        //        popover.show(at: self.vwCommentOption, withContentView: self.vwCommentOption)
+        popover.show(at: currentTouchPosition1!, popoverPostion:.up, withContentView: self.vwRemoveFriendOption, in: self.view)
+        popover.didDismissHandler = {
+        }
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -54,6 +72,9 @@ extension ViewFriendsVC : UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableViewCell") as! FriendsTableViewCell
+        cell.btnRemoveFriend.tag = indexPath.row
+        cell.btnRemoveFriend.addTarget(self, action: #selector(self.openRemoveOptions(_:event:)), for: .touchUpInside)
+
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
