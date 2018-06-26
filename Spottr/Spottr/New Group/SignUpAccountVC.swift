@@ -40,8 +40,8 @@ class SignUpAccountVC: UIViewController,UITextFieldDelegate,UINavigationControll
     }
     @IBAction func btnNextPressed()
     {
-        self.gotoFeeds()
-       /* if (self.txtFullName.text?.isEmpty)!
+//        self.gotoFeeds()
+       if (self.txtFullName.text?.isEmpty)!
         {
             App_showAlert(withMessage: "Please enter full name", inView: self)
         }
@@ -72,8 +72,9 @@ class SignUpAccountVC: UIViewController,UITextFieldDelegate,UINavigationControll
         else
         {
             self.view .endEditing(true)
+            showProgress(inView: self.view)
             self.callSignupProcess()
-        }*/
+        }
     }
     
     func callSignupProcess()
@@ -95,20 +96,21 @@ class SignUpAccountVC: UIViewController,UITextFieldDelegate,UINavigationControll
             "username" : "\(appDelegate.dicRegisterParameters.value(forKey: "username")!)",
             "phone" : "\(appDelegate.dicRegisterParameters.value(forKey: "phone")!)"
         ]
-        
+        let url = kServerURL + "register"
+
         upload(multipartFormData:
             { (multipartFormData) in
                 
                 if let imageData2 = UIImageJPEGRepresentation(self.image, 1)
                 {
-                    multipartFormData.append(imageData2, withName: "profile_pic", fileName: "profile_pic.png", mimeType: "File")
+                    multipartFormData.append(imageData2, withName: "profile_pic", fileName: "profile_pic.png", mimeType: "image/jpeg")
                 }
                 
                 for (key, value) in parameters
                 {
                     multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
                 }
-        }, to: "\(kServerURL)register.php", method: .post, headers: ["Content-Type": "application/x-www-form-urlencoded"], encodingCompletion:
+        }, to: url, method: .post, headers: nil, encodingCompletion:
             {
                 (result) in
                 switch result
@@ -118,11 +120,7 @@ class SignUpAccountVC: UIViewController,UITextFieldDelegate,UINavigationControll
                         {
                             response in
                             hideProgress()
-                            
-                            print(response.request) // original URL request
-                            print(response.response) // URL response
-                            print(response.data) // server data
-                            print(response.result) // result of response serialization
+                            debugPrint(response)
                             
                             /*  if let JSON = response.result.value
                              {
@@ -156,9 +154,7 @@ class SignUpAccountVC: UIViewController,UITextFieldDelegate,UINavigationControll
                                         
                                         let alertView = UIAlertController(title: Application_Name, message: "Signup Successfully", preferredStyle: .alert)
                                         let OKAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-                                            let storyTab = UIStoryboard(name: "Tabbar", bundle: nil)
-                                            let tabbar = storyTab.instantiateViewController(withIdentifier: "TabBarViewController")
-                                            self.navigationController?.pushViewController(tabbar, animated: true)
+                                            self.gotoFeeds()
                                         }
                                         alertView.addAction(OKAction)
                                         self.present(alertView, animated: true, completion: nil)
