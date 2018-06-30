@@ -70,6 +70,14 @@ class FeedsVC: UIViewController,UITextFieldDelegate
         self.navigationController?.pushViewController(objUserProfileVC, animated: true)
     }
 
+    @IBAction func gotoUserPost(_ sender: Any, event: Any)
+    {
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC")
+        self.navigationController?.pushViewController(objViewPostVC, animated: true)
+
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -108,6 +116,7 @@ extension FeedsVC : UICollectionViewDataSource
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,for:indexPath) as! FeedHeaderCell
             cell.btnProfile.tag = indexPath.row
             cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfileofHeaderCell(_:event:)), for: .touchUpInside)
+            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfileofHeaderCell(_:event:)), for: .touchUpInside)
 
             return cell
         }
@@ -118,8 +127,8 @@ extension FeedsVC : UICollectionViewDataSource
             cell.bgImage.layer.masksToBounds = true
 
             cell.btnProfile.tag = indexPath.row
-            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
-
+            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoUserPost(_:event:)), for: .touchUpInside)
+            cell.btnUserName.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
             return cell
         }
     }
