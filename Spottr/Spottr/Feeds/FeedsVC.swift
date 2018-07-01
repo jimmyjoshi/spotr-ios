@@ -14,14 +14,73 @@ class FeedsVC: UIViewController,UITextFieldDelegate
     @IBOutlet weak var clHeader : UICollectionView!
     @IBOutlet weak var clFeeds : UICollectionView!
     var arrFeeds = NSMutableArray()
-
+    var arrUnreadUserFeeds = NSMutableArray()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        showProgress(inView: self.view)
+        self.getUserPosts()
     }
 
+    func getUserPosts()
+    {
+        arrFeeds = NSMutableArray()
+        arrUnreadUserFeeds = NSMutableArray()
+
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "posts"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        
+        request(url, method: .get, parameters:nil, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = ((temp.value(forKey: "error") as! NSDictionary) .value(forKey: "message"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            let data  = dictemp.value(forKey: "data") as! NSDictionary
+                            if data.count > 0
+                            {
+                                self.arrUnreadUserFeeds = NSMutableArray(array: data.value(forKey: "unread") as! NSArray)
+                                self.arrFeeds = NSMutableArray(array: data.value(forKey: "read") as! NSArray)
+                            }
+                        }
+                        self.clHeader.reloadData()
+                        self.clFeeds.reloadData()
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                self.clHeader.reloadData()
+                self.clFeeds.reloadData()
+                break
+            }
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {   //delegate method
         textField.resignFirstResponder()
@@ -102,10 +161,9 @@ extension FeedsVC : UICollectionViewDataSource
     {
         if collectionView == clHeader
         {
-            return 5
+            return arrUnreadUserFeeds.count
         }
-        
-        return 9
+        return arrFeeds.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -125,9 +183,17 @@ extension FeedsVC : UICollectionViewDataSource
             let identifier = "FeedCell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,for:indexPath) as! FeedCell
             cell.bgImage.layer.masksToBounds = true
+            let dicdata = self.arrFeeds[indexPath.row] as! NSDictionary
 
+            if let bgmediaurl = dicdata.value(forKey: "media") as? String
+            {
+                let url2 = URL(string: bgmediaurl)
+                if url2 != nil {
+                    cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
+                }
+            }
             cell.btnProfile.tag = indexPath.row
-            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoUserPost(_:event:)), for: .touchUpInside)
+            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
             cell.btnUserName.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
             return cell
         }
