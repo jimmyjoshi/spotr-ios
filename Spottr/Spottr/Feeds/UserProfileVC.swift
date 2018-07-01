@@ -16,6 +16,11 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
     @IBOutlet weak var btnSettings : UIButton!
     @IBOutlet weak var vwSettings : UIView!
     @IBOutlet weak var tblSetting : UITableView!
+    var userProfileID : String?
+    @IBOutlet weak var imgUser : UIImageView!
+    @IBOutlet weak var lblUserName : UILabel!
+    @IBOutlet weak var txtvwBio : UITextView!
+    var dictuserdata = NSDictionary()
 
     override func viewDidLoad()
     {
@@ -37,8 +42,121 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
             vwFriendRequest.isHidden = false
             btnSettings.isHidden = true
         }
+        
+        showProgress(inView: self.view)
+        self.getUserProfile()
     }
 
+    
+    func getUserProfile()
+    {
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "user-profile"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        
+        let parameters: [String: Any] = ["user_id": userProfileID!]
+        
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "message"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            self.dictuserdata  = dictemp.value(forKey: "data") as! NSDictionary
+                            self.setUserProfileData()
+                        }
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                break
+            }
+        }
+    }
+    
+    func setUserProfileData()
+    {
+        if let imgUserPic = self.dictuserdata.value(forKey: "profile_pic") as? String
+        {
+            let url2 = URL(string: imgUserPic)
+            if url2 != nil {
+                imgUser.sd_setImage(with: url2, placeholderImage: UIImage(named: "profile_pic"))
+            }
+        }
+        lblUserName.text = "\(self.dictuserdata.value(forKey: "name")!)"
+        showProgress(inView: self.view)
+        self.setGetUserPostData()
+    }
+    
+    //MARK: Get User Post Data
+    func setGetUserPostData()
+    {
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "my-posts"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        
+        let parameters: [String: Any] = ["user_id": userProfileID!]
+        
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "message"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            
+                        }
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                break
+            }
+        }
+    }
+    
+    //MARK: Button Actions
     @IBAction func backButtonPressed()
     {
         _ = self.navigationController?.popViewController(animated: true)

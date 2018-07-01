@@ -49,6 +49,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.shared.registerUserNotificationSettings(setting)
             UIApplication.shared.registerForRemoteNotifications()
         }
+        
+        if (userDefaults.bool(forKey: kkeyisUserLogin))
+        {
+            let appdelegate = UIApplication.shared.delegate as! AppDelegate
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let objFeedsVC = mainStoryboard.instantiateViewController(withIdentifier: "FeedsVC")
+            let nav = UINavigationController(rootViewController: objFeedsVC)
+            nav.navigationBar.isHidden = true
+            appdelegate.window!.rootViewController = nav
+        }
+        else
+        {
+            let appdelegate = UIApplication.shared.delegate as! AppDelegate
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            let nav = UINavigationController(rootViewController: homeViewController)
+            nav.isNavigationBarHidden = true
+            appdelegate.window!.rootViewController = nav
+        }
 
         return true
     }

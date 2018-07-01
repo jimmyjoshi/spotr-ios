@@ -54,7 +54,7 @@ class FeedsVC: UIViewController,UITextFieldDelegate
                         
                         if let temp = dictemp.value(forKey: "error") as? NSDictionary
                         {
-                            let msg = ((temp.value(forKey: "error") as! NSDictionary) .value(forKey: "message"))
+                            let msg = (temp.value(forKey: "message"))
                             App_showAlert(withMessage: msg as! String, inView: self)
                         }
                         else
@@ -109,10 +109,12 @@ class FeedsVC: UIViewController,UITextFieldDelegate
         let touches = (event as AnyObject).allTouches!
         let touch = touches?.first!
         let currentTouchPosition = touch?.location(in: self.clFeeds)
-        var indexPath = self.clFeeds.indexPathForItem(at: currentTouchPosition!)!
-
+        let indexPath = self.clFeeds.indexPathForItem(at: currentTouchPosition!)!
+        let dicdata = self.arrFeeds[indexPath.row] as! NSDictionary
+        
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC")
+        let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileVC
+        objUserProfileVC.userProfileID = "\(dicdata.value(forKey: "user_id")!)"
         self.navigationController?.pushViewController(objUserProfileVC, animated: true)
     }
     @IBAction func gotoOtherUserProfileofHeaderCell(_ sender: Any, event: Any)
@@ -122,10 +124,12 @@ class FeedsVC: UIViewController,UITextFieldDelegate
         let touches = (event as AnyObject).allTouches!
         let touch = touches?.first!
         let currentTouchPosition = touch?.location(in: self.clHeader)
-        var indexPath = self.clHeader.indexPathForItem(at: currentTouchPosition!)!
-
+        let indexPath = self.clHeader.indexPathForItem(at: currentTouchPosition!)!
+        let dicdata = self.arrUnreadUserFeeds[indexPath.row] as! NSDictionary
+        
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC")
+        let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileVC
+        objUserProfileVC.userProfileID = "\(dicdata.value(forKey: "user_id")!)"
         self.navigationController?.pushViewController(objUserProfileVC, animated: true)
     }
 
@@ -172,6 +176,25 @@ extension FeedsVC : UICollectionViewDataSource
         {
             let identifier = "FeedHeaderCell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,for:indexPath) as! FeedHeaderCell
+            let dicdata = self.arrUnreadUserFeeds[indexPath.row] as! NSDictionary
+
+            if let bgmediaurl = dicdata.value(forKey: "media") as? String
+            {
+                let url2 = URL(string: bgmediaurl)
+                if url2 != nil {
+                    cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
+                }
+            }
+            cell.btnUserName.setTitle("\(dicdata.value(forKey: "name")!)", for: .normal)
+            cell.lblViewCount.text = "\(dicdata.value(forKey: "viewCount")!)"
+
+            if let imgUserPic = dicdata.value(forKey: "profile_pic") as? String
+            {
+                let url2 = URL(string: imgUserPic)
+                if url2 != nil {
+                    cell.imgUser.sd_setImage(with: url2, placeholderImage: UIImage(named: "profile_pic_test"))
+                }
+            }
             cell.btnProfile.tag = indexPath.row
             cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfileofHeaderCell(_:event:)), for: .touchUpInside)
             cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfileofHeaderCell(_:event:)), for: .touchUpInside)
@@ -192,8 +215,21 @@ extension FeedsVC : UICollectionViewDataSource
                     cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
                 }
             }
+            
+            if let imgUserPic = dicdata.value(forKey: "profile_pic") as? String
+            {
+                let url2 = URL(string: imgUserPic)
+                if url2 != nil {
+                    cell.imgUser.sd_setImage(with: url2, placeholderImage: UIImage(named: "profile_pic"))
+                }
+            }
+            
+            cell.btnUserName.setTitle("\(dicdata.value(forKey: "name")!)", for: .normal)
+            cell.lblViewCount.text = "\(dicdata.value(forKey: "viewCount")!)"
+
             cell.btnProfile.tag = indexPath.row
             cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
+            cell.btnUserName.tag = indexPath.row
             cell.btnUserName.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
             return cell
         }
