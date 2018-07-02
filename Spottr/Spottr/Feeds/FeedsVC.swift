@@ -90,8 +90,12 @@ class FeedsVC: UIViewController,UITextFieldDelegate
     @IBAction func btngotoUserProfile()
     {
         appDelegate.bUserProfile = true
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC")
+        let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileVC
+        objUserProfileVC.userProfileID = "\(final.value(forKey: "user_id")!)"
         self.navigationController?.pushViewController(objUserProfileVC, animated: true)
     }
     

@@ -21,11 +21,17 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
     @IBOutlet weak var lblUserName : UILabel!
     @IBOutlet weak var txtvwBio : UITextView!
     var dictuserdata = NSDictionary()
+    @IBOutlet weak var lblConnectionCount : UILabel!
+    @IBOutlet weak var lblPostCount : UILabel!
+    var arrFeeds = NSMutableArray()
+    @IBOutlet weak var lblNotificationCount : UILabel!
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        
+        self.imgUser.layer.masksToBounds = true
+        
         self.tblSetting.estimatedRowHeight = 30
         self.tblSetting.rowHeight = UITableViewAutomaticDimension
 
@@ -105,6 +111,15 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
             }
         }
         lblUserName.text = "\(self.dictuserdata.value(forKey: "name")!)"
+        txtvwBio.text = "\(self.dictuserdata.value(forKey: "description")!)"
+        lblConnectionCount.text = "\(self.dictuserdata.value(forKey: "connectionCount")!)"
+        lblPostCount.text = "\(self.dictuserdata.value(forKey: "postCount")!)"
+
+        if appDelegate.bUserProfile == true
+        {
+            lblNotificationCount.text = "\(self.dictuserdata.value(forKey: "notification_count")!)"
+        }
+        
         showProgress(inView: self.view)
         self.setGetUserPostData()
     }
@@ -119,6 +134,7 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
         let headers = ["Authorization":"Bearer \(token!)"]
         
         let parameters: [String: Any] = ["user_id": userProfileID!]
+        self.arrFeeds = NSMutableArray()
         
         request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
             print(response.result.debugDescription)
@@ -143,14 +159,16 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
                         }
                         else
                         {
-                            
+                            self.arrFeeds = NSMutableArray(array: dictemp.value(forKey: "data") as! NSArray)
                         }
+                        self.clFeeds.reloadData()
                     }
                 }
                 break
             case .failure(_):
                 print(response.result.error!)
                 App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                self.clFeeds.reloadData()
                 break
             }
         }
@@ -164,9 +182,53 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
     
     @IBAction func gotoRequestsScreen()
     {
-        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "connections/create"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        
+        let parameters: [String: Any] = ["user_id": userProfileID!]
+        
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "reason"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            let msg = (dictemp.value(forKey: "message"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                break
+            }
+        }
+
+        /*let storyTab = UIStoryboard(name: "Main", bundle: nil)
         let objPostRequestVC = storyTab.instantiateViewController(withIdentifier: "PostRequestVC")
-        self.navigationController?.pushViewController(objPostRequestVC, animated: true)
+        self.navigationController?.pushViewController(objPostRequestVC, animated: true)*/
     }
 
     @IBAction func gotoNotificationsScreen()
@@ -223,16 +285,27 @@ extension UserProfileVC : UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return 5
+        return self.arrFeeds.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-            let identifier = "UserFeedsCell"
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,for:indexPath) as! UserFeedsCell
-            cell.bgImage.layer.masksToBounds = true
-
-            return cell
+        let identifier = "UserFeedsCell"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,for:indexPath) as! UserFeedsCell
+        cell.bgImage.layer.masksToBounds = true
+        
+        let dicdata = self.arrFeeds[indexPath.row] as! NSDictionary
+        
+        if let bgmediaurl = dicdata.value(forKey: "media") as? String
+        {
+            let url2 = URL(string: bgmediaurl)
+            if url2 != nil {
+                cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
+            }
+        }
+        cell.lblViewCount.text = "\(dicdata.value(forKey: "viewCount")!)"
+        
+        return cell
     }
 }
 
@@ -309,7 +382,13 @@ extension UserProfileVC : UITableViewDelegate,UITableViewDataSource
             self.navigationController?.pushViewController(objSettingsVC, animated: true)
             break
         case 3:
-            _ = self.navigationController?.popToRootViewController(animated: true)
+            UserDefaults.standard.set(false, forKey: kkeyisUserLogin)
+            UserDefaults.standard.synchronize()
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            let nav = UINavigationController(rootViewController: homeViewController)
+            nav.isNavigationBarHidden = true
+            appDelegate.window!.rootViewController = nav
             break
         default:
             break

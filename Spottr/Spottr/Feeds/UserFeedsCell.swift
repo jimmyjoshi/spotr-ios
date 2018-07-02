@@ -11,5 +11,6 @@ import UIKit
 class UserFeedsCell: UICollectionViewCell {
     
     @IBOutlet weak var bgImage : UIImageView!
+    @IBOutlet weak var lblViewCount : UILabel!
 
 }

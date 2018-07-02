@@ -659,7 +659,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter OTP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLl-yq-E2q">
-                                <rect key="frame" x="101.5" y="180.5" width="118.5" height="31.5"/>
+                                <rect key="frame" x="101" y="180.5" width="118.5" height="31.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1197,13 +1197,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already a User?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUg-Fy-2L5">
-                                                <rect key="frame" x="82" y="597" width="96" height="17"/>
+                                                <rect key="frame" x="82.5" y="597" width="96" height="17"/>
                                                 <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLQ-9q-5rM">
-                                                <rect key="frame" x="182" y="597" width="54" height="17"/>
+                                                <rect key="frame" x="182.5" y="597" width="54" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="O8V-me-eT6"/>
                                                 </constraints>
@@ -2172,6 +2172,12 @@
                                             <constraint firstAttribute="height" constant="80" id="UEh-xX-xQ6"/>
                                             <constraint firstAttribute="width" constant="80" id="Wum-5N-ell"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5gU-vO-b23">
                                         <rect key="frame" x="98" y="71" width="214" height="63"/>
@@ -2184,7 +2190,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gregory Kelly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S32-FA-lOu">
-                                        <rect key="frame" x="100" y="48" width="205" height="21"/>
+                                        <rect key="frame" x="102" y="48" width="203" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="uhE-TW-mCv"/>
                                         </constraints>
@@ -2496,7 +2502,7 @@
                                     <constraint firstItem="S0c-Rw-b1j" firstAttribute="top" secondItem="6cL-J2-wql" secondAttribute="top" id="YQx-wd-uta"/>
                                     <constraint firstAttribute="trailing" secondItem="Iza-N5-2lK" secondAttribute="trailing" id="blj-mF-hHm"/>
                                     <constraint firstItem="S32-FA-lOu" firstAttribute="top" secondItem="w1b-8M-5f2" secondAttribute="top" constant="48" id="gOw-hS-OZ5"/>
-                                    <constraint firstItem="S32-FA-lOu" firstAttribute="leading" secondItem="UDe-7D-PWc" secondAttribute="trailing" constant="8" id="oCE-js-UdI"/>
+                                    <constraint firstItem="S32-FA-lOu" firstAttribute="leading" secondItem="UDe-7D-PWc" secondAttribute="trailing" constant="10" id="oCE-js-UdI"/>
                                     <constraint firstAttribute="trailing" secondItem="5gU-vO-b23" secondAttribute="trailing" constant="8" id="uqr-21-xIa"/>
                                     <constraint firstAttribute="bottom" secondItem="8HY-j0-8qW" secondAttribute="bottom" constant="10" id="xte-p3-FDS"/>
                                     <constraint firstItem="5gU-vO-b23" firstAttribute="top" secondItem="S32-FA-lOu" secondAttribute="bottom" constant="2" id="ztq-Ie-B02"/>
@@ -2569,6 +2575,7 @@
                                         <size key="customSize" width="125" height="160"/>
                                         <connections>
                                             <outlet property="bgImage" destination="B8l-qu-lUX" id="M18-FE-rYW"/>
+                                            <outlet property="lblViewCount" destination="4cD-Mt-MgW" id="gY7-f2-zpe"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -2598,6 +2605,9 @@
                         <outlet property="btnSettings" destination="S0c-Rw-b1j" id="14X-fQ-vww"/>
                         <outlet property="clFeeds" destination="eUW-oI-cic" id="QPf-iy-WhS"/>
                         <outlet property="imgUser" destination="UDe-7D-PWc" id="BgL-q0-MIe"/>
+                        <outlet property="lblConnectionCount" destination="49a-ZK-dLa" id="41t-aT-Mof"/>
+                        <outlet property="lblNotificationCount" destination="TS2-Ps-Ee9" id="BW0-xC-CJT"/>
+                        <outlet property="lblPostCount" destination="qtc-pk-rvE" id="gKW-pl-PRe"/>
                         <outlet property="lblUserName" destination="S32-FA-lOu" id="27K-2L-KML"/>
                         <outlet property="tblSetting" destination="twb-MO-AG4" id="6Xg-LK-atx"/>
                         <outlet property="txtvwBio" destination="5gU-vO-b23" id="W1S-rU-sni"/>
@@ -2625,7 +2635,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phT-Vb-3pB">
-                                <rect key="frame" x="130.5" y="40" width="60" height="20"/>
+                                <rect key="frame" x="130" y="40" width="60" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2906,7 +2916,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gregory Kelly" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84X-ck-j7z">
-                                                            <rect key="frame" x="86" y="30.5" width="162" height="16"/>
+                                                            <rect key="frame" x="86" y="30" width="162" height="16"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -3864,7 +3874,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kus-6X-lSJ">
-                                <rect key="frame" x="130" y="40" width="61" height="20"/>
+                                <rect key="frame" x="129.5" y="40" width="61" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -4039,7 +4049,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i02-HE-qRA">
-                                <rect key="frame" x="98.5" y="31" width="124.5" height="20"/>
+                                <rect key="frame" x="98" y="31" width="124.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
