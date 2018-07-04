@@ -15,6 +15,8 @@ class FeedsVC: UIViewController,UITextFieldDelegate
     @IBOutlet weak var clFeeds : UICollectionView!
     var arrFeeds = NSMutableArray()
     var arrUnreadUserFeeds = NSMutableArray()
+    @IBOutlet weak var lblNoData : UILabel!
+    @IBOutlet weak var vwHeader : UIView!
     
     override func viewDidLoad()
     {
@@ -22,6 +24,7 @@ class FeedsVC: UIViewController,UITextFieldDelegate
         // Do any additional setup after loading the view.
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         showProgress(inView: self.view)
+        lblNoData.isHidden = true
         self.getUserPosts()
     }
 
@@ -55,7 +58,11 @@ class FeedsVC: UIViewController,UITextFieldDelegate
                         if let temp = dictemp.value(forKey: "error") as? NSDictionary
                         {
                             let msg = (temp.value(forKey: "message"))
-                            App_showAlert(withMessage: msg as! String, inView: self)
+//                            App_showAlert(withMessage: msg as! String, inView: self)
+                            self.vwHeader.isHidden = true
+                            self.clFeeds.isHidden = true
+                            self.lblNoData.isHidden = false
+                            self.lblNoData.text = msg as? String
                         }
                         else
                         {
@@ -64,6 +71,17 @@ class FeedsVC: UIViewController,UITextFieldDelegate
                             {
                                 self.arrUnreadUserFeeds = NSMutableArray(array: data.value(forKey: "unread") as! NSArray)
                                 self.arrFeeds = NSMutableArray(array: data.value(forKey: "read") as! NSArray)
+                            }
+                            else
+                            {
+                                self.vwHeader.isHidden = true
+                                self.clFeeds.isHidden = true
+                                self.lblNoData.isHidden = false
+                                self.vwHeader.isHidden = true
+                                self.clFeeds.isHidden = true
+                                self.lblNoData.isHidden = false
+                                let msg = (data.value(forKey: "message"))
+                                self.lblNoData.text = msg as? String
                             }
                         }
                         self.clHeader.reloadData()

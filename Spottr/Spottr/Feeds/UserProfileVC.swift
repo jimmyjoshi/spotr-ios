@@ -231,6 +231,13 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
         self.navigationController?.pushViewController(objPostRequestVC, animated: true)*/
     }
 
+    @IBAction func gotoConnectionScreen()
+    {
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+         let objPostRequestVC = storyTab.instantiateViewController(withIdentifier: "PostRequestVC")
+         self.navigationController?.pushViewController(objPostRequestVC, animated: true)
+    }
+    
     @IBAction func gotoNotificationsScreen()
     {
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
