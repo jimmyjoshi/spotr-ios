@@ -254,9 +254,9 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
     
     @IBAction func gotoPostScreen()
     {
-        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+       /* let storyTab = UIStoryboard(name: "Main", bundle: nil)
         let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC")
-        self.navigationController?.pushViewController(objViewPostVC, animated: true)
+        self.navigationController?.pushViewController(objViewPostVC, animated: true)*/
     }
     
     @IBAction func btnSettingsAction()
@@ -317,12 +317,13 @@ extension UserProfileVC : UICollectionViewDataSource
 }
 
 // MARK:- UICollectionViewDelegate Methods
-
 extension UserProfileVC : UICollectionViewDelegate
 {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC")
+        self.navigationController?.pushViewController(objViewPostVC, animated: true)
     }
 }
 extension UserProfileVC : UITableViewDelegate,UITableViewDataSource
