@@ -264,7 +264,17 @@ extension FeedsVC : UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC")
+        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC") as! ViewPostVC
+        var dicdata = NSDictionary()
+        if collectionView == clHeader
+        {
+            dicdata = self.arrUnreadUserFeeds[indexPath.row] as! NSDictionary
+        }
+        else
+        {
+             dicdata = self.arrFeeds[indexPath.row] as! NSDictionary
+        }
+        objViewPostVC.strPostID = "\(dicdata.value(forKey: "post_id")!)"
         self.navigationController?.pushViewController(objViewPostVC, animated: true)
     }
 }

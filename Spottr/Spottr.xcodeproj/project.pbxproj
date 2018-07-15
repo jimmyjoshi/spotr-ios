@@ -164,6 +164,7 @@
 		D3BC300620B1C7AD0046E1A1 /* PostRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */; };
 		D3EC477E20B5D724005973EE /* PostRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC477D20B5D724005973EE /* PostRequestCell.swift */; };
 		D3EC478120B5E23F005973EE /* ViewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC478020B5E23F005973EE /* ViewPostVC.swift */; };
+		D3FD131520FB4CA0004CEA93 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FD131420FB4CA0004CEA93 /* AVKit.framework */; };
 		D3FF12B120B985FB006AF900 /* ViewFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF12B020B985FB006AF900 /* ViewFriendsVC.swift */; };
 		D3FF12B320B98618006AF900 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF12B220B98618006AF900 /* FriendsTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -410,6 +411,7 @@
 		D3BC300520B1C7AD0046E1A1 /* PostRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestVC.swift; sourceTree = "<group>"; };
 		D3EC477D20B5D724005973EE /* PostRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestCell.swift; sourceTree = "<group>"; };
 		D3EC478020B5E23F005973EE /* ViewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostVC.swift; sourceTree = "<group>"; };
+		D3FD131420FB4CA0004CEA93 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		D3FF12B020B985FB006AF900 /* ViewFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFriendsVC.swift; sourceTree = "<group>"; };
 		D3FF12B220B98618006AF900 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -419,6 +421,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3FD131520FB4CA0004CEA93 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1026,7 @@
 		D3B4BD4F20C454C10012053B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3FD131420FB4CA0004CEA93 /* AVKit.framework */,
 				D30FD1D720D6384100CB1299 /* UserNotifications.framework */,
 				D3B4BD5120C455E50012053B /* AVFoundation.framework */,
 				D3B4BD5020C454C10012053B /* MobileCoreServices.framework */,
@@ -1415,8 +1419,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jack Mackler (4K5J22347A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jack Mackler (4K5J22347A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jack Mackler (V72SB2RNP6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jack Mackler (V72SB2RNP6)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4K5J22347A;
 				INFOPLIST_FILE = Spottr/Info.plist;
@@ -1424,8 +1428,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Spottr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4b31ad1c-34ab-4c32-becb-2b69a4a1d449";
-				PROVISIONING_PROFILE_SPECIFIER = SpottrAdhoc;
+				PROVISIONING_PROFILE = "f96ee2dd-43c0-41b4-bbf1-95c13ed40a6a";
+				PROVISIONING_PROFILE_SPECIFIER = Spottr_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Spottr-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1436,8 +1440,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jack Mackler (4K5J22347A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jack Mackler (4K5J22347A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jack Mackler (V72SB2RNP6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jack Mackler (V72SB2RNP6)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4K5J22347A;
 				INFOPLIST_FILE = Spottr/Info.plist;
@@ -1445,8 +1449,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Spottr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4b31ad1c-34ab-4c32-becb-2b69a4a1d449";
-				PROVISIONING_PROFILE_SPECIFIER = SpottrAdhoc;
+				PROVISIONING_PROFILE = "f96ee2dd-43c0-41b4-bbf1-95c13ed40a6a";
+				PROVISIONING_PROFILE_SPECIFIER = Spottr_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Spottr-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

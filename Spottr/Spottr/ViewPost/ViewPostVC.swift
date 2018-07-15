@@ -13,6 +13,7 @@ class ViewPostVC: UIViewController
     @IBOutlet weak var tblPost : UITableView!
     var arrPosts = NSMutableArray()
     @IBOutlet weak var vwCommentOption : UIView!
+    var strPostID = String()
 
     override func viewDidLoad()
     {
@@ -24,6 +25,11 @@ class ViewPostVC: UIViewController
     @IBAction func backButtonPressed()
     {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    func getUserPosts()
+    {
+        
     }
 
     override func didReceiveMemoryWarning()
