@@ -11,9 +11,10 @@ import UIKit
 class ViewPostVC: UIViewController
 {
     @IBOutlet weak var tblPost : UITableView!
-    var arrPosts = NSMutableArray()
+    var arrComments = NSMutableArray()
     @IBOutlet weak var vwCommentOption : UIView!
     var strPostID = String()
+    var dictPost = NSDictionary()
 
     override func viewDidLoad()
     {
@@ -21,6 +22,10 @@ class ViewPostVC: UIViewController
         // Do any additional setup after loading the view.
         self.tblPost.estimatedRowHeight = 200
         self.tblPost.rowHeight = UITableViewAutomaticDimension
+        
+        
+        showProgress(inView: self.view)
+        self.getUserPosts()
     }
     @IBAction func backButtonPressed()
     {
@@ -29,7 +34,55 @@ class ViewPostVC: UIViewController
     
     func getUserPosts()
     {
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "posts/show"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
         
+        let parameters: [String: Any] = ["post_id": strPostID]
+        
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "message"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            self.dictPost = dictemp.value(forKey: "data") as! NSDictionary
+                            self.arrComments = NSMutableArray(array: self.dictPost.value(forKey: "comments") as! NSArray)
+                        }
+                        self.tblPost.reloadData()
+                        self.tblPost.delegate = self
+                        self.tblPost.dataSource = self
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                self.tblPost.reloadData()
+                self.tblPost.delegate = self
+                self.tblPost.dataSource = self
+                break
+            }
+        }
     }
 
     override func didReceiveMemoryWarning()
@@ -84,10 +137,15 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 5
+        return self.arrComments.count
     }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 375
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        if dictPost.count > 0
+        {
+            return 375
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -101,8 +159,39 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let cell : ViewPostHeaderCell = tableView.dequeueReusableCell(withIdentifier: "ViewPostHeaderCell") as! ViewPostHeaderCell
+        
+        if "\(self.dictPost.value(forKey: "is_image")!)" == "1"
+        {
+            if let bgmediaurl = self.dictPost.value(forKey: "media") as? String
+            {
+                let url2 = URL(string: bgmediaurl)
+                if url2 != nil
+                {
+                    cell.imgPost.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
+                }
+            }
+            cell.btnPlayVideoIcon.isHidden = true
+        }
+        else
+        {
+            if let bgmediaurl = self.dictPost.value(forKey: "thumbnail") as? String
+            {
+                let url2 = URL(string: bgmediaurl)
+                if url2 != nil {
+                    cell.imgPost.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
+                }
+            }
+            cell.btnPlayVideoIcon.isHidden = false
+        }
+        
+        cell.lblViewCount.text = "\(self.dictPost.value(forKey: "view_count")!)"
+        cell.lblCommentCount.text = "\(self.dictPost.value(forKey: "comments_count")!)"
+        cell.txtPostDescription.text = "\(self.dictPost.value(forKey: "description")!)"
+
         return cell.contentView
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        
     }
 }

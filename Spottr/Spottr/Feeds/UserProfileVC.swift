@@ -303,11 +303,24 @@ extension UserProfileVC : UICollectionViewDataSource
         
         let dicdata = self.arrFeeds[indexPath.row] as! NSDictionary
         
-        if let bgmediaurl = dicdata.value(forKey: "media") as? String
+        if "\(dicdata.value(forKey: "is_image")!)" == "1"
         {
-            let url2 = URL(string: bgmediaurl)
-            if url2 != nil {
-                cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
+            if let bgmediaurl = dicdata.value(forKey: "media") as? String
+            {
+                let url2 = URL(string: bgmediaurl)
+                if url2 != nil {
+                    cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
+                }
+            }
+        }
+        else
+        {
+            if let bgmediaurl = dicdata.value(forKey: "thumbnail") as? String
+            {
+                let url2 = URL(string: bgmediaurl)
+                if url2 != nil {
+                    cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
+                }
             }
         }
         cell.lblViewCount.text = "\(dicdata.value(forKey: "viewCount")!)"
@@ -322,7 +335,9 @@ extension UserProfileVC : UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC")
+        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC") as! ViewPostVC
+        let dicdata = self.arrFeeds[indexPath.row] as! NSDictionary
+        objViewPostVC.strPostID = "\(dicdata.value(forKey: "post_id")!)"
         self.navigationController?.pushViewController(objViewPostVC, animated: true)
     }
 }

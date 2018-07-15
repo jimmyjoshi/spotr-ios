@@ -3185,22 +3185,30 @@
                                                         <constraint firstItem="h9a-8g-gtc" firstAttribute="centerY" secondItem="qZA-Ll-Foc" secondAttribute="centerY" id="g4W-uo-ysM"/>
                                                     </constraints>
                                                 </view>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eA5-iR-eO1">
+                                                    <rect key="frame" x="5" y="5" width="278" height="200"/>
+                                                    <state key="normal" image="ic_play"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YgK-ZQ-9PU" firstAttribute="leading" secondItem="HJ1-q9-6Qy" secondAttribute="leading" constant="5" id="7Um-UU-MQC"/>
                                                 <constraint firstItem="qZA-Ll-Foc" firstAttribute="top" secondItem="bch-5u-581" secondAttribute="bottom" constant="2" id="Dfa-rP-scz"/>
                                                 <constraint firstItem="lV8-uJ-mIs" firstAttribute="leading" secondItem="HJ1-q9-6Qy" secondAttribute="leading" constant="5" id="Fly-Kl-UGq"/>
                                                 <constraint firstItem="bch-5u-581" firstAttribute="leading" secondItem="HJ1-q9-6Qy" secondAttribute="leading" constant="5" id="LRa-VN-naO"/>
+                                                <constraint firstItem="eA5-iR-eO1" firstAttribute="trailing" secondItem="lV8-uJ-mIs" secondAttribute="trailing" id="Pzo-Cu-fM4"/>
                                                 <constraint firstAttribute="trailing" secondItem="YgK-ZQ-9PU" secondAttribute="trailing" constant="5" id="dgh-f9-cGc"/>
                                                 <constraint firstAttribute="bottom" secondItem="qZA-Ll-Foc" secondAttribute="bottom" constant="2" id="imz-9M-dLj"/>
                                                 <constraint firstAttribute="trailing" secondItem="bch-5u-581" secondAttribute="trailing" constant="5" id="n2u-eG-Zza"/>
+                                                <constraint firstItem="eA5-iR-eO1" firstAttribute="leading" secondItem="lV8-uJ-mIs" secondAttribute="leading" id="nlJ-cg-Fcq"/>
                                                 <constraint firstAttribute="trailing" secondItem="qZA-Ll-Foc" secondAttribute="trailing" constant="5" id="okM-Hw-HpN"/>
                                                 <constraint firstItem="qZA-Ll-Foc" firstAttribute="leading" secondItem="HJ1-q9-6Qy" secondAttribute="leading" constant="5" id="qAM-NH-6cp"/>
                                                 <constraint firstItem="bch-5u-581" firstAttribute="top" secondItem="YgK-ZQ-9PU" secondAttribute="bottom" constant="8" id="syo-XE-nEB"/>
                                                 <constraint firstItem="qZA-Ll-Foc" firstAttribute="top" secondItem="bch-5u-581" secondAttribute="bottom" constant="2" id="wbj-Nu-d1Z"/>
                                                 <constraint firstAttribute="trailing" secondItem="lV8-uJ-mIs" secondAttribute="trailing" constant="5" id="x8P-lm-MNO"/>
+                                                <constraint firstItem="eA5-iR-eO1" firstAttribute="top" secondItem="lV8-uJ-mIs" secondAttribute="top" id="xii-E5-xTe"/>
                                                 <constraint firstItem="YgK-ZQ-9PU" firstAttribute="top" secondItem="lV8-uJ-mIs" secondAttribute="bottom" constant="5" id="yNv-gP-qtO"/>
                                                 <constraint firstItem="lV8-uJ-mIs" firstAttribute="top" secondItem="HJ1-q9-6Qy" secondAttribute="top" constant="5" id="zIf-BN-MXp"/>
+                                                <constraint firstItem="eA5-iR-eO1" firstAttribute="bottom" secondItem="lV8-uJ-mIs" secondAttribute="bottom" id="zV1-nn-eLO"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -3218,6 +3226,13 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="btnPlayVideoIcon" destination="eA5-iR-eO1" id="atU-s0-tAk"/>
+                                            <outlet property="imgPost" destination="lV8-uJ-mIs" id="s4X-N7-HDN"/>
+                                            <outlet property="lblCommentCount" destination="Cb8-5j-18D" id="zh2-F8-GiG"/>
+                                            <outlet property="lblViewCount" destination="dfd-uu-XYi" id="oC5-9X-0Vd"/>
+                                            <outlet property="txtPostDescription" destination="bch-5u-581" id="DGt-ib-v07"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="60" id="xYo-7u-uVH" customClass="CommentCell" customModule="Spottr" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="433.5" width="288" height="60"/>
@@ -3268,10 +3283,6 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="GiM-uF-1Hl" id="dHh-WB-beW"/>
-                                    <outlet property="delegate" destination="GiM-uF-1Hl" id="Osx-jE-neR"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3339,7 +3350,7 @@
                     <viewLayoutGuide key="safeArea" id="hg8-W0-Gvc"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="7792.5" y="116.19718309859155"/>
+            <point key="canvasLocation" x="7792.5" y="115"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="BxY-vE-40s">

@@ -10,6 +10,12 @@ import UIKit
 
 class ViewPostHeaderCell: UITableViewCell {
 
+    @IBOutlet weak var imgPost : UIImageView!
+    @IBOutlet weak var lblViewCount : UILabel!
+    @IBOutlet weak var lblCommentCount : UILabel!
+    @IBOutlet weak var txtPostDescription : UITextView!
+    @IBOutlet weak var btnPlayVideoIcon : UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
