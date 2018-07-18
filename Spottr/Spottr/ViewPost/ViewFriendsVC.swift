@@ -13,6 +13,7 @@ class ViewFriendsVC: UIViewController
     @IBOutlet weak var tblFriend : UITableView!
     var arrFriends = NSMutableArray()
     @IBOutlet weak var vwRemoveFriendOption : UIView!
+    var userProfileID : String?
 
     override func viewDidLoad()
     {
@@ -20,8 +21,59 @@ class ViewFriendsVC: UIViewController
         // Do any additional setup after loading the view.
         self.tblFriend.estimatedRowHeight = 200
         self.tblFriend.rowHeight = UITableViewAutomaticDimension
+        
+        showProgress(inView: self.view)
+        self.getUserConnections()        
     }
 
+    func getUserConnections()
+    {
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "my-connections"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        
+        let parameters: [String: Any] = ["user_id": userProfileID!]
+        
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "message"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            self.arrFriends = NSMutableArray(array: dictemp.value(forKey: "data") as! NSArray)
+                        }
+                        self.tblFriend.reloadData()
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                self.tblFriend.reloadData()
+                break
+            }
+        }
+    }
+    
     @IBAction func backButtonPressed()
     {
         _ = self.navigationController?.popViewController(animated: true)
@@ -72,14 +124,27 @@ extension ViewFriendsVC : UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableViewCell") as! FriendsTableViewCell
+        
+        cell.imgUserProfile.layer.masksToBounds = true
+        
+        let dicdata = self.arrFriends[indexPath.row] as! NSDictionary
+        if let bgmediaurl = dicdata.value(forKey: "profile_pic") as? String
+        {
+            let url2 = URL(string: bgmediaurl)
+            if url2 != nil {
+                cell.imgUserProfile.sd_setImage(with: url2, placeholderImage: UIImage(named: "profile_pic"))
+            }
+        }
+        cell.lblUserName.text = "\(dicdata.value(forKey: "name")!)"
+
         cell.btnRemoveFriend.tag = indexPath.row
         cell.btnRemoveFriend.addTarget(self, action: #selector(self.openRemoveOptions(_:event:)), for: .touchUpInside)
-
+        cell.selectionStyle = .none
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 5
+        return self.arrFriends.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int

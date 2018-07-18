@@ -119,6 +119,17 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
         {
             lblNotificationCount.text = "\(self.dictuserdata.value(forKey: "notification_count")!)"
         }
+        else
+        {
+            if "\(self.dictuserdata.value(forKey: "show_connect_btn")!)" == "1"
+            {
+                vwFriendRequest.isHidden = false
+            }
+            else
+            {
+                vwFriendRequest.isHidden = true
+            }
+        }
         
         showProgress(inView: self.view)
         self.setGetUserPostData()
@@ -248,7 +259,8 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
     @IBAction func gotoFriendsListScreen()
     {
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let objViewFriendsVC = storyTab.instantiateViewController(withIdentifier: "ViewFriendsVC")
+        let objViewFriendsVC = storyTab.instantiateViewController(withIdentifier: "ViewFriendsVC") as! ViewFriendsVC
+        objViewFriendsVC.userProfileID = self.userProfileID
         self.navigationController?.pushViewController(objViewFriendsVC, animated: true)
     }
     

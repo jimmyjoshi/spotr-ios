@@ -43,6 +43,7 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
     var balreadyPresentedOverlay : Bool = false
     @IBOutlet var buttonCapture : DBCameraButton!
     var bSessionRunning : Bool = false
+    var bDataAdded : Bool = false
     
     override func viewDidLoad()
     {
@@ -337,7 +338,7 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
     @IBAction func didCancel(_ sender: UIButton)
     {
         picker.dismiss(animated: true,completion: nil)
-        print("dismissed!!")
+        self.balreadyPresentedOverlay = false
     }
     @IBAction func didShoot(_ sender: UIButton)
     {
@@ -348,6 +349,7 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         self.balreadyPresentedOverlay = false
+        self.bDataAdded = true
         let mType: String? = (info[UIImagePickerControllerMediaType] as? String)
         
         if (mType! == kUTTypeMovie as String)
@@ -622,6 +624,7 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
         }
     }
     
+    
     //MARK: Call to Create Post action
     @IBAction func btnPostAction()
     {
@@ -633,7 +636,10 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
         {
             App_showAlert(withMessage: "Please select connection", inView: self)
         }
-        
+        else if (self.bDataAdded == false)
+        {
+            App_showAlert(withMessage: "Please add post image or video", inView: self)
+        }
         else
         {
             self.view .endEditing(true)

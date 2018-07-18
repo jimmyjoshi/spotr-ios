@@ -17,7 +17,9 @@ class FeedsVC: UIViewController,UITextFieldDelegate
     var arrUnreadUserFeeds = NSMutableArray()
     @IBOutlet weak var lblNoData : UILabel!
     @IBOutlet weak var vwHeader : UIView!
-    
+    var arrAllReadFeeds = NSMutableArray()
+    var arrAllUnreadUserFeeds = NSMutableArray()
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -71,6 +73,9 @@ class FeedsVC: UIViewController,UITextFieldDelegate
                             {
                                 self.arrUnreadUserFeeds = NSMutableArray(array: data.value(forKey: "unread") as! NSArray)
                                 self.arrFeeds = NSMutableArray(array: data.value(forKey: "read") as! NSArray)
+                                
+                                self.arrAllUnreadUserFeeds = NSMutableArray(array: data.value(forKey: "unread") as! NSArray)
+                                self.arrAllReadFeeds = NSMutableArray(array: data.value(forKey: "read") as! NSArray)
                             }
                             else
                             {
@@ -102,7 +107,96 @@ class FeedsVC: UIViewController,UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {   //delegate method
         textField.resignFirstResponder()
+        if (txtSearch.text?.count)! > 0
+        {
+            self.searchUserPosts()
+        }
+        else
+        {
+            self.vwHeader.isHidden = false
+            self.clFeeds.isHidden = false
+            self.lblNoData.isHidden = true
+
+            self.arrUnreadUserFeeds = self.arrAllUnreadUserFeeds
+            self.arrFeeds = self.arrAllReadFeeds
+            self.clHeader.reloadData()
+            self.clFeeds.reloadData()
+        }
         return true
+    }
+    
+    //MARK : Search Post
+    func searchUserPosts()
+    {
+        arrFeeds = NSMutableArray()
+        arrUnreadUserFeeds = NSMutableArray()
+        
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "posts-filter"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        
+        let parameters: [String: Any] = ["keyword": "\(txtSearch.text!)"]
+
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "message"))
+                            //                            App_showAlert(withMessage: msg as! String, inView: self)
+                            self.vwHeader.isHidden = true
+                            self.clFeeds.isHidden = true
+                            self.lblNoData.isHidden = false
+                            self.lblNoData.text = msg as? String
+                        }
+                        else
+                        {
+                            let data  = dictemp.value(forKey: "data") as! NSDictionary
+                            if data.count > 0
+                            {
+                                self.arrUnreadUserFeeds = NSMutableArray(array: data.value(forKey: "unread") as! NSArray)
+                                self.arrFeeds = NSMutableArray(array: data.value(forKey: "read") as! NSArray)
+                            }
+                            else
+                            {
+                                self.vwHeader.isHidden = true
+                                self.clFeeds.isHidden = true
+                                self.lblNoData.isHidden = false
+                                self.vwHeader.isHidden = true
+                                self.clFeeds.isHidden = true
+                                self.lblNoData.isHidden = false
+                                let msg = (data.value(forKey: "message"))
+                                self.lblNoData.text = msg as? String
+                            }
+                        }
+                        self.clHeader.reloadData()
+                        self.clFeeds.reloadData()
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                self.clHeader.reloadData()
+                self.clFeeds.reloadData()
+                break
+            }
+        }
     }
     
     @IBAction func btngotoUserProfile()
