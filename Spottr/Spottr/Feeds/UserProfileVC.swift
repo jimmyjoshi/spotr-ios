@@ -408,7 +408,8 @@ extension UserProfileVC : UITableViewDelegate,UITableViewDataSource
             break
         case 1:
             let storyTab = UIStoryboard(name: "Main", bundle: nil)
-            let objUpdateProfileVC = storyTab.instantiateViewController(withIdentifier: "UpdateProfileVC")
+            let objUpdateProfileVC = storyTab.instantiateViewController(withIdentifier: "UpdateProfileVC") as! UpdateProfileVC
+            objUpdateProfileVC.dictUserDetails = self.dictuserdata
             self.navigationController?.pushViewController(objUpdateProfileVC, animated: true)
             break
         case 2:

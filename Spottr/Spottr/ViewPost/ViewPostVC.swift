@@ -23,7 +23,6 @@ class ViewPostVC: UIViewController
         self.tblPost.estimatedRowHeight = 200
         self.tblPost.rowHeight = UITableViewAutomaticDimension
         
-        
         showProgress(inView: self.view)
         self.getUserPosts()
     }
@@ -184,7 +183,7 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
             cell.btnPlayVideoIcon.isHidden = false
         }
         
-        cell.lblViewCount.text = "\(self.dictPost.value(forKey: "view_count")!)"
+        cell.lblViewCount.text = "\(self.dictPost.value(forKey: "viewCount")!)"
         cell.lblCommentCount.text = "\(self.dictPost.value(forKey: "comments_count")!)"
         cell.txtPostDescription.text = "\(self.dictPost.value(forKey: "description")!)"
 

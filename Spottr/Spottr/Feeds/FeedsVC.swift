@@ -25,11 +25,15 @@ class FeedsVC: UIViewController,UITextFieldDelegate
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+
+    override func viewWillAppear(_ animated: Bool)
+    {
         showProgress(inView: self.view)
         lblNoData.isHidden = true
         self.getUserPosts()
     }
-
+    
     func getUserPosts()
     {
         arrFeeds = NSMutableArray()

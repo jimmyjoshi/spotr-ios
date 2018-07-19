@@ -74,6 +74,7 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
+
 extension UIColor {
     
     public class func APPCOLOR () -> UIColor {
