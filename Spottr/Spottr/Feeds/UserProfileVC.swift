@@ -25,7 +25,7 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
     @IBOutlet weak var lblPostCount : UILabel!
     var arrFeeds = NSMutableArray()
     @IBOutlet weak var lblNotificationCount : UILabel!
-
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -49,10 +49,13 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
             btnSettings.isHidden = true
         }
         
+    }
+
+    override func viewWillAppear(_ animated: Bool)
+    {
         showProgress(inView: self.view)
         self.getUserProfile()
     }
-
     
     func getUserProfile()
     {

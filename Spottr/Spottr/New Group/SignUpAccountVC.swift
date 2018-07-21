@@ -90,7 +90,7 @@ class SignUpAccountVC: UIViewController,UITextFieldDelegate,UINavigationControll
             "name": "\(txtFullName.text!)",
             "email": "\(txtEmailAddress.text!)",
             "password" : "\(txtPassword.text!)",
-            "dob":"\(appDelegate.strDeviceToken)",
+            "dob":"\(txtBirthday.text!)",
             "gender" : "\(txtGender.text!)",
             "device_token" : "\(appDelegate.strDeviceToken)",
             "username" : "\(appDelegate.dicRegisterParameters.value(forKey: "username")!)",

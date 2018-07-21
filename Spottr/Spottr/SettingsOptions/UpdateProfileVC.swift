@@ -10,8 +10,8 @@ import UIKit
 
 class UpdateProfileVC: UIViewController,UITextFieldDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate
 {
-    @IBOutlet weak var lblFullName : UILabel!
-    @IBOutlet weak var lblEmailAddress : UILabel!
+    @IBOutlet weak var txtFullName : UITextField!
+    @IBOutlet weak var txtEmailAddress : UITextField!
     @IBOutlet weak var txtPassword : UITextField!
     @IBOutlet weak var txtConfirmPassword : UITextField!
     @IBOutlet weak var lblAge : UILabel!
@@ -21,6 +21,8 @@ class UpdateProfileVC: UIViewController,UITextFieldDelegate,UINavigationControll
     var imagePicker = UIImagePickerController()
     var imageData = NSData()
     var image = UIImage()
+    var strDate = String()
+    var bUpdatePassword : Bool = false
 
     override func viewDidLoad()
     {
@@ -35,12 +37,13 @@ class UpdateProfileVC: UIViewController,UITextFieldDelegate,UINavigationControll
             }
         }
         // Do any additional setup after loading the view.
-        lblFullName.text = "\(self.dictUserDetails.value(forKey: "name")!)"
-        lblEmailAddress.text = "\(self.dictUserDetails.value(forKey: "email")!)"
+        txtFullName.text = "\(self.dictUserDetails.value(forKey: "name")!)"
+        txtEmailAddress.text = "\(self.dictUserDetails.value(forKey: "email")!)"
         lblAge.text = "\(self.dictUserDetails.value(forKey: "dob")!)"
         if (lblAge.text?.count)! > 0
         {
             lblAge.text = "\(self.calcAge(birthday: lblAge.text!))"
+            strDate = "\(self.dictUserDetails.value(forKey: "dob")!)"
         }
         lblGender.text = "\(self.dictUserDetails.value(forKey: "gender")!)"
     }
@@ -74,9 +77,143 @@ class UpdateProfileVC: UIViewController,UITextFieldDelegate,UINavigationControll
     //MARK: Updte Profile
     @IBAction func btnUpdateProfileAction(_ sender: UIButton)
     {
-        
+        if (self.txtFullName.text?.isEmpty)!
+        {
+            App_showAlert(withMessage: "Please enter full name", inView: self)
+        }
+        else if (self.txtEmailAddress.text?.isEmpty)!
+        {
+            App_showAlert(withMessage: "Please enter email address", inView: self)
+        }
+        else if (self.lblAge.text?.isEmpty)!
+        {
+            App_showAlert(withMessage: "Please select birthday", inView: self)
+        }
+        else if (self.lblGender.text?.isEmpty)!
+        {
+            App_showAlert(withMessage: "Please select gender", inView: self)
+        }
+        else
+        {
+            if !(self.txtConfirmPassword.text?.isEmpty)!
+            {
+                if (self.txtPassword.text?.isEmpty)!
+                {
+                    App_showAlert(withMessage: "Please enter password", inView: self)
+                }
+                else if (self.txtPassword.text! != self.txtConfirmPassword.text!)
+                {
+                    App_showAlert(withMessage: "Password and confirm password must be same", inView: self)
+                }
+                bUpdatePassword = true
+            }
+            else if !(self.txtPassword.text?.isEmpty)!
+            {
+                if (self.txtConfirmPassword.text?.isEmpty)!
+                {
+                    App_showAlert(withMessage: "Please enter confirm password", inView: self)
+                }
+                else if (self.txtPassword.text! != self.txtConfirmPassword.text!)
+                {
+                    App_showAlert(withMessage: "Password and confirm password must be same", inView: self)
+                }
+                bUpdatePassword = true
+            }
+            else
+            {
+                bUpdatePassword = false
+                self.view .endEditing(true)
+                showProgress(inView: self.view)
+                self.updateProfileProcess()
+            }
+        }
     }
     
+    func updateProfileProcess()
+    {
+        var parameters : [String:AnyObject]
+        if bUpdatePassword == true
+        {
+            parameters = [
+                "name": "\(txtFullName.text!)",
+                "email": "\(txtEmailAddress.text!)",
+                "password" : "\(txtPassword.text!)",
+                "dob":"\(strDate)",
+                "gender" : "\(lblGender.text!)"
+                ] as [String : AnyObject]
+        }
+        else
+        {
+            parameters = [
+                "name": "\(txtFullName.text!)",
+                "email": "\(txtEmailAddress.text!)",
+                "dob":"\(strDate)",
+                "gender" : "\(lblGender.text!)"
+                ] as [String : AnyObject]
+        }
+        let url = kServerURL + "update-user-profile"
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+
+        upload(multipartFormData:
+            { (multipartFormData) in
+                
+                if let imageData2 = UIImageJPEGRepresentation(self.image, 1)
+                {
+                    multipartFormData.append(imageData2, withName: "profile_pic", fileName: "profile_pic.png", mimeType: "image/jpeg")
+                }
+                
+                for (key, value) in parameters
+                {
+                    multipartFormData.append(value.data(using: String.Encoding.utf8.rawValue)!, withName: key)
+                }
+        }, to: url, method: .post, headers: headers, encodingCompletion:
+            {
+                (result) in
+                switch result
+                {
+                case .success(let upload, _, _):
+                    upload.responseJSON
+                        {
+                            response in
+                            hideProgress()
+                            debugPrint(response)
+                            
+                            if let json = response.result.value
+                            {
+                                print("json :> \(json)")
+                                let dictemp = json as! NSDictionary
+                                print("update-user-profile :> \(dictemp)")
+                                if dictemp.count > 0
+                                {
+                                    if  (dictemp["data"] as? NSDictionary) != nil
+                                    {
+                                        let alertView = UIAlertController(title: Application_Name, message: "Profile Update Successfully", preferredStyle: .alert)
+                                        let OKAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+                                            _ = self.navigationController?.popViewController(animated: true)
+                                        }
+                                        alertView.addAction(OKAction)
+                                        self.present(alertView, animated: true, completion: nil)
+                                    }
+                                    else
+                                    {
+                                        App_showAlert(withMessage: dictemp[kkeymessage]! as! String, inView: self)
+                                    }
+                                }
+                                else
+                                {
+                                    App_showAlert(withMessage: dictemp[kkeymessage]! as! String, inView: self)
+                                }
+                            }
+                    }
+                case .failure(let encodingError):
+                    hideProgress()
+                    print(encodingError)
+                }
+        })
+    }
     //MARK: Select Age and Gender
     @IBAction func btnSelectGenderPressed(_ sender: UIButton)
     {
@@ -100,6 +237,9 @@ class UpdateProfileVC: UIViewController,UITextFieldDelegate,UINavigationControll
             let yourDate = formatter.date(from: myString)
             formatter.dateFormat = "yyyy-MM-dd"
             let myStringafd = formatter.string(from: yourDate!)
+            formatter.dateFormat = "yyyy/MM/dd"
+            self.strDate = formatter.string(from: yourDate!)
+            
             self.lblAge.text = myStringafd
             self.lblAge.text = "\(self.calcAge(birthday: self.lblAge.text!))"
 

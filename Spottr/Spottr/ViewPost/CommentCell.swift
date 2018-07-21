@@ -11,6 +11,8 @@ import UIKit
 class CommentCell: UITableViewCell {
 
     @IBOutlet weak var btnDeleteComment : UIButton!
+    @IBOutlet weak var lblComment : UILabel!
+    @IBOutlet weak var imgPost : UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

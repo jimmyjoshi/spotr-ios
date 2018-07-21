@@ -15,6 +15,8 @@ class ViewPostVC: UIViewController
     @IBOutlet weak var vwCommentOption : UIView!
     var strPostID = String()
     var dictPost = NSDictionary()
+    @IBOutlet weak var vwPostComment : UIView!
+    @IBOutlet weak var txtvwComment : UITextView!
 
     override func viewDidLoad()
     {
@@ -108,7 +110,75 @@ class ViewPostVC: UIViewController
         }
     }
     
-
+    //MARK: Post Comment
+    @IBAction func btnAddCommentAction()
+    {
+        vwPostComment.isHidden = false
+    }
+    
+    @IBAction func btnPostCommentAction()
+    {
+        if (self.txtvwComment.text?.isEmpty)!
+        {
+            App_showAlert(withMessage: "Please enter comment", inView: self)
+        }
+        else
+        {
+            let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+            let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+            let url = kServerURL + "comments/create"
+            let token = final .value(forKey: "token")
+            let headers = ["Authorization":"Bearer \(token!)"]
+            
+            let parameters = [
+                "comment" : "\(self.txtvwComment.text!)",
+                "post_id" : strPostID
+            ]
+            
+            request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+                print(response.result.debugDescription)
+                
+                hideProgress()
+                switch(response.result)
+                {
+                case .success(_):
+                    if response.result.value != nil
+                    {
+                        print(response.result.value!)
+                        
+                        if let json = response.result.value
+                        {
+                            let dictemp = json as! NSDictionary
+                            print("dictemp :> \(dictemp)")
+                            
+                            if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                            {
+                                let msg = (temp.value(forKey: "message"))
+                                App_showAlert(withMessage: msg as! String, inView: self)
+                            }
+                            else
+                            {
+                                self.vwPostComment.isHidden = true
+                                showProgress(inView: self.view)
+                                self.getUserPosts()
+                            }
+                        }
+                    }
+                    break
+                case .failure(_):
+                    print(response.result.error!)
+                    App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                    break
+                }
+            }
+        }
+    }
+    
+    @IBAction func btnPostViewCancel()
+    {
+        vwPostComment.isHidden = true
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -124,14 +194,37 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
     {
+        if UITableViewAutomaticDimension < 100
+        {
+            return 100
+        }
         return UITableViewAutomaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        if UITableViewAutomaticDimension < 70
+        {
+            return 70
+        }
+        return UITableViewAutomaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
+        let dicdata = self.arrComments[indexPath.row] as! NSDictionary
+        if let bgmediaurl = dicdata.value(forKey: "profile_pic") as? String
+        {
+            let url2 = URL(string: bgmediaurl)
+            if url2 != nil {
+                cell.imgPost.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
+            }
+        }
+        cell.imgPost.layer.masksToBounds = true
+        cell.lblComment.text = "\(dicdata.value(forKey: "comment")!)"
         cell.btnDeleteComment.tag = indexPath.row
         cell.btnDeleteComment.addTarget(self, action: #selector(self.openDeleteOptions(_:event:)), for: .touchUpInside)
-
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
