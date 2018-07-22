@@ -19,6 +19,9 @@ class FeedsVC: UIViewController,UITextFieldDelegate
     @IBOutlet weak var vwHeader : UIView!
     var arrAllReadFeeds = NSMutableArray()
     var arrAllUnreadUserFeeds = NSMutableArray()
+    
+    @IBOutlet weak var ctvwHeaderConstraint : NSLayoutConstraint!
+    
 
     override func viewDidLoad()
     {
@@ -80,6 +83,15 @@ class FeedsVC: UIViewController,UITextFieldDelegate
                                 
                                 self.arrAllUnreadUserFeeds = NSMutableArray(array: data.value(forKey: "unread") as! NSArray)
                                 self.arrAllReadFeeds = NSMutableArray(array: data.value(forKey: "read") as! NSArray)
+                                
+                                if self.arrUnreadUserFeeds.count > 0
+                                {
+                                    self.ctvwHeaderConstraint.constant = 240
+                                }
+                                else
+                                {
+                                    self.ctvwHeaderConstraint.constant = 0
+                                }
                             }
                             else
                             {
@@ -273,7 +285,7 @@ class FeedsVC: UIViewController,UITextFieldDelegate
         let touches = (event as AnyObject).allTouches!
         let touch = touches?.first!
         let currentTouchPosition = touch?.location(in: self.clFeeds)
-        let indexPath = self.clHeader.indexPathForItem(at: currentTouchPosition!)!
+        let indexPath = self.clFeeds.indexPathForItem(at: currentTouchPosition!)!
         
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
         let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC") as! ViewPostVC

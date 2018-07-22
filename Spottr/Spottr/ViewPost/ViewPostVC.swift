@@ -21,6 +21,8 @@ class ViewPostVC: UIViewController
     @IBOutlet weak var txtvwComment : UITextView!
     var dictSelected = NSDictionary()
     var popover = DXPopover()
+    @IBOutlet weak var lblPostUserName : UILabel!
+    @IBOutlet weak var lblTaggedUserName : UILabel!
 
     override func viewDidLoad()
     {
@@ -71,6 +73,8 @@ class ViewPostVC: UIViewController
                         else
                         {
                             self.dictPost = dictemp.value(forKey: "data") as! NSDictionary
+                            self.lblPostUserName.text = "\(self.dictPost.value(forKey: "post_user_name")!)"
+                            self.lblTaggedUserName.text = "\(self.dictPost.value(forKey: "tagged_user_name")!)"
                             self.arrComments = NSMutableArray(array: self.dictPost.value(forKey: "comments") as! NSArray)
                         }
                         self.tblPost.reloadData()
