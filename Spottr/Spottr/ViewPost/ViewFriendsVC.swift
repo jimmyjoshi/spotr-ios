@@ -14,7 +14,9 @@ class ViewFriendsVC: UIViewController
     var arrFriends = NSMutableArray()
     @IBOutlet weak var vwRemoveFriendOption : UIView!
     var userProfileID : String?
-
+    var popover = DXPopover()
+    var dictFriend = NSDictionary()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -25,7 +27,6 @@ class ViewFriendsVC: UIViewController
         showProgress(inView: self.view)
         self.getUserConnections()        
     }
-
     func getUserConnections()
     {
         let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
@@ -85,15 +86,116 @@ class ViewFriendsVC: UIViewController
         let touch = touches?.first!
         let currentTouchPosition = touch?.location(in: self.tblFriend)
         let indexPath = self.tblFriend.indexPathForRow(at: currentTouchPosition!)!
-        let cell = tblFriend.cellForRow(at: indexPath)
+        self.dictFriend = self.arrFriends[indexPath.row] as! NSDictionary
         
         let currentTouchPosition1 = touch?.location(in: self.view)
-        let popover = DXPopover()
+        
         //        popover.show(at: self.vwCommentOption, withContentView: self.view)
         //        popover.show(at: self.tblPost, withContentView: self.vwCommentOption, in: self.view)
         //        popover.show(at: self.vwCommentOption, withContentView: self.vwCommentOption)
         popover.show(at: currentTouchPosition1!, popoverPostion:.up, withContentView: self.vwRemoveFriendOption, in: self.view)
         popover.didDismissHandler = {
+        }
+    }
+    
+    @IBAction func removeFriendAction()
+    {
+        self.popover.dismiss()
+        
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "connections/delete"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        
+        let parameters: [String: Any] = ["user_id": "\(self.dictFriend.value(forKey: "user_id")!)"]
+        showProgress(inView: self.view)
+        
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "reason"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            showProgress(inView: self.view)
+                            self.getUserConnections()
+                        }
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                break
+            }
+        }
+    }
+    
+    @IBAction func blockFriendAction()
+    {
+        self.popover.dismiss()
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "connections/block"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        let parameters: [String: Any] = ["user_id": "\(self.dictFriend.value(forKey: "user_id")!)"]
+        
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "reason"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            self.popover.didDismissHandler = {
+                            }
+                            showProgress(inView: self.view)
+                            self.getUserConnections()
+                        }
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                break
+            }
         }
     }
     

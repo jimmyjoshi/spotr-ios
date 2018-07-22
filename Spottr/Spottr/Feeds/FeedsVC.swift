@@ -255,12 +255,34 @@ class FeedsVC: UIViewController,UITextFieldDelegate
 
     @IBAction func gotoUserPost(_ sender: Any, event: Any)
     {
+        let touches = (event as AnyObject).allTouches!
+        let touch = touches?.first!
+        let currentTouchPosition = touch?.location(in: self.clHeader)
+        let indexPath = self.clHeader.indexPathForItem(at: currentTouchPosition!)!
+        
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC")
+        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC") as! ViewPostVC
+        var dicdata = NSDictionary()
+        dicdata = self.arrUnreadUserFeeds[indexPath.row] as! NSDictionary
+        objViewPostVC.strPostID = "\(dicdata.value(forKey: "post_id")!)"
         self.navigationController?.pushViewController(objViewPostVC, animated: true)
-
     }
     
+    @IBAction func gotoUserPostCell(_ sender: Any, event: Any)
+    {
+        let touches = (event as AnyObject).allTouches!
+        let touch = touches?.first!
+        let currentTouchPosition = touch?.location(in: self.clFeeds)
+        let indexPath = self.clHeader.indexPathForItem(at: currentTouchPosition!)!
+        
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objViewPostVC = storyTab.instantiateViewController(withIdentifier: "ViewPostVC") as! ViewPostVC
+        var dicdata = NSDictionary()
+        dicdata = self.arrFeeds[indexPath.row] as! NSDictionary
+        objViewPostVC.strPostID = "\(dicdata.value(forKey: "post_id")!)"
+        self.navigationController?.pushViewController(objViewPostVC, animated: true)
+    }
+
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -316,9 +338,12 @@ extension FeedsVC : UICollectionViewDataSource
                 }
             }
             cell.btnProfile.tag = indexPath.row
-            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfileofHeaderCell(_:event:)), for: .touchUpInside)
-            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfileofHeaderCell(_:event:)), for: .touchUpInside)
+            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoUserPost(_:event:)), for: .touchUpInside)
 
+            cell.btngreyUserProfile.tag = indexPath.row
+            cell.btngreyUserProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfileofHeaderCell(_:event:)), for: .touchUpInside)
+
+            
             return cell
         }
         else
@@ -348,9 +373,14 @@ extension FeedsVC : UICollectionViewDataSource
             cell.lblViewCount.text = "\(dicdata.value(forKey: "viewCount")!)"
 
             cell.btnProfile.tag = indexPath.row
-            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
+            cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoUserPostCell(_:event:)), for: .touchUpInside)
+            
             cell.btnUserName.tag = indexPath.row
             cell.btnUserName.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
+            
+            cell.btngreyUserProfile.tag = indexPath.row
+            cell.btngreyUserProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfile(_:event:)), for: .touchUpInside)
+            
             return cell
         }
     }

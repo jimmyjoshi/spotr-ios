@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class ViewPostVC: UIViewController
 {
@@ -283,6 +285,22 @@ class ViewPostVC: UIViewController
         vwPostComment.isHidden = true
     }
     
+    @IBAction func playVideoAction()
+    {
+        if let bgmediaurl = self.dictPost.value(forKey: "media") as? String
+        {
+            let url2 = URL(string: bgmediaurl)
+            if url2 != nil
+            {
+                let player = AVPlayer(url: url2!)
+                let playerViewController = AVPlayerViewController()
+                playerViewController.player = player
+                self.present(playerViewController, animated: true) {
+                    playerViewController.player!.play()
+                }
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -380,10 +398,11 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
             cell.btnPlayVideoIcon.isHidden = false
         }
         
+        cell.btnPlayVideoIcon.addTarget(self, action: #selector(self.playVideoAction), for: .touchUpInside)
+
         cell.lblViewCount.text = "\(self.dictPost.value(forKey: "viewCount")!)"
         cell.lblCommentCount.text = "\(self.dictPost.value(forKey: "comments_count")!)"
         cell.txtPostDescription.text = "\(self.dictPost.value(forKey: "description")!)"
-
         return cell.contentView
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)

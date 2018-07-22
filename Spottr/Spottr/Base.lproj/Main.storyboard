@@ -1544,6 +1544,7 @@
                                                     <outlet property="bgImage" destination="akW-yf-7Pv" id="XvS-8Y-lga"/>
                                                     <outlet property="btnProfile" destination="dsV-OU-0f8" id="NXq-dY-NU2"/>
                                                     <outlet property="btnUserName" destination="Dta-Dw-8Yk" id="JCV-4v-om1"/>
+                                                    <outlet property="btngreyUserProfile" destination="PSq-fa-WnD" id="cB0-Nh-loB"/>
                                                     <outlet property="imgUser" destination="SC4-sJ-pX1" id="VLf-tp-9vG"/>
                                                     <outlet property="lblViewCount" destination="Wur-RQ-0O5" id="gKz-zn-b7V"/>
                                                 </connections>
@@ -1671,6 +1672,7 @@
                                             <outlet property="bgImage" destination="cuN-2w-f4R" id="rra-wU-vAH"/>
                                             <outlet property="btnProfile" destination="Ddm-7P-8qm" id="bpK-TA-zR0"/>
                                             <outlet property="btnUserName" destination="yXJ-p4-AxA" id="BT0-31-FP8"/>
+                                            <outlet property="btngreyUserProfile" destination="j5s-a2-2vR" id="3Cb-23-FWu"/>
                                             <outlet property="imgUser" destination="hIe-XA-9r3" id="C7e-9d-MFS"/>
                                             <outlet property="lblViewCount" destination="pf1-Qp-baX" id="YkD-8O-zCX"/>
                                         </connections>
@@ -3034,6 +3036,9 @@
                             <state key="normal" title="Remove">
                                 <color key="titleColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="removeFriendAction" destination="LHj-0Z-r9s" eventType="touchUpInside" id="Rdi-oE-4Rw"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjA-4O-ewN">
                             <rect key="frame" x="0.0" y="43" width="100" height="30"/>
@@ -3044,6 +3049,9 @@
                             <state key="normal" title="Block">
                                 <color key="titleColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="blockFriendAction" destination="LHj-0Z-r9s" eventType="touchUpInside" id="k4O-1v-JNe"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
