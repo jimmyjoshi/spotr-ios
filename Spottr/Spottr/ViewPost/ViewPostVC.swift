@@ -17,6 +17,8 @@ class ViewPostVC: UIViewController
     var dictPost = NSDictionary()
     @IBOutlet weak var vwPostComment : UIView!
     @IBOutlet weak var txtvwComment : UITextView!
+    var dictSelected = NSDictionary()
+    var popover = DXPopover()
 
     override func viewDidLoad()
     {
@@ -98,15 +100,117 @@ class ViewPostVC: UIViewController
         let touch = touches?.first!
         let currentTouchPosition = touch?.location(in: self.tblPost)
         let indexPath = self.tblPost.indexPathForRow(at: currentTouchPosition!)!
-        let cell = tblPost.cellForRow(at: indexPath)
         
+        self.dictSelected = self.arrComments[indexPath.row] as! NSDictionary
         let currentTouchPosition1 = touch?.location(in: self.view)
-        let popover = DXPopover()
 //        popover.show(at: self.vwCommentOption, withContentView: self.view)
 //        popover.show(at: self.tblPost, withContentView: self.vwCommentOption, in: self.view)
 //        popover.show(at: self.vwCommentOption, withContentView: self.vwCommentOption)
         popover.show(at: currentTouchPosition1!, popoverPostion:.up, withContentView: self.vwCommentOption, in: self.view)
         popover.didDismissHandler = {
+        }
+    }
+    
+    @IBAction func deleteCommentAction()
+    {
+        self.popover.dismiss()
+        
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "comments/delete"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        
+        let parameters: [String: Any] = ["comment_id": "\(self.dictSelected.value(forKey: "comment_id")!)"]
+        showProgress(inView: self.view)
+
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "message"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            
+
+                            showProgress(inView: self.view)
+                            self.getUserPosts()
+                        }
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                break
+            }
+        }
+    }
+    
+    @IBAction func reportAbuseCommentAction()
+    {
+        self.popover.dismiss()
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        let url = kServerURL + "comments/blocked"
+        let token = final .value(forKey: "token")
+        let headers = ["Authorization":"Bearer \(token!)"]
+        let parameters: [String: Any] = ["comment_id": "\(self.dictSelected.value(forKey: "comment_id")!)"]
+        
+        request(url, method: .post, parameters:parameters, headers: headers).responseJSON { (response:DataResponse<Any>) in
+            print(response.result.debugDescription)
+            
+            hideProgress()
+            switch(response.result)
+            {
+            case .success(_):
+                if response.result.value != nil
+                {
+                    print(response.result.value!)
+                    
+                    if let json = response.result.value
+                    {
+                        
+                        let dictemp = json as! NSDictionary
+                        print("dictemp :> \(dictemp)")
+                        
+                        if let temp = dictemp.value(forKey: "error") as? NSDictionary
+                        {
+                            let msg = (temp.value(forKey: "message"))
+                            App_showAlert(withMessage: msg as! String, inView: self)
+                        }
+                        else
+                        {
+                            self.popover.didDismissHandler = {
+                            }
+                            showProgress(inView: self.view)
+                            self.getUserPosts()
+                        }
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                App_showAlert(withMessage: response.result.error.debugDescription, inView: self)
+                break
+            }
         }
     }
     
