@@ -333,7 +333,6 @@ extension FeedsVC : UICollectionViewDataSource
             let dicdata = self.arrUnreadUserFeeds[indexPath.row] as! NSDictionary
             cell.imgUser.layer.masksToBounds = true
             cell.imgUser.clipsToBounds = true
-
             cell.bgImage.layer.masksToBounds = true
 
             if let bgmediaurl = dicdata.value(forKey: "media") as? String
@@ -356,6 +355,9 @@ extension FeedsVC : UICollectionViewDataSource
             cell.btnProfile.tag = indexPath.row
             cell.btnProfile.addTarget(self, action: #selector(FeedsVC.gotoUserPost(_:event:)), for: .touchUpInside)
 
+            cell.imgUser.layer.cornerRadius = cell.imgUser.frame.size.height / 2
+            cell.layoutIfNeeded()
+
             cell.btngreyUserProfile.tag = indexPath.row
             cell.btngreyUserProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfileofHeaderCell(_:event:)), for: .touchUpInside)
 
@@ -377,6 +379,8 @@ extension FeedsVC : UICollectionViewDataSource
                 }
             }
             cell.imgUser.layer.masksToBounds = true
+            cell.imgUser.layer.cornerRadius = cell.imgUser.frame.size.height / 2
+            cell.layoutIfNeeded()
 
             if let imgUserPic = dicdata.value(forKey: "profile_pic") as? String
             {
