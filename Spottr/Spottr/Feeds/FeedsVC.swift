@@ -331,6 +331,10 @@ extension FeedsVC : UICollectionViewDataSource
             let identifier = "FeedHeaderCell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,for:indexPath) as! FeedHeaderCell
             let dicdata = self.arrUnreadUserFeeds[indexPath.row] as! NSDictionary
+            cell.imgUser.layer.masksToBounds = true
+            cell.imgUser.clipsToBounds = true
+
+            cell.bgImage.layer.masksToBounds = true
 
             if let bgmediaurl = dicdata.value(forKey: "media") as? String
             {
@@ -372,7 +376,8 @@ extension FeedsVC : UICollectionViewDataSource
                     cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
                 }
             }
-            
+            cell.imgUser.layer.masksToBounds = true
+
             if let imgUserPic = dicdata.value(forKey: "profile_pic") as? String
             {
                 let url2 = URL(string: imgUserPic)
