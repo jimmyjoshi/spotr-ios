@@ -114,7 +114,7 @@ class UserProfileVC: UIViewController,UIPopoverPresentationControllerDelegate
             }
         }
         lblUserName.text = "\(self.dictuserdata.value(forKey: "name")!)"
-        txtvwBio.text = "\(self.dictuserdata.value(forKey: "description")!)"
+        txtvwBio.text = "\(self.dictuserdata.value(forKey: "bio")!)"
         lblConnectionCount.text = "\(self.dictuserdata.value(forKey: "connectionCount")!)"
         lblPostCount.text = "\(self.dictuserdata.value(forKey: "postCount")!)"
 

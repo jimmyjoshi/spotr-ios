@@ -475,28 +475,53 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
         }
         else
         {
-            self.picker.modalPresentationStyle = .currentContext
-            self.picker.sourceType = UIImagePickerControllerSourceType.camera
-            self.picker.modalPresentationStyle =
-                (self.picker.sourceType == UIImagePickerControllerSourceType.camera) ?
-                    UIModalPresentationStyle.fullScreen : UIModalPresentationStyle.popover
-            
-            //        self.picker.mediaTypes = [kUTTypeImage as NSString as String]
-            
-            let presentationController = self.picker.popoverPresentationController
-            presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
-            
-            // The user wants to use the camera interface. Set up our custom overlay view for the camera.
-            self.picker.showsCameraControls = false
-            
-            // Apply our overlay view containing the toolar to take pictures in various ways.
-            overlayView?.frame = (self.picker.cameraOverlayView?.frame)!
-            self.picker.cameraOverlayView = overlayView
-            
-            present(self.picker, animated: true, completion: {
-                // Done presenting.
-                self.balreadyPresentedOverlay = true
-            })
+            if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
+            {
+                
+                self.picker.modalPresentationStyle = .currentContext
+                self.picker.sourceType = UIImagePickerControllerSourceType.camera
+                self.picker.modalPresentationStyle =
+                    (self.picker.sourceType == UIImagePickerControllerSourceType.camera) ?
+                        UIModalPresentationStyle.fullScreen : UIModalPresentationStyle.popover
+                
+                //        self.picker.mediaTypes = [kUTTypeImage as NSString as String]
+                
+                let presentationController = self.picker.popoverPresentationController
+                presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
+                
+                // The user wants to use the camera interface. Set up our custom overlay view for the camera.
+                self.picker.showsCameraControls = false
+                
+                // Apply our overlay view containing the toolar to take pictures in various ways.
+                overlayView?.frame = (self.picker.cameraOverlayView?.frame)!
+                self.picker.cameraOverlayView = overlayView
+                
+                present(self.picker, animated: true, completion: {
+                    // Done presenting.
+                    self.balreadyPresentedOverlay = true
+                })
+            }
+            else
+            {
+                if self.balreadyPresentedOverlay == true
+                {
+                    dismiss(animated: true, completion:nil)
+                }
+                btnGallery.isSelected = true
+                btnCamera.isSelected = false
+                btnVideo.isSelected = false
+                
+                self.picker.mediaTypes = ["public.image", "public.movie"]
+                self.picker.allowsEditing = false
+                self.picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+                let presentationController = self.picker.popoverPresentationController
+                presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
+                
+                present(self.picker, animated: true, completion:
+                    {
+                        self.balreadyPresentedOverlay = false
+                })
+            }
         }
     }
     

@@ -23,6 +23,7 @@ class UpdateProfileVC: UIViewController,UITextFieldDelegate,UINavigationControll
     var image = UIImage()
     var strDate = String()
     var bUpdatePassword : Bool = false
+    @IBOutlet weak var txtBio : UITextView!
 
     override func viewDidLoad()
     {
@@ -139,6 +140,7 @@ class UpdateProfileVC: UIViewController,UITextFieldDelegate,UINavigationControll
                 "email": "\(txtEmailAddress.text!)",
                 "password" : "\(txtPassword.text!)",
                 "dob":"\(strDate)",
+                "bio": "\(txtBio.text!)",
                 "gender" : "\(lblGender.text!)"
                 ] as [String : AnyObject]
         }
@@ -148,6 +150,7 @@ class UpdateProfileVC: UIViewController,UITextFieldDelegate,UINavigationControll
                 "name": "\(txtFullName.text!)",
                 "email": "\(txtEmailAddress.text!)",
                 "dob":"\(strDate)",
+                "bio": "\(txtBio.text!)",
                 "gender" : "\(lblGender.text!)"
                 ] as [String : AnyObject]
         }

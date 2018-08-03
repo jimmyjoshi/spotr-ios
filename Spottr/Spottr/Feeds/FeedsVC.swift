@@ -28,8 +28,36 @@ class FeedsVC: UIViewController,UITextFieldDelegate
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+        let left = UISwipeGestureRecognizer(target : self, action : #selector(self.leftSwipe))
+        left.direction = .left
+        self.view.addGestureRecognizer(left)
+        
+        let right = UISwipeGestureRecognizer(target : self, action : #selector(self.rightSwipe))
+        right.direction = .right
+        self.view.addGestureRecognizer(right)
     }
 
+    @objc func rightSwipe()
+    {
+        appDelegate.bUserProfile = true
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objCreatPostVC = storyTab.instantiateViewController(withIdentifier: "CreatPostVC")
+        self.navigationController?.pushViewController(objCreatPostVC, animated: true)
+    }
+    
+    @objc func leftSwipe()
+    {
+        appDelegate.bUserProfile = true
+        let dic = UserDefaults.standard.value(forKey: kkeyLoginData)
+        let final  = NSKeyedUnarchiver .unarchiveObject(with: dic as! Data) as! NSDictionary
+        
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileVC
+        objUserProfileVC.userProfileID = "\(final.value(forKey: "user_id")!)"
+        self.navigationController?.pushViewController(objUserProfileVC, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool)
     {
         showProgress(inView: self.view)
@@ -332,9 +360,9 @@ extension FeedsVC : UICollectionViewDataSource
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,for:indexPath) as! FeedHeaderCell
             let dicdata = self.arrUnreadUserFeeds[indexPath.row] as! NSDictionary
             cell.imgUser.layer.masksToBounds = true
-            cell.imgUser.clipsToBounds = true
             cell.bgImage.layer.masksToBounds = true
 
+            
             if let bgmediaurl = dicdata.value(forKey: "media") as? String
             {
                 let url2 = URL(string: bgmediaurl)
@@ -361,7 +389,8 @@ extension FeedsVC : UICollectionViewDataSource
             cell.btngreyUserProfile.tag = indexPath.row
             cell.btngreyUserProfile.addTarget(self, action: #selector(FeedsVC.gotoOtherUserProfileofHeaderCell(_:event:)), for: .touchUpInside)
 
-            
+            cell.bgImage.backgroundColor = UIColor.clear
+
             return cell
         }
         else
