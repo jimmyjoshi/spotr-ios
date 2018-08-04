@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationNamePhoneVC: UIViewController,UITextFieldDelegate {
 
@@ -18,6 +19,7 @@ class RegistrationNamePhoneVC: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         appDelegate.dicRegisterParameters = NSMutableDictionary()
+//        Auth.auth().languageCode = "IN";
 
         // Do any additional setup after loading the view.
     }
@@ -46,10 +48,25 @@ class RegistrationNamePhoneVC: UIViewController,UITextFieldDelegate {
             appDelegate.dicRegisterParameters.setValue(txtUsername.text!, forKey: "username")
             appDelegate.dicRegisterParameters.setValue(txtPhone.text!, forKey: "phone")
             
-            
-            let storyTab = UIStoryboard(name: "Main", bundle: nil)
-            let objSignupOTPVC = storyTab.instantiateViewController(withIdentifier: "SignupOTPVC")
-            self.navigationController?.pushViewController(objSignupOTPVC, animated: true)
+            showProgress(inView: self.view)
+
+            PhoneAuthProvider.provider().verifyPhoneNumber(txtPhone.text!, uiDelegate: nil) { (verificationID, error) in
+                if let error = error
+                {
+                    hideProgress()
+                    App_showAlert(withMessage: "\(error.localizedDescription)", inView: self)
+                    return
+                }
+                else
+                {
+                    hideProgress()
+                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+
+                    let storyTab = UIStoryboard(name: "Main", bundle: nil)
+                    let objSignupOTPVC = storyTab.instantiateViewController(withIdentifier: "SignupOTPVC")
+                    self.navigationController?.pushViewController(objSignupOTPVC, animated: true)
+                }
+            }
         }
     }
 

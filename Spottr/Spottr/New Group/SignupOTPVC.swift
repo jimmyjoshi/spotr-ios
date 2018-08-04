@@ -7,13 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class SignupOTPVC: UIViewController,UITextFieldDelegate {
 
-    @IBOutlet weak var txtOTP1 : UITextField!
-    @IBOutlet weak var txtOTP2 : UITextField!
-    @IBOutlet weak var txtOTP3 : UITextField!
-    @IBOutlet weak var txtOTP4 : UITextField!
+    @IBOutlet weak var txtOTP : UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +30,36 @@ class SignupOTPVC: UIViewController,UITextFieldDelegate {
     
     @IBAction func btnVerifyPressed()
     {
-        let storyTab = UIStoryboard(name: "Main", bundle: nil)
-        let objSignUpAccountVC = storyTab.instantiateViewController(withIdentifier: "SignUpAccountVC")
-        self.navigationController?.pushViewController(objSignUpAccountVC, animated: true)
+        if (txtOTP.text?.isEmpty)!
+        {
+            App_showAlert(withMessage: "Please enter OTP", inView: self)
+        }
+        else
+        {
+            showProgress(inView: self.view)
+            let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
+            let verificationCode = txtOTP.text!
+            
+            let credential = PhoneAuthProvider.provider().credential(
+                withVerificationID: verificationID!,
+                verificationCode: verificationCode)
+            
+            Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+                if let error = error
+                {
+                    hideProgress()
+                    App_showAlert(withMessage: "\(error.localizedDescription)", inView: self)
+                    return
+                }
+                else
+                {
+                    hideProgress()
+                    let storyTab = UIStoryboard(name: "Main", bundle: nil)
+                    let objSignUpAccountVC = storyTab.instantiateViewController(withIdentifier: "SignUpAccountVC")
+                    self.navigationController?.pushViewController(objSignUpAccountVC, animated: true)
+                }
+            }
+        }
     }
 
     

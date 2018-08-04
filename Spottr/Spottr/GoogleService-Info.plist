@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>136445222125-ibe5kr4i8917s9ms5u40c7rnuc96nkr0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.136445222125-ibe5kr4i8917s9ms5u40c7rnuc96nkr0</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCE7K-23HHyIodipHKIyNwfa7ExoLk5kwQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>136445222125</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Spottr.app</string>
+	<key>PROJECT_ID</key>
+	<string>spottr-111ae</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spottr-111ae.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:136445222125:ios:4775fa30c7437103</string>
+	<key>DATABASE_URL</key>
+	<string>https://spottr-111ae.firebaseio.com</string>
+</dict>
+</plist>

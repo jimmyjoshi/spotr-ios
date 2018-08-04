@@ -1,0 +1,6 @@
+framework module Pods_Spottr {
+  umbrella header "Pods-Spottr-umbrella.h"
+
+  export *
+  module * { export * }
+}
