@@ -62,6 +62,25 @@ class SignupOTPVC: UIViewController,UITextFieldDelegate {
         }
     }
 
+    @IBAction func btnResendCodePressed()
+    {
+        showProgress(inView: self.view)
+        let strphone = "\(appDelegate.dicRegisterParameters.value(forKey: "phone")!)"
+        
+        PhoneAuthProvider.provider().verifyPhoneNumber(strphone, uiDelegate: nil) { (verificationID, error) in
+            if let error = error
+            {
+                hideProgress()
+                App_showAlert(withMessage: "\(error.localizedDescription)", inView: self)
+                return
+            }
+            else
+            {
+                hideProgress()
+                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -610,6 +610,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GJX-xk-LGa"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="btnResendCodePressed" destination="Yyy-Mw-5zt" eventType="touchUpInside" id="NWP-e3-bqc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verification Code has been sent to you on your mobile phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSo-yP-l17">
                                 <rect key="frame" x="35" y="117.5" width="250" height="55"/>
