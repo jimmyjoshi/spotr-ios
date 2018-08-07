@@ -327,6 +327,7 @@ extension UserProfileVC : UICollectionViewDataSource
                     cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
                 }
             }
+            cell.btnPlayVideo.isHidden = true
         }
         else
         {
@@ -337,6 +338,7 @@ extension UserProfileVC : UICollectionViewDataSource
                     cell.bgImage.sd_setImage(with: url2, placeholderImage: UIImage(named: "ic_feed_bg"))
                 }
             }
+            cell.btnPlayVideo.isHidden = false
         }
         cell.lblViewCount.text = "\(dicdata.value(forKey: "viewCount")!)"
         

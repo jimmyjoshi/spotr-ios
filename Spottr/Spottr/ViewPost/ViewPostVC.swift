@@ -30,7 +30,7 @@ class ViewPostVC: UIViewController
         // Do any additional setup after loading the view.
         self.tblPost.estimatedRowHeight = 200
         self.tblPost.rowHeight = UITableViewAutomaticDimension
-        
+
         showProgress(inView: self.view)
         self.getUserPosts()
     }

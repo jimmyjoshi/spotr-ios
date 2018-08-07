@@ -2017,7 +2017,7 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                     <state key="normal" title="GALLERY">
-                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <state key="selected">
                                         <color key="titleColor" red="1" green="0.63921568630000003" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2030,7 +2030,7 @@
                                     <rect key="frame" x="161" y="10" width="53" height="30"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                     <state key="normal" title="PHOTO">
-                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <state key="selected">
                                         <color key="titleColor" red="1" green="0.63921568630000003" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2047,7 +2047,7 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                     <state key="normal" title="VIDEO">
-                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <state key="selected">
                                         <color key="titleColor" red="1" green="0.63921568630000003" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2544,8 +2544,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p7f-OV-IOX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="121" height="160"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7f-OV-IOX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="160"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_feed_bg" translatesAutoresizingMaskIntoConstraints="NO" id="B8l-qu-lUX">
                                                             <rect key="frame" x="0.0" y="0.0" width="125" height="160"/>
@@ -2557,6 +2557,10 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xf-3f-noj">
+                                                            <rect key="frame" x="45.5" y="63" width="34" height="34"/>
+                                                            <state key="normal" image="ic_play"/>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21K" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cD-Mt-MgW">
                                                             <rect key="frame" x="8" y="8" width="42" height="21"/>
                                                             <constraints>
@@ -2573,7 +2577,9 @@
                                                         <constraint firstAttribute="trailing" secondItem="B8l-qu-lUX" secondAttribute="trailing" id="1KH-nb-bHD"/>
                                                         <constraint firstItem="B8l-qu-lUX" firstAttribute="leading" secondItem="p7f-OV-IOX" secondAttribute="leading" id="1P3-A5-sgs"/>
                                                         <constraint firstItem="B8l-qu-lUX" firstAttribute="top" secondItem="p7f-OV-IOX" secondAttribute="top" id="786-8b-ISc"/>
+                                                        <constraint firstItem="2Xf-3f-noj" firstAttribute="centerX" secondItem="p7f-OV-IOX" secondAttribute="centerX" id="A9k-cA-EFc"/>
                                                         <constraint firstItem="4cD-Mt-MgW" firstAttribute="top" secondItem="p7f-OV-IOX" secondAttribute="top" constant="8" id="DrG-SG-v7f"/>
+                                                        <constraint firstItem="2Xf-3f-noj" firstAttribute="centerY" secondItem="p7f-OV-IOX" secondAttribute="centerY" id="I6q-SI-As1"/>
                                                         <constraint firstAttribute="bottom" secondItem="B8l-qu-lUX" secondAttribute="bottom" id="YG3-Uo-LPQ"/>
                                                         <constraint firstAttribute="height" constant="160" id="ZCg-Aj-t6k"/>
                                                         <constraint firstItem="4cD-Mt-MgW" firstAttribute="leading" secondItem="p7f-OV-IOX" secondAttribute="leading" constant="8" id="iKU-bO-wYQ"/>
@@ -2594,6 +2600,7 @@
                                         <size key="customSize" width="125" height="160"/>
                                         <connections>
                                             <outlet property="bgImage" destination="B8l-qu-lUX" id="M18-FE-rYW"/>
+                                            <outlet property="btnPlayVideo" destination="2Xf-3f-noj" id="o7x-qX-8y2"/>
                                             <outlet property="lblViewCount" destination="4cD-Mt-MgW" id="gY7-f2-zpe"/>
                                         </connections>
                                     </collectionViewCell>
@@ -2637,7 +2644,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuc-n2-uwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3971.25" y="116.19718309859155"/>
+            <point key="canvasLocation" x="3971.25" y="115"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="5V2-Wu-5El">
@@ -3079,7 +3086,7 @@
         <!--View PostVC-->
         <scene sceneID="htW-vg-NKb">
             <objects>
-                <viewController storyboardIdentifier="ViewPostVC" id="GiM-uF-1Hl" customClass="ViewPostVC" customModule="Spottr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewPostVC" automaticallyAdjustsScrollViewInsets="NO" id="GiM-uF-1Hl" customClass="ViewPostVC" customModule="Spottr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HyK-Rz-cRL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3424,6 +3431,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EyH-3m-CBW"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="lblPostUserName" destination="kuR-zO-yhP" id="GnU-me-VEG"/>
                         <outlet property="lblTaggedUserName" destination="gof-7z-Aos" id="7rz-Me-96G"/>

@@ -12,7 +12,7 @@ import AVFoundation
 import AVKit
 
 
-class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate
+class CreatPostVC: UIViewController,UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate
 {
     @IBOutlet weak var txtSearch : UITextField!
     @IBOutlet weak var btnSearchIcon : UIButton!
@@ -129,134 +129,12 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
     }
     
     //MARK: Camera Action
-    @IBAction func btnCameraAction()
-    {
-        let uiAlert = UIAlertController(title: Application_Name, message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
-        self.present(uiAlert, animated: true, completion: nil)
-        uiAlert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { action in
-            
-            if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
-            {
-                let controller = IQMediaPickerController()
-                controller.delegate = self
-                //Set additional settings if you would like to
-                //[controller setSourceType:IQMediaPickerControllerSourceTypeCameraMicrophone];//or IQMediaPickerControllerSourceTypeLibrary
-                //[controller setMediaTypes:@[@(IQMediaPickerControllerMediaTypeAudio),@(IQMediaPickerControllerMediaTypeAudio),@(IQMediaPickerControllerMediaTypeAudio)]];
-                //controller.captureDevice = IQMediaPickerControllerCameraDeviceRear;//orIQMediaPickerControllerCameraDeviceFront
-                //controller.allowsPickingMultipleItems = YES;//or NO
-                //        controller.allowedVideoQualities = @[@(IQMediaPickerControllerQualityType1920x1080),@(IQMediaPickerControllerQualityTypeHigh)];
-                var mediaTypesArr = [NSNumber]()
-                mediaTypesArr.append(NSNumber(value: IQMediaPickerControllerMediaType.photo.rawValue))
-                mediaTypesArr.append(NSNumber(value: IQMediaPickerControllerMediaType.video.rawValue))
-                controller.mediaTypes = mediaTypesArr
-                
-                controller.captureDevice = IQMediaPickerControllerCameraDevice.rear
-                var qualityArr = [NSNumber]()
-                qualityArr.append(NSNumber(value: IQMediaPickerControllerQualityType.typeHigh.rawValue))
-                qualityArr.append(NSNumber(value: IQMediaPickerControllerQualityType.type1920x1080.rawValue))
-                controller.allowedVideoQualities = qualityArr
-                controller.sourceType = IQMediaPickerControllerSourceType.cameraMicrophone
-                
-                self.present(controller, animated: true)
-            }
-            else
-            {
-                let alert = UIAlertController(title: "Camera Not Found", message: "This device has no Camera", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style:.default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
-            }
-            
-        }))
-        
-        uiAlert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { action in
-            
-            self.picker.mediaTypes = ["public.image", "public.movie"]
-            self.picker.mediaTypes = [kUTTypeMovie as NSString as String]
-            self.picker.allowsEditing = false
-            self.present(self.picker, animated: true, completion: nil)
-        }))
-        uiAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-        }))
-        
-       /* picker = UIImagePickerController() //make a clean controller
-        picker.allowsEditing = false
-        picker.sourceType = UIImagePickerControllerSourceType.camera
-        picker.cameraCaptureMode = .photo
-        picker.showsCameraControls = false
-        
-        self.vwCustomOverlay.isHidden = false
-        vwCustomOverlay.frame = self.picker.view.frame
-        self.picker.cameraOverlayView = self.vwCustomOverlay
-
-        self.picker.cameraOverlayView?.backgroundColor = UIColor.red
-        //picker.delegate = self  //uncomment if you want to take multiple pictures.
-        
-        //presentation of the camera
-        picker.modalPresentationStyle = .fullScreen
-        present(picker, animated: true, completion: nil)*/
-    }
-    
     @IBAction func selectUsertoSpot(_ sender: Any, event: Any)
     {
         let touches = (event as AnyObject).allTouches!
         let touch = touches?.first!
         let currentTouchPosition = touch?.location(in: self.clUsers)
         var indexPath = self.clUsers.indexPathForItem(at: currentTouchPosition!)!
-    }
-    
-    func mediaPickerController(_ controller: IQMediaPickerController, didFinishMediaWithInfo info: [AnyHashable : Any]) {
-        
-        print("Info: \(info)")
-        
-        mediaInfo = info as NSDictionary!
-//        mediaInfo = info.copy()
-        
-        let key = mediaInfo.allKeys[0] as? String
-        let arrtemp = mediaInfo[key!] as? NSArray
-        let dictemp = arrtemp![0] as! NSDictionary
-        let url = dictemp[IQMediaURL] as? URL
-        // define the block to call when we get the asset based on the url (below)
-
-        if (url?.absoluteString.contains(".jpg"))!
-        {
-            do {
-                self.videoData = try Data(contentsOf: url!)
-                self.imgtaken.backgroundColor = UIColor.clear
-                self.imgtaken.image = UIImage(data: self.videoData)
-                self.btnDeletePhoto.isHidden = false
-                self.btnTakePhoto.isHidden = true
-            }
-            catch
-            {
-                print(error.localizedDescription)
-            }
-        }
-        else
-        {
-            let uploadUrl = NSURL.fileURL(withPath: NSTemporaryDirectory().appending("\(NSDate())").appending(".mov"))
-            self.compressVideo(inputURL: url! as NSURL, outputURL: uploadUrl as NSURL, handler: { (handler) -> Void in
-                
-                if handler.status == AVAssetExportSessionStatus.completed
-                {
-                    do {
-                        self.videoData = try Data(contentsOf: uploadUrl)
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                }
-                else if handler.status == AVAssetExportSessionStatus.failed
-                {
-                    App_showAlert(withMessage: "There was a problem compressing the video maybe you can try again later. Error: \(handler.error?.localizedDescription ?? "")", inView: self)
-                }
-            })
-
-        }
-    }
-    
-    func mediaPickerControllerDidCancel(_ controller: IQMediaPickerController) {
-        
-
     }
     
     @IBAction func deletePhoto(_ sender: UIButton)
@@ -491,11 +369,14 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
                 
                 // The user wants to use the camera interface. Set up our custom overlay view for the camera.
                 self.picker.showsCameraControls = false
-                
+
                 // Apply our overlay view containing the toolar to take pictures in various ways.
                 overlayView?.frame = (self.picker.cameraOverlayView?.frame)!
                 self.picker.cameraOverlayView = overlayView
                 
+                let camScaleup: CGFloat = 2
+                self.picker.cameraViewTransform = self.picker.cameraViewTransform.scaledBy(x: camScaleup, y: camScaleup)
+
                 present(self.picker, animated: true, completion: {
                     // Done presenting.
                     self.balreadyPresentedOverlay = true
@@ -578,7 +459,9 @@ class CreatPostVC: UIViewController,UITextFieldDelegate,IQMediaPickerControllerD
             // Apply our overlay view containing the toolar to take pictures in various ways.
             overlayView?.frame = (self.picker.cameraOverlayView?.frame)!
             self.picker.cameraOverlayView = overlayView
-            
+            let camScaleup: CGFloat = 2
+            self.picker.cameraViewTransform = self.picker.cameraViewTransform.scaledBy(x: camScaleup, y: camScaleup)
+
             present(self.picker, animated: true, completion: {
                 // Done presenting.
                 self.balreadyPresentedOverlay = true
