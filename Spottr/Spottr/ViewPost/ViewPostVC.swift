@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class ViewPostVC: UIViewController
+class ViewPostVC: UIViewController,UIWebViewDelegate
 {
     @IBOutlet weak var tblPost : UITableView!
     var arrComments = NSMutableArray()
@@ -23,6 +23,9 @@ class ViewPostVC: UIViewController
     var popover = DXPopover()
     @IBOutlet weak var lblPostUserName : UILabel!
     @IBOutlet weak var lblTaggedUserName : UILabel!
+    @IBOutlet weak var vwImgFullScreen : UIView!
+    @IBOutlet weak var wvImgFull : UIWebView!
+
 
     override func viewDidLoad()
     {
@@ -30,6 +33,7 @@ class ViewPostVC: UIViewController
         // Do any additional setup after loading the view.
         self.tblPost.estimatedRowHeight = 200
         self.tblPost.rowHeight = UITableViewAutomaticDimension
+        self.vwImgFullScreen.isHidden = true
 
         showProgress(inView: self.view)
         self.getUserPosts()
@@ -305,6 +309,40 @@ class ViewPostVC: UIViewController
             }
         }
     }
+    
+    //MARK: Show image as Full Screen
+    @objc func imgTapped(sender : UITapGestureRecognizer)
+    {
+        self.vwImgFullScreen.isHidden = false
+        wvImgFull.isOpaque = false
+        wvImgFull.backgroundColor = UIColor.clear
+
+        if "\(self.dictPost.value(forKey: "is_image")!)" == "1"
+        {
+            if let bgmediaurl = self.dictPost.value(forKey: "media") as? String
+            {
+                let url2 = URL(string: bgmediaurl)
+                if url2 != nil
+                {
+                    wvImgFull.loadRequest(URLRequest(url: url2!))
+                }
+            }
+        }
+    }
+    @IBAction func closeImgFullScreen()
+    {
+        self.vwImgFullScreen.isHidden = true
+    }
+    
+    func webViewDidStartLoad(_ webView: UIWebView)
+    {
+        showProgress(inView: self.vwImgFullScreen)
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView)
+    {
+        hideProgress()
+    }
     /*
     // MARK: - Navigation
 
@@ -401,6 +439,10 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
             }
             cell.btnPlayVideoIcon.isHidden = false
         }
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.imgTapped(sender:)))
+        cell.imgPost.addGestureRecognizer(gesture)
+
         
         cell.btnPlayVideoIcon.addTarget(self, action: #selector(self.playVideoAction), for: .touchUpInside)
 
