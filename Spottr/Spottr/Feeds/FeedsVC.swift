@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedsVC: UIViewController,UITextFieldDelegate
+class FeedsVC: UIViewController,UITextFieldDelegate,CAAnimationDelegate
 {
     @IBOutlet weak var txtSearch : UITextField!
     @IBOutlet weak var clHeader : UICollectionView!
@@ -260,7 +260,26 @@ class FeedsVC: UIViewController,UITextFieldDelegate
         appDelegate.bUserProfile = true
         let storyTab = UIStoryboard(name: "Main", bundle: nil)
         let objCreatPostVC = storyTab.instantiateViewController(withIdentifier: "CreatPostVC")
-        self.navigationController?.pushViewController(objCreatPostVC, animated: true)
+        
+//        let transition = CATransition.init()
+//        transition.duration = 0.45
+//        transition.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionDefault)
+//        transition.type = kCATransitionPush //Transition you want like Push, Reveal
+//        transition.subtype = kCATransitionFromLeft // Direction like Left to Right, Right to Left
+//        transition.delegate = self
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        self.navigationController?.pushViewController(objCreatPostVC, animated: true)
+
+        let transition = CATransition.init()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromLeft
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        navigationController?.pushViewController(objCreatPostVC, animated: false)
+
+        
+//        self.navigationController?.pushViewController(objCreatPostVC, animated: true)
     }
     
     @IBAction func gotoOtherUserProfile(_ sender: Any, event: Any)

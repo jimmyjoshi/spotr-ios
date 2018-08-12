@@ -33,6 +33,10 @@ class ViewPostVC: UIViewController,UIWebViewDelegate
         // Do any additional setup after loading the view.
         self.tblPost.estimatedRowHeight = 200
         self.tblPost.rowHeight = UITableViewAutomaticDimension
+        
+        self.tblPost.sectionHeaderHeight = UITableViewAutomaticDimension;
+        self.tblPost.estimatedSectionHeaderHeight = 300;
+
         self.vwImgFullScreen.isHidden = true
 
         showProgress(inView: self.view)
@@ -120,6 +124,24 @@ class ViewPostVC: UIViewController,UIWebViewDelegate
         popover.didDismissHandler = {
         }
     }
+    
+     @objc func handleLongPress(sender: UILongPressGestureRecognizer)
+     {
+        if sender.state == UIGestureRecognizerState.began
+        {
+            let touchPoint = sender.location(in: self.tblPost)
+            if let indexPath = self.tblPost.indexPathForRow(at: touchPoint)
+            {
+                // your code here, get the row for the indexPath or do whatever you want
+                self.dictSelected = self.arrComments[indexPath.row] as! NSDictionary
+                let currentTouchPosition1 = sender.location(in: self.view)
+                popover.show(at: currentTouchPosition1, popoverPostion:.up, withContentView: self.vwCommentOption, in: self.view)
+                popover.didDismissHandler = {
+                }
+            }
+        }
+    }
+
     
     @IBAction func deleteCommentAction()
     {
@@ -222,6 +244,22 @@ class ViewPostVC: UIViewController,UIWebViewDelegate
                 break
             }
         }
+    }
+    @IBAction func btngotoUserProfile()
+    {
+        appDelegate.bUserProfile = false
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileVC
+        objUserProfileVC.userProfileID = "\(self.dictPost.value(forKey: "user_id")!)"
+        self.navigationController?.pushViewController(objUserProfileVC, animated: true)
+    }
+    @IBAction func gotoOtherUserProfile()
+    {
+        appDelegate.bUserProfile = false
+        let storyTab = UIStoryboard(name: "Main", bundle: nil)
+        let objUserProfileVC = storyTab.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileVC
+        objUserProfileVC.userProfileID = "\(self.dictPost.value(forKey: "tag_user_id")!)"
+        self.navigationController?.pushViewController(objUserProfileVC, animated: true)
     }
     
     //MARK: Post Comment
@@ -386,9 +424,27 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
             }
         }
         cell.imgPost.layer.masksToBounds = true
-        cell.lblComment.text = "\(dicdata.value(forKey: "comment")!)"
+       // cell.lblComment.text = "\(dicdata.value(forKey: "comment")!)"
         cell.btnDeleteComment.tag = indexPath.row
         cell.btnDeleteComment.addTarget(self, action: #selector(self.openDeleteOptions(_:event:)), for: .touchUpInside)
+        
+        let attrs1 = [NSAttributedStringKey.font : cell.lblComment.font.withSize(15)
+, NSAttributedStringKey.foregroundColor : UIColor.black]
+        
+        let attrs2 = [NSAttributedStringKey.font : cell.lblComment.font.withSize(15), NSAttributedStringKey.foregroundColor : UIColor.lightGray]
+        
+        let attributedString1 = NSMutableAttributedString(string:"\(dicdata.value(forKey: "name")!)", attributes:attrs1)
+        
+        let attributedString2 = NSMutableAttributedString(string:" \(dicdata.value(forKey: "comment")!)", attributes:attrs2)
+        attributedString1.append(attributedString2)
+        cell.lblComment.attributedText = attributedString1
+
+
+        cell.selectionStyle = .none
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        cell.addGestureRecognizer(longPress)
+
+        
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -399,7 +455,7 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
     {
         if dictPost.count > 0
         {
-            return 375
+            return UITableViewAutomaticDimension
         }
         return 0
     }
@@ -448,7 +504,8 @@ extension ViewPostVC : UITableViewDelegate,UITableViewDataSource
 
         cell.lblViewCount.text = "\(self.dictPost.value(forKey: "viewCount")!)"
         cell.lblCommentCount.text = "\(self.dictPost.value(forKey: "comments_count")!)"
-        cell.txtPostDescription.text = "\(self.dictPost.value(forKey: "description")!)"
+        cell.lblPostDescription.text = "\(self.dictPost.value(forKey: "description")!)"
+        cell.layoutIfNeeded()
         return cell.contentView
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)

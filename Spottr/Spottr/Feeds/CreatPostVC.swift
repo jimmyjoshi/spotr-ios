@@ -64,7 +64,14 @@ class CreatPostVC: UIViewController,UITextFieldDelegate, UIImagePickerController
 
     @IBAction func backButtonPressed()
     {
-        _ = self.navigationController?.popViewController(animated: true)
+//        _ = self.navigationController?.popViewController(animated: true)
+        let transition = CATransition.init()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromRight
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -116,6 +123,7 @@ class CreatPostVC: UIViewController,UITextFieldDelegate, UIImagePickerController
                             }
                         }
                         self.clUsers.reloadData()
+                        self.btnCameraCustomAction()
                     }
                 }
                 break
